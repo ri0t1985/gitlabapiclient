@@ -32,7 +32,6 @@ class GroupsEpics extends AbstractApi
     public const STATE_CLOSED = 'closed';
 
     /**
-     * @param int|string $group_id
      * @param array      $parameters {
      *
      *     @var int[]  $iids   return only the epics having the given iids
@@ -60,8 +59,6 @@ class GroupsEpics extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function show(int|string $group_id, int $epic_id)
@@ -70,8 +67,6 @@ class GroupsEpics extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function create(int|string $group_id, array $params)
@@ -80,8 +75,6 @@ class GroupsEpics extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function update(int|string $group_id, int $epic_id, array $params)
@@ -90,8 +83,6 @@ class GroupsEpics extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function remove(int|string $group_id, int $epic_id)
@@ -100,8 +91,6 @@ class GroupsEpics extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function issues(int|string $group_id, int $epic_iid)

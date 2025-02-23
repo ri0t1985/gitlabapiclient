@@ -17,7 +17,6 @@ namespace Gitlab\Api;
 class Tags extends AbstractApi
 {
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $order_by Return tags ordered by `name`, `updated` or `version` fields. Default is `updated`.
@@ -41,8 +40,6 @@ class Tags extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function show(int|string $project_id, string $tag_name)
@@ -51,8 +48,6 @@ class Tags extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function create(int|string $project_id, array $params = [])
@@ -61,8 +56,6 @@ class Tags extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function remove(int|string $project_id, string $tag_name)
@@ -71,8 +64,6 @@ class Tags extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function createRelease(int|string $project_id, string $tag_name, array $params = [])
@@ -81,8 +72,6 @@ class Tags extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function updateRelease(int|string $project_id, string $tag_name, array $params = [])

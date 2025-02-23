@@ -17,8 +17,6 @@ namespace Gitlab\Api;
 class GroupsBoards extends AbstractApi
 {
     /**
-     * @param int|string|null $group_id
-     *
      * @return mixed
      */
     public function all(int|string|null $group_id = null, array $parameters = [])
@@ -31,8 +29,6 @@ class GroupsBoards extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function show(int|string $group_id, int $board_id)
@@ -41,8 +37,6 @@ class GroupsBoards extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function create(int|string $group_id, array $params)
@@ -51,8 +45,6 @@ class GroupsBoards extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function update(int|string $group_id, int $board_id, array $params)
@@ -61,8 +53,6 @@ class GroupsBoards extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function remove(int|string $group_id, int $board_id)
@@ -71,8 +61,6 @@ class GroupsBoards extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function allLists(int|string $group_id, int $board_id)
@@ -81,8 +69,6 @@ class GroupsBoards extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function showList(int|string $group_id, int $board_id, int $list_id)
@@ -91,8 +77,6 @@ class GroupsBoards extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function createList(int|string $group_id, int $board_id, int $label_id)
@@ -105,8 +89,6 @@ class GroupsBoards extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function updateList(int|string $group_id, int $board_id, int $list_id, int $position)
@@ -119,8 +101,6 @@ class GroupsBoards extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function deleteList(int|string $group_id, int $board_id, int $list_id)

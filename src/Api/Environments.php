@@ -19,8 +19,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class Environments extends AbstractApi
 {
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function all(int|string $project_id, array $parameters = [])
@@ -38,7 +36,6 @@ class Environments extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $name         The name of the environment
@@ -63,8 +60,6 @@ class Environments extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function remove(int|string $project_id, int $environment_id)
@@ -73,8 +68,6 @@ class Environments extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function stop(int|string $project_id, int $environment_id)
@@ -83,8 +76,6 @@ class Environments extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function show(int|string $project_id, int $environment_id)

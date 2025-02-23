@@ -17,7 +17,6 @@ namespace Gitlab\Api;
 class Deployments extends AbstractApi
 {
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $order_by                    Return deployments ordered by id, iid, created_at, updated_at,
@@ -50,8 +49,6 @@ class Deployments extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function show(int|string $project_id, int $deployment_id)

@@ -19,8 +19,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class RepositoryFiles extends AbstractApi
 {
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function getFile(int|string $project_id, string $file_path, string $ref)
@@ -31,8 +29,6 @@ class RepositoryFiles extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function getRawFile(int|string $project_id, string $file_path, string $ref)
@@ -43,7 +39,6 @@ class RepositoryFiles extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $file_path      Url encoded full path to new file. Ex. lib%2Fclass%2Erb.
@@ -78,7 +73,6 @@ class RepositoryFiles extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $file_path      Url encoded full path to new file. Ex. lib%2Fclass%2Erb.
@@ -115,7 +109,6 @@ class RepositoryFiles extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $file_path      Url encoded full path to new file. Ex. lib%2Fclass%2Erb.

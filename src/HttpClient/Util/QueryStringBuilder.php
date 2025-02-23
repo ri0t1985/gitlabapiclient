@@ -34,9 +34,6 @@ final class QueryStringBuilder
 
     /**
      * Encode a value.
-     *
-     * @param mixed  $query
-     * @param scalar $prefix
      */
     private static function encode(mixed $query, scalar $prefix): string
     {
@@ -67,8 +64,6 @@ final class QueryStringBuilder
 
     /**
      * Encode a value like rawurlencode, but return "0" when false is given.
-     *
-     * @param mixed $value
      */
     private static function rawurlencode(mixed $value): string
     {

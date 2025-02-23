@@ -17,7 +17,6 @@ namespace Gitlab\Api;
 class Wiki extends AbstractApi
 {
     /**
-     * @param int|string          $project_id
      * @param array<string,mixed> $params
      *
      * @return mixed
@@ -28,8 +27,6 @@ class Wiki extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function show(int|string $project_id, string $wiki_slug)
@@ -38,7 +35,6 @@ class Wiki extends AbstractApi
     }
 
     /**
-     * @param int|string          $project_id
      * @param array<string,mixed> $params     {
      *
      *     @var bool $with_content Include pages' content
@@ -56,7 +52,6 @@ class Wiki extends AbstractApi
     }
 
     /**
-     * @param int|string          $project_id
      * @param array<string,mixed> $params
      *
      * @return mixed
@@ -67,8 +62,6 @@ class Wiki extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function remove(int|string $project_id, string $wiki_slug)

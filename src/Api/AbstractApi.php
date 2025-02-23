@@ -205,17 +205,11 @@ abstract class AbstractApi
         return ResponseMediator::getContent($response);
     }
 
-    /**
-     * @param int|string $uri
-     */
     protected static function encodePath(int|string $uri): string
     {
         return \rawurlencode((string) $uri);
     }
 
-    /**
-     * @param int|string $id
-     */
     protected function getProjectPath(int|string $id, string $uri): string
     {
         return 'projects/'.self::encodePath($id).'/'.$uri;

@@ -46,7 +46,6 @@ class MergeRequests extends AbstractApi
     public const STATE_LOCKED = 'locked';
 
     /**
-     * @param int|string|null $project_id
      * @param array           $parameters {
      *
      *     @var int[]              $iids           return the request having the given iid
@@ -154,7 +153,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var bool               $include_diverged_commits_count      Return the commits behind the target branch
@@ -177,7 +175,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string          $project_id
      * @param array<string,mixed> $parameters {
      *
      *     @var int        $assignee_id       the assignee id
@@ -202,8 +199,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function update(int|string $project_id, int $mr_iid, array $parameters)
@@ -212,8 +207,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function merge(int|string $project_id, int $mr_iid, array $parameters = [])
@@ -222,8 +215,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showNotes(int|string $project_id, int $mr_iid)
@@ -232,8 +223,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showNote(int|string $project_id, int $mr_iid, int $note_id)
@@ -242,8 +231,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addNote(int|string $project_id, int $mr_iid, string $body, array $params = [])
@@ -254,8 +241,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function updateNote(int|string $project_id, int $mr_iid, int $note_id, string $body)
@@ -266,8 +251,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeNote(int|string $project_id, int $mr_iid, int $note_id)
@@ -276,8 +259,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showDiscussions(int|string $project_id, int $mr_iid)
@@ -286,8 +267,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showDiscussion(int|string $project_id, int $mr_iid, string $discussion_id)
@@ -296,8 +275,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addDiscussion(int|string $project_id, int $mr_iid, array $params)
@@ -306,8 +283,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function resolveDiscussion(int|string $project_id, int $mr_iid, string $discussion_id, bool $resolved = true)
@@ -318,8 +293,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addDiscussionNote(int|string $project_id, int $mr_iid, string $discussion_id, string $body)
@@ -328,8 +301,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function updateDiscussionNote(int|string $project_id, int $mr_iid, string $discussion_id, int $note_id, array $params)
@@ -338,8 +309,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeDiscussionNote(int|string $project_id, int $mr_iid, string $discussion_id, int $note_id)
@@ -348,8 +317,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showParticipants(int|string $project_id, int $mr_iid)
@@ -358,8 +325,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function changes(int|string $project_id, int $mr_iid)
@@ -368,8 +333,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function commits(int|string $project_id, int $mr_iid)
@@ -378,8 +341,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function closesIssues(int|string $project_id, int $mr_iid)
@@ -388,8 +349,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function approvals(int|string $project_id, int $mr_iid)
@@ -398,8 +357,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function approve(int|string $project_id, int $mr_iid)
@@ -408,8 +365,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function unapprove(int|string $project_id, int $mr_iid)
@@ -418,8 +373,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function awardEmoji(int|string $project_id, int $mr_iid)
@@ -428,8 +381,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeAwardEmoji(int|string $project_id, int $mr_iid, int $award_id)
@@ -438,8 +389,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function rebase(int|string $project_id, int $mr_iid, array $params = [])
@@ -452,8 +401,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function approvalState(int|string $project_id, int $mr_iid)
@@ -462,8 +409,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function levelRules(int|string $project_id, int $mr_iid)
@@ -472,7 +417,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string          $project_id
      * @param array<string,mixed> $parameters
      *
      * @return mixed
@@ -491,7 +435,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string          $project_id
      * @param array<string,mixed> $parameters
      *
      * @return mixed
@@ -510,8 +453,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deleteLevelRule(int|string $project_id, int $mr_iid, int $approval_rule_id)

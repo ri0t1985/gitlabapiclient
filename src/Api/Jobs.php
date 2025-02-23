@@ -60,7 +60,6 @@ class Jobs extends AbstractApi
     public const SCOPE_MANUAL = 'manual';
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string|string[] $scope The scope of jobs to show, one or array of: created, pending, running, failed,
@@ -77,7 +76,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters  {
      *
      *     @var string|string[] $scope The scope of jobs to show, one or array of: created, pending, running, failed,
@@ -97,7 +95,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters  {
      *
      *     @var string|string[] $scope            The scope of bridge jobs to show, one or array of: created, pending, running, failed,
@@ -118,8 +115,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function show(int|string $project_id, int $job_id)
@@ -128,8 +123,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return StreamInterface
      */
     public function artifacts(int|string $project_id, int $job_id)
@@ -138,8 +131,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return StreamInterface
      */
     public function artifactsByRefName(int|string $project_id, string $ref_name, string $job_name)
@@ -150,8 +141,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return StreamInterface
      */
     public function artifactByRefName(int|string $project_id, string $ref_name, string $job_name, string $artifact_path)
@@ -162,9 +151,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     * @param int        $job_id
-     *
      * @return StreamInterface
      */
     public function artifactByJobId(int|string $project_id, int $job_id, string $artifact_path)
@@ -173,8 +159,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function trace(int|string $project_id, int $job_id)
@@ -183,8 +167,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function cancel(int|string $project_id, int $job_id)
@@ -193,8 +175,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function retry(int|string $project_id, int $job_id)
@@ -203,8 +183,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function erase(int|string $project_id, int $job_id)
@@ -213,8 +191,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function keepArtifacts(int|string $project_id, int $job_id)
@@ -223,8 +199,6 @@ class Jobs extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function play(int|string $project_id, int $job_id)

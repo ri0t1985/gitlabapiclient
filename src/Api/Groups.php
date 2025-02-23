@@ -70,8 +70,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $id
-     *
      * @return mixed
      */
     public function show(int|string $id)
@@ -101,8 +99,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $id
-     *
      * @return mixed
      */
     public function update(int|string $id, array $params)
@@ -111,8 +107,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function remove(int|string $group_id)
@@ -121,9 +115,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function transfer(int|string $group_id, int|string $project_id)
@@ -132,8 +123,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function allMembers(int|string $group_id, array $parameters = [])
@@ -151,7 +140,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
      * @param array      $parameters {
      *
      *     @var string $query A query string to search for members.
@@ -174,8 +162,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function member(int|string $group_id, int $user_id)
@@ -184,8 +170,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function allMember(int|string $group_id, int $user_id)
@@ -194,8 +178,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function addMember(int|string $group_id, int $user_id, int $access_level, array $parameters = [])
@@ -219,8 +201,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function saveMember(int|string $group_id, int $user_id, int $access_level)
@@ -231,7 +211,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
      * @param array      $parameters {
      *
      *     @var int    $group_access the access level to grant the group
@@ -264,8 +243,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function removeMember(int|string $group_id, int $user_id)
@@ -274,7 +251,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $id
      * @param array      $parameters {
      *
      *     @var bool   $archived                    limit by archived status
@@ -353,7 +329,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
      * @param array      $parameters {
      *
      *     @var int[]  $skip_groups   skip the group IDs passes
@@ -375,7 +350,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
      * @param array      $parameters {
      *
      *     @var string   $assignee_id              Return issues assigned to the given user id. Mutually exclusive with assignee_username.
@@ -488,7 +462,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
      * @param array      $parameters {
      *
      *     @var bool     $with_counts               Whether or not to include issue and merge request counts. Defaults to false.
@@ -523,8 +496,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function addLabel(int|string $group_id, array $params)
@@ -533,8 +504,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function updateLabel(int|string $group_id, int $label_id, array $params)
@@ -543,8 +512,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function removeLabel(int|string $group_id, int $label_id)
@@ -553,8 +520,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function variables(int|string $group_id, array $parameters = [])
@@ -565,8 +530,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function variable(int|string $group_id, string $key)
@@ -575,7 +538,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
      * @param array      $parameters {
      *
      *      @var string $masked         true or false
@@ -607,8 +569,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function updateVariable(int|string $group_id, string $key, string $value, ?bool $protected = null)
@@ -625,8 +585,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function removeVariable(int|string $group_id, string $key)
@@ -635,7 +593,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
      * @param array      $parameters {
      *
      *     @var int[]              $iids           return the request having the given iid
@@ -737,7 +694,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
      * @param array      $parameters {
      *
      *     @var string $state               Return opened, upcoming, current (previously started), closed, or all iterations.
@@ -768,7 +724,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
      * @param array      $parameters {
      *
      *     @var bool   $exclude_subgroups   if the parameter is included as true, packages from projects from subgroups
@@ -880,8 +835,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function deployTokens(int|string $group_id, ?bool $active = null)
@@ -890,7 +843,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
      * @param array      $parameters {
      *
      *     @var string $name                    the name of the deploy token
@@ -939,8 +891,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function deleteDeployToken(int|string $group_id, int $token_id)
@@ -949,7 +899,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param int|string $id
      * @param array $parameters {
      *
      *     @var string $scope        The scope to search in

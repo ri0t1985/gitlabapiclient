@@ -28,8 +28,6 @@ class IssuesStatistics extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function project(int|string $project_id, array $parameters)
@@ -38,8 +36,6 @@ class IssuesStatistics extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function group(int|string $group_id, array $parameters)

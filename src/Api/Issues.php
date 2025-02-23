@@ -30,7 +30,6 @@ class Issues extends AbstractApi
     public const STATE_CLOSED = 'closed';
 
     /**
-     * @param int|string|null $project_id
      * @param array           $parameters {
      *
      *     @var string $state                return all issues or just those that are opened or closed
@@ -59,8 +58,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function group(int|string $group_id, array $parameters = [])
@@ -72,8 +69,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function show(int|string $project_id, int $issue_iid)
@@ -82,8 +77,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function create(int|string $project_id, array $params)
@@ -92,8 +85,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function update(int|string $project_id, int $issue_iid, array $params)
@@ -102,8 +93,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function reorder(int|string $project_id, int $issue_iid, array $params)
@@ -112,9 +101,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     * @param int|string $to_project_id
-     *
      * @return mixed
      */
     public function move(int|string $project_id, int $issue_iid, int|string $to_project_id)
@@ -125,8 +111,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function remove(int|string $project_id, int $issue_iid)
@@ -135,8 +119,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showNotes(int|string $project_id, int $issue_iid)
@@ -145,8 +127,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showNote(int|string $project_id, int $issue_iid, int $note_id)
@@ -155,8 +135,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addNote(int|string $project_id, int $issue_iid, string $body, array $params = [])
@@ -167,8 +145,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function updateNote(int|string $project_id, int $issue_iid, int $note_id, string $body, array $params = [])
@@ -179,8 +155,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeNote(int|string $project_id, int $issue_iid, int $note_id)
@@ -189,8 +163,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showDiscussions(int|string $project_id, int $issue_iid)
@@ -199,8 +171,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showDiscussion(int|string $project_id, int $issue_iid, string $discussion_id)
@@ -209,8 +179,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addDiscussion(int|string $project_id, int $issue_iid, string $body)
@@ -219,8 +187,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addDiscussionNote(int|string $project_id, int $issue_iid, string $discussion_id, string $body)
@@ -229,8 +195,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function updateDiscussionNote(int|string $project_id, int $issue_iid, string $discussion_id, int $note_id, string $body)
@@ -241,8 +205,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeDiscussionNote(int|string $project_id, int $issue_iid, string $discussion_id, int $note_id)
@@ -251,8 +213,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function setTimeEstimate(int|string $project_id, int $issue_iid, string $duration)
@@ -261,8 +221,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function resetTimeEstimate(int|string $project_id, int $issue_iid)
@@ -271,8 +229,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addSpentTime(int|string $project_id, int $issue_iid, string $duration)
@@ -281,8 +237,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function resetSpentTime(int|string $project_id, int $issue_iid)
@@ -291,8 +245,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function getTimeStats(int|string $project_id, int $issue_iid)
@@ -333,8 +285,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function awardEmoji(int|string $project_id, int $issue_iid)
@@ -343,8 +293,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeAwardEmoji(int|string $project_id, int $issue_iid, int $award_id)
@@ -353,8 +301,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function closedByMergeRequests(int|string $project_id, int $issue_iid)
@@ -363,8 +309,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function relatedMergeRequests(int|string $project_id, int $issue_iid)
@@ -373,8 +317,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showParticipants(int|string $project_id, int $issue_iid)
@@ -383,8 +325,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showResourceLabelEvents(int|string $project_id, int $issue_iid)
@@ -393,8 +333,6 @@ class Issues extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showResourceLabelEvent(int|string $project_id, int $issue_iid, int $resource_label_event_id)

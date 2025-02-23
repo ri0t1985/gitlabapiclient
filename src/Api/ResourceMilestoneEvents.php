@@ -17,8 +17,6 @@ namespace Gitlab\Api;
 class ResourceMilestoneEvents extends AbstractApi
 {
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function all(int|string $project_id, int $issue_iid)
@@ -29,8 +27,6 @@ class ResourceMilestoneEvents extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function show(int|string $project_id, int $issue_iid, int $resource_milestone_event_id)

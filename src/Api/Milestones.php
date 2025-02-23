@@ -27,7 +27,6 @@ class Milestones extends AbstractApi
     public const STATE_CLOSED = 'closed';
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var int[]  $iids   return only the milestones having the given iids
@@ -55,8 +54,6 @@ class Milestones extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function show(int|string $project_id, int $milestone_id)
@@ -65,8 +62,6 @@ class Milestones extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function create(int|string $project_id, array $params)
@@ -75,8 +70,6 @@ class Milestones extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function update(int|string $project_id, int $milestone_id, array $params)
@@ -85,8 +78,6 @@ class Milestones extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function remove(int|string $project_id, int $milestone_id)
@@ -95,8 +86,6 @@ class Milestones extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function issues(int|string $project_id, int $milestone_id)
@@ -105,8 +94,6 @@ class Milestones extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function mergeRequests(int|string $project_id, int $milestone_id)

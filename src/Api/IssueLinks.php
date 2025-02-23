@@ -17,8 +17,6 @@ namespace Gitlab\Api;
 class IssueLinks extends AbstractApi
 {
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function all(int|string $project_id, int $issue_iid)
@@ -27,8 +25,6 @@ class IssueLinks extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     * @param int|string $target_project_id
      * @param array      $parameters        {
      *
      *     @var string $link_type
@@ -45,8 +41,6 @@ class IssueLinks extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     * @param int|string $issue_link_id
      * @param array      $parameters    {
      *
      *     @var string $link_type

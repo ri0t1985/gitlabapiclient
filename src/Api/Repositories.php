@@ -30,7 +30,6 @@ class Repositories extends AbstractApi
     public const TYPE_TAG = 'tag';
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $search
@@ -48,8 +47,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function branch(int|string $project_id, string $branch)
@@ -58,8 +55,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function createBranch(int|string $project_id, string $branch, string $ref)
@@ -71,8 +66,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deleteBranch(int|string $project_id, string $branch)
@@ -81,8 +74,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function protectBranch(int|string $project_id, string $branch, bool $devPush = false, bool $devMerge = false)
@@ -94,8 +85,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function unprotectBranch(int|string $project_id, string $branch)
@@ -104,8 +93,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function tags(int|string $project_id, array $parameters = [])
@@ -118,8 +105,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string  $project_id
-     *
      * @return mixed
      */
     public function createTag(int|string $project_id, string $name, string $ref, ?string $message = null)
@@ -132,8 +117,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string  $project_id
-     *
      * @return mixed
      */
     public function createRelease(int|string $project_id, string $tag_name, string $description, ?string $name = null)
@@ -147,8 +130,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string  $project_id
-     *
      * @return mixed
      */
     public function updateRelease(int|string $project_id, string $tag_name, string $description, ?string $name = null)
@@ -162,8 +143,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function releases(int|string $project_id)
@@ -176,7 +155,6 @@ class Repositories extends AbstractApi
     /**
      * @see https://docs.gitlab.com/ee/api/commits.html#list-repository-commits
      *
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string             $ref_name the name of a repository branch or tag or if not given the default branch
@@ -227,8 +205,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function commit(int|string $project_id, string $sha)
@@ -237,8 +213,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function commitRefs(int|string $project_id, string $sha, array $parameters = [])
@@ -252,7 +226,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $branch         Name of the branch to commit into. To create a new branch, also provide start_branch.
@@ -317,8 +290,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function revertCommit(int|string $project_id, string $branch, string $sha)
@@ -329,8 +300,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function commitComments(int|string $project_id, string $sha, array $parameters = [])
@@ -344,8 +313,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function createCommitComment(int|string $project_id, string $sha, string $note, array $params = [])
@@ -356,8 +323,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function getCommitBuildStatus(int|string $project_id, string $sha, array $params = [])
@@ -366,8 +331,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function postCommitBuildStatus(int|string $project_id, string $sha, string $state, array $params = [])
@@ -378,8 +341,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string  $project_id
-     *
      * @return mixed
      */
     public function compare(int|string $project_id, string $fromShaOrMaster, string $toShaOrMaster, bool $straight = false, ?string $fromProjectId = null)
@@ -398,8 +359,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function diff(int|string $project_id, string $sha)
@@ -408,8 +367,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function tree(int|string $project_id, array $params = [])
@@ -418,8 +375,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function contributors(int|string $project_id)
@@ -428,7 +383,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param string     $format     Options: "tar.gz", "zip", "tar.bz2" and "tar"
      *
      * @return mixed
@@ -439,8 +393,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function mergeBase(int|string $project_id, array $refs)
@@ -449,8 +401,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function cherryPick(int|string $project_id, string $sha, array $params = [])

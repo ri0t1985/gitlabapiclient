@@ -153,7 +153,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var bool   $statistics                    include project statistics
@@ -201,8 +200,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function update(int|string $project_id, array $parameters)
@@ -211,8 +208,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function remove(int|string $project_id)
@@ -221,8 +216,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function archive(int|string $project_id)
@@ -231,8 +224,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function unarchive(int|string $project_id)
@@ -241,8 +232,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function triggers(int|string $project_id)
@@ -251,8 +240,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function trigger(int|string $project_id, int $trigger_id)
@@ -261,8 +248,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function createTrigger(int|string $project_id, string $description)
@@ -273,8 +258,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeTrigger(int|string $project_id, int $trigger_id)
@@ -283,8 +266,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function triggerPipeline(int|string $project_id, string $ref, string $token, array $variables = [])
@@ -317,7 +298,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $scope       the scope of pipelines, one of: running, pending, finished, branches, tags
@@ -380,8 +360,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function pipeline(int|string $project_id, int $pipeline_id)
@@ -390,8 +368,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function pipelineJobs(int|string $project_id, int $pipeline_id)
@@ -400,8 +376,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function pipelineVariables(int|string $project_id, int $pipeline_id)
@@ -410,8 +384,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function pipelineTestReport(int|string $project_id, int $pipeline_id)
@@ -420,8 +392,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function pipelineTestReportSummary(int|string $project_id, int $pipeline_id)
@@ -430,7 +400,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array|null $variables  {
      *
      *     @var string $key            The name of the variable
@@ -454,8 +423,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function retryPipeline(int|string $project_id, int $pipeline_id)
@@ -464,8 +431,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function cancelPipeline(int|string $project_id, int $pipeline_id)
@@ -474,8 +439,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deletePipeline(int|string $project_id, int $pipeline_id)
@@ -484,8 +447,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function allMembers(int|string $project_id, array $parameters = [])
@@ -503,7 +464,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $query           The query you want to search members for.
@@ -529,8 +489,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function member(int|string $project_id, int $user_id)
@@ -539,8 +497,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function allMember(int|string $project_id, int $user_id)
@@ -549,8 +505,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string  $project_id
-     *
      * @return mixed
      */
     public function addMember(int|string $project_id, int $user_id, int $access_level, ?string $expires_at = null)
@@ -567,8 +521,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string  $project_id
-     *
      * @return mixed
      */
     public function saveMember(int|string $project_id, int $user_id, int $access_level, ?string $expires_at = null)
@@ -584,8 +536,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeMember(int|string $project_id, int $user_id)
@@ -594,8 +544,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function hooks(int|string $project_id, array $parameters = [])
@@ -606,8 +554,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function hook(int|string $project_id, int $hook_id)
@@ -619,8 +565,6 @@ class Projects extends AbstractApi
      * Get project users.
      *
      * See https://docs.gitlab.com/ee/api/projects.html#get-project-users for more info.
-     *
-     * @param int|string $project_id
      *
      * @return mixed
      */
@@ -634,8 +578,6 @@ class Projects extends AbstractApi
      *
      * See https://docs.gitlab.com/ee/api/issues.html#list-project-issues for more info.
      *
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function issues(int|string $project_id, array $parameters = [])
@@ -648,8 +590,6 @@ class Projects extends AbstractApi
      *
      * See https://docs.gitlab.com/ee/api/boards.html for more info.
      *
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function boards(int|string $project_id)
@@ -658,7 +598,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $state               Return opened, upcoming, current (previously started), closed, or all iterations.
@@ -697,8 +636,6 @@ class Projects extends AbstractApi
      *
      * @see https://docs.gitlab.com/ee/api/discussions.html#list-project-commit-discussion-items
      *
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function getRepositoryCommitDiscussions(int|string $project_id, string $commit_id)
@@ -707,8 +644,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addHook(int|string $project_id, string $url, array $parameters = [])
@@ -723,8 +658,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function updateHook(int|string $project_id, int $hook_id, array $parameters)
@@ -733,8 +666,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeHook(int|string $project_id, int $hook_id)
@@ -743,9 +674,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     * @param mixed      $namespace
-     *
      * @return mixed
      */
     public function transfer(int|string $project_id, mixed $namespace)
@@ -754,8 +682,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deployKeys(int|string $project_id)
@@ -764,8 +690,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deployKey(int|string $project_id, int $key_id)
@@ -774,8 +698,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addDeployKey(int|string $project_id, string $title, string $key, bool $canPush = false)
@@ -788,8 +710,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deleteDeployKey(int|string $project_id, int $key_id)
@@ -798,8 +718,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function enableDeployKey(int|string $project_id, int $key_id)
@@ -808,8 +726,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deployTokens(int|string $project_id, ?bool $active = null)
@@ -818,7 +734,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $name                    the name of the deploy token
@@ -867,8 +782,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deleteDeployToken(int|string $project_id, int $token_id)
@@ -877,7 +790,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string             $action      include only events of a particular action type
@@ -917,7 +829,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var bool     $with_counts               Whether or not to include issue and merge request counts. Defaults to false.
@@ -944,8 +855,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addLabel(int|string $project_id, array $parameters)
@@ -954,8 +863,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function updateLabel(int|string $project_id, int $label_id, array $parameters)
@@ -964,8 +871,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeLabel(int|string $project_id, int $label_id)
@@ -976,8 +881,6 @@ class Projects extends AbstractApi
     /**
      * Get languages used in a project with percentage value.
      *
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function languages(int|string $project_id)
@@ -986,7 +889,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var bool               $archived                    Limit by archived status
@@ -1086,7 +988,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $namespace      The ID or path of the namespace that the project will be forked to
@@ -1107,9 +1008,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     * @param int|string $forked_project_id
-     *
      * @return mixed
      */
     public function createForkRelation(int|string $project_id, int|string $forked_project_id)
@@ -1118,8 +1016,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeForkRelation(int|string $project_id)
@@ -1128,8 +1024,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function setService(int|string $project_id, string $service_name, array $parameters = [])
@@ -1138,8 +1032,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeService(int|string $project_id, string $service_name)
@@ -1148,8 +1040,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function variables(int|string $project_id, array $parameters = [])
@@ -1160,8 +1050,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function variable(int|string $project_id, string $key, array $parameters = [])
@@ -1174,7 +1062,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string          $project_id
      * @param array<string,mixed> $parameters        {
      *
      *      @var string $variable_type  env_var (default) or file
@@ -1203,7 +1090,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string          $project_id
      * @param array<string,mixed> $parameters        {
      *
      *      @var string $variable_type  env_var (default) or file
@@ -1231,7 +1117,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string           $project_id
      * @param array<string, mixed> $parameters    {
      *
      *    @var array $filter    {
@@ -1251,8 +1136,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function uploadFile(int|string $project_id, string $file)
@@ -1261,8 +1144,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function uploadAvatar(int|string $project_id, string $file)
@@ -1271,8 +1152,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      *
      * @see https://docs.gitlab.com/ee/api/deployments.html#list-project-deployments
@@ -1328,8 +1207,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deployment(int|string $project_id, int $deployment_id)
@@ -1338,8 +1215,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addShare(int|string $project_id, array $parameters = [])
@@ -1366,9 +1241,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     * @param int|string $group_id
-     *
      * @return mixed
      */
     public function removeShare(int|string $project_id, int|string $group_id)
@@ -1377,8 +1249,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function badges(int|string $project_id)
@@ -1387,8 +1257,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function badge(int|string $project_id, int $badge_id)
@@ -1397,8 +1265,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addBadge(int|string $project_id, array $parameters = [])
@@ -1407,8 +1273,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeBadge(int|string $project_id, int $badge_id)
@@ -1417,8 +1281,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function updateBadge(int|string $project_id, int $badge_id, array $parameters = [])
@@ -1427,8 +1289,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function protectedBranches(int|string $project_id, array $parameters = [])
@@ -1437,8 +1297,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addProtectedBranch(int|string $project_id, array $parameters = [])
@@ -1447,8 +1305,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deleteProtectedBranch(int|string $project_id, string $branch_name)
@@ -1457,8 +1313,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function updateProtectedBranch(int|string $project_id, string $branch_name, array $parameters = [])
@@ -1467,8 +1321,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function approvalsConfiguration(int|string $project_id)
@@ -1477,8 +1329,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function updateApprovalsConfiguration(int|string $project_id, array $parameters = [])
@@ -1487,8 +1337,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function approvalsRules(int|string $project_id)
@@ -1497,8 +1345,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function createApprovalsRule(int|string $project_id, array $parameters = [])
@@ -1507,8 +1353,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function updateApprovalsRule(int|string $project_id, int $approval_rule_id, array $parameters = [])
@@ -1517,8 +1361,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deleteApprovalsRule(int|string $project_id, int $approval_rule_id)
@@ -1527,8 +1369,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deleteAllMergedBranches(int|string $project_id)
@@ -1537,8 +1377,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function projectAccessTokens(int|string $project_id)
@@ -1547,9 +1385,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     * @param int|string $token_id
-     *
      * @return mixed
      */
     public function projectAccessToken(int|string $project_id, int|string $token_id)
@@ -1558,7 +1393,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $name                    the name of the project access token
@@ -1609,9 +1443,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     * @param int|string $token_id
-     *
      * @return mixed
      */
     public function deleteProjectAccessToken(int|string $project_id, int|string $token_id)
@@ -1620,8 +1451,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function protectedTags(int|string $project_id)
@@ -1630,8 +1459,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function protectedTag(int|string $project_id, string $tag_name)
@@ -1640,8 +1467,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addProtectedTag(int|string $project_id, array $parameters = [])
@@ -1673,8 +1498,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function deleteProtectedTag(int|string $project_id, string $tag_name)
@@ -1683,7 +1506,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int|string $id
      * @param array $parameters {
      *
      *     @var string $scope        The scope to search in

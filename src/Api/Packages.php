@@ -19,7 +19,6 @@ use Symfony\Component\OptionsResolver\Options;
 class Packages extends AbstractApi
 {
     /**
-     * @param int|string $project_id
      * @param array      $parameters {
      *
      *     @var string $order_by            the field to use as order. one of created_at (default), name,
@@ -64,8 +63,6 @@ class Packages extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function show(int|string $project_id, int $package_id)
@@ -74,8 +71,6 @@ class Packages extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function allFiles(int|string $project_id, int $package_id)
@@ -84,8 +79,6 @@ class Packages extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function remove(int|string $project_id, int $package_id)
@@ -94,8 +87,6 @@ class Packages extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeFile(int|string $project_id, int $package_id, int $package_file_id)
@@ -106,8 +97,6 @@ class Packages extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addGenericFile(int|string $project_id, string $package_name, string $package_version, string $file, string $status = 'default')
@@ -123,9 +112,6 @@ class Packages extends AbstractApi
         );
     }
 
-    /**
-     * @param int|string $project_id
-     */
     private function getPackagePath(int|string $project_id, int $package_id): string
     {
         return $this->getProjectPath($project_id, 'packages/'.self::encodePath($package_id));

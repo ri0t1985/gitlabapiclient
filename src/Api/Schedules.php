@@ -17,8 +17,6 @@ namespace Gitlab\Api;
 class Schedules extends AbstractApi
 {
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function create(int|string $project_id, array $params)
@@ -27,8 +25,6 @@ class Schedules extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function show(int|string $project_id, int $schedule_id)
@@ -37,8 +33,6 @@ class Schedules extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function showAll(int|string $project_id)
@@ -47,8 +41,6 @@ class Schedules extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function update(int|string $project_id, int $schedule_id, array $params)
@@ -57,8 +49,6 @@ class Schedules extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function remove(int|string $project_id, int $schedule_id)
@@ -67,8 +57,6 @@ class Schedules extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function addVariable(int|string $project_id, int $schedule_id, array $params)
@@ -79,8 +67,6 @@ class Schedules extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function updateVariable(int|string $project_id, int $schedule_id, string $variable_key, array $params)
@@ -91,8 +77,6 @@ class Schedules extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function removeVariable(int|string $project_id, int $schedule_id, string $variable_key)
@@ -103,8 +87,6 @@ class Schedules extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function takeOwnership(int|string $project_id, int $schedule_id)
@@ -113,8 +95,6 @@ class Schedules extends AbstractApi
     }
 
     /**
-     * @param int|string $project_id
-     *
      * @return mixed
      */
     public function play(int|string $project_id, int $schedule_id)
