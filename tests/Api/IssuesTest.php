@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Issues;
 
 class IssuesTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllIssues(): void
     {
         $expectedArray = [
@@ -37,10 +36,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllGroupIssues(): void
     {
         $expectedArray = [
@@ -57,10 +53,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->group(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetGroupIssuesWithPagination(): void
     {
         $expectedArray = [
@@ -77,10 +70,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->group(1, ['page' => 2, 'per_page' => 5]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetGroupIssuesWithParams(): void
     {
         $expectedArray = [
@@ -97,10 +87,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->group(1, ['order_by' => 'created_at', 'sort' => 'desc', 'labels' => 'foo,bar', 'state' => 'opened', 'iteration_title' => 'Title', 'assignee_id' => 1]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetProjectIssuesWithPagination(): void
     {
         $expectedArray = [
@@ -117,10 +104,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1, ['page' => 2, 'per_page' => 5]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetProjectIssuesWithParams(): void
     {
         $expectedArray = [
@@ -137,10 +121,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1, ['order_by' => 'created_at', 'sort' => 'desc', 'labels' => 'foo,bar', 'state' => 'opened', 'iteration_id' => 1, 'assignee_id' => 2]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowIssue(): void
     {
         $expectedArray = ['id' => 2, 'title' => 'Another issue'];
@@ -154,10 +135,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateIssue(): void
     {
         $expectedArray = ['id' => 3, 'title' => 'A new issue'];
@@ -171,10 +149,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create(1, ['title' => 'A new issue', 'labels' => 'foo,bar']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateIssue(): void
     {
         $expectedArray = ['id' => 2, 'title' => 'A renamed issue'];
@@ -188,10 +163,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(1, 2, ['title' => 'A renamed issue', 'labels' => 'foo']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldReorderIssue(): void
     {
         $expectedArray = ['id' => 2, 'title' => 'A reordered issue'];
@@ -203,10 +175,7 @@ class IssuesTest extends TestCase
         ;
         $this->assertEquals($expectedArray, $api->reorder(1, 2, ['move_after_id' => 3, 'move_before_id' => 4]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldMoveIssue(): void
     {
         $expectedArray = ['id' => 2, 'title' => 'A moved issue'];
@@ -220,10 +189,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->move(1, 2, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetNotes(): void
     {
         $expectedArray = [
@@ -240,10 +206,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showNotes(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetNote(): void
     {
         $expectedArray = ['id' => 3, 'body' => 'A new note'];
@@ -257,10 +220,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showNote(1, 2, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateNote(): void
     {
         $expectedArray = ['id' => 3, 'body' => 'A new note'];
@@ -274,10 +234,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addNote(1, 2, 'A new note'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateNote(): void
     {
         $expectedArray = ['id' => 3, 'body' => 'An edited comment'];
@@ -291,10 +248,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateNote(1, 2, 3, 'An edited comment'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemoveNote(): void
     {
         $expectedBool = true;
@@ -307,10 +261,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeNote(1, 2, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetIssueDiscussions(): void
     {
         $expectedArray = [
@@ -327,10 +278,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showDiscussions(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetIssueDiscussion(): void
     {
         $expectedArray = ['id' => 'abc', 'body' => 'A discussion'];
@@ -344,10 +292,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showDiscussion(1, 2, 'abc'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateDiscussion(): void
     {
         $expectedArray = ['id' => 'abc', 'body' => 'A new discussion'];
@@ -361,10 +306,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addDiscussion(1, 2, 'A new discussion'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateDiscussionNote(): void
     {
         $expectedArray = ['id' => 3, 'body' => 'A new discussion note'];
@@ -378,10 +320,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addDiscussionNote(1, 2, 'abc', 'A new discussion note'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateDiscussionNote(): void
     {
         $expectedArray = ['id' => 3, 'body' => 'An edited discussion note'];
@@ -395,10 +334,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateDiscussionNote(1, 2, 'abc', 3, 'An edited discussion note'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemoveDiscussionNote(): void
     {
         $expectedBool = true;
@@ -411,10 +347,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeDiscussionNote(1, 2, 'abc', 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldSetTimeEstimate(): void
     {
         $expectedArray = ['time_estimate' => 14400, 'total_time_spent' => 0, 'human_time_estimate' => '4h', 'human_total_time_spent' => null];
@@ -428,10 +361,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->setTimeEstimate(1, 2, '4h'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldResetTimeEstimate(): void
     {
         $expectedArray = ['time_estimate' => 0, 'total_time_spent' => 0, 'human_time_estimate' => null, 'human_total_time_spent' => null];
@@ -445,10 +375,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->resetTimeEstimate(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldAddSpentTime(): void
     {
         $expectedArray = ['time_estimate' => 0, 'total_time_spent' => 14400, 'human_time_estimate' => null, 'human_total_time_spent' => '4h'];
@@ -462,10 +389,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addSpentTime(1, 2, '4h'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldResetSpentTime(): void
     {
         $expectedArray = ['time_estimate' => 0, 'total_time_spent' => 0, 'human_time_estimate' => null, 'human_total_time_spent' => null];
@@ -479,10 +403,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->resetSpentTime(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetIssueTimeStats(): void
     {
         $expectedArray = ['time_estimate' => 14400, 'total_time_spent' => 5400, 'human_time_estimate' => '4h', 'human_total_time_spent' => '1h 30m'];
@@ -496,10 +417,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->getTimeStats(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldIssueAwardEmoji(): void
     {
         $expectedArray = [
@@ -516,10 +434,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->awardEmoji(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRevokeAwardEmoji(): void
     {
         $expectedBool = true;
@@ -532,10 +447,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals(true, $api->removeAwardEmoji(1, 2, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetIssueClosedByMergeRequests(): void
     {
         $expectedArray = [
@@ -552,10 +464,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->closedByMergeRequests(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetIssueRelatedMergeRequests(): void
     {
         $expectedArray = [
@@ -572,10 +481,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->relatedMergeRequests(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetProjectIssuesByAssignee(): void
     {
         $expectedArray = [
@@ -592,10 +498,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1, ['assignee_id' => 1]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetIssueParticipants(): void
     {
         $expectedArray = [
@@ -626,10 +529,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showParticipants(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetIssueResourceLabelEvents(): void
     {
         $expectedArray = [
@@ -646,10 +546,7 @@ class IssuesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showResourceLabelEvents(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetIssueResourceLabelEvent(): void
     {
         $expectedArray = ['id' => 1, 'resource_type' => 'Issue', 'action' => 'add'];

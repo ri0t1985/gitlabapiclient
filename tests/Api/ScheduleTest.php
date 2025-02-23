@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Schedules;
 
 class ScheduleTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateSchedule(): void
     {
         $expectedArray = [
@@ -66,10 +65,7 @@ class ScheduleTest extends TestCase
             ]
         ));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowSchedule(): void
     {
         $expectedArray = ['id' => 1, 'name' => 'A schedule'];
@@ -83,10 +79,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowAllSchedule(): void
     {
         $expectedArray = ['id' => 1, 'name' => 'A schedule'];
@@ -100,10 +93,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showAll(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateSchedule(): void
     {
         $expectedArray = ['id' => 3, 'title' => 'Updated schedule'];
@@ -117,10 +107,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(1, 3, ['title' => 'Updated schedule', 'due_date' => '2015-04-01', 'state_event' => 'close']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemoveSchedule(): void
     {
         $expectedBool = true;
@@ -133,10 +120,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateScheduleVariable(): void
     {
         $expectedArray = [
@@ -157,10 +141,7 @@ class ScheduleTest extends TestCase
             $expectedArray
         ));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateScheduleVariable(): void
     {
         $variabelName = 'FOO_BAR';
@@ -183,10 +164,7 @@ class ScheduleTest extends TestCase
             $expectedArray
         ));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemoveScheduleVariable(): void
     {
         $expectedBool = true;
@@ -199,10 +177,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeVariable(1, 2, 'FOO_BAR'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldTakeOwnership(): void
     {
         $expectedBool = true;
@@ -215,10 +190,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->takeOwnership(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldPlay(): void
     {
         $expectedBool = true;

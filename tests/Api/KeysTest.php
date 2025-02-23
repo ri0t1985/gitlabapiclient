@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Keys;
 
 class KeysTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowKey(): void
     {
         $expectedArray = ['id' => 1, 'title' => 'A key', 'key' => 'ssh-rsa key', 'created_at' => '2016-01-01T01:00:00.000Z'];

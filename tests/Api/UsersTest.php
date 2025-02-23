@@ -14,13 +14,14 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Users;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class UsersTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllUsers(): void
     {
         $expectedArray = [
@@ -37,10 +38,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetActiveUsers(): void
     {
         $expectedArray = [
@@ -57,10 +55,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['active' => true]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetUsersWithDateTimeParams(): void
     {
         $expectedArray = [
@@ -88,10 +83,7 @@ class UsersTest extends TestCase
             $api->all(['created_after' => $createdAfter, 'created_before' => $createdBefore])
         );
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowUser(): void
     {
         $expectedArray = ['id' => 1, 'name' => 'Matt'];
@@ -135,10 +127,7 @@ class UsersTest extends TestCase
 
         return $api;
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowUsersMemberships(): void
     {
         $expectedArray = $this->getUsersMembershipsData();
@@ -147,10 +136,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->usersMemberships(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowUsersMembershipsWithTypeProject(): void
     {
         $expectedArray = [$this->getUsersMembershipsData()[0]];
@@ -159,10 +145,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->usersMemberships(1, ['type' => 'Project']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowUsersMembershipsWithTypeNamespace(): void
     {
         $expectedArray = [$this->getUsersMembershipsData()[1]];
@@ -191,10 +174,7 @@ class UsersTest extends TestCase
 
         return $api;
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowUsersProjects(): void
     {
         $expectedArray = $this->getUsersProjectsData();
@@ -203,10 +183,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->usersProjects(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowUsersProjectsWithLimit(): void
     {
         $expectedArray = [$this->getUsersProjectsData()[0]];
@@ -215,10 +192,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->usersProjects(1, ['per_page' => 1]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllUsersProjectsSortedByName(): void
     {
         $expectedArray = $this->getUsersProjectsData();
@@ -234,10 +208,7 @@ class UsersTest extends TestCase
             $api->usersProjects(1, ['page' => 1, 'per_page' => 5, 'order_by' => 'name', 'sort' => 'asc'])
         );
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetNotArchivedUsersProjects(): void
     {
         $expectedArray = $this->getUsersProjectsData();
@@ -246,10 +217,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->usersProjects(1, ['archived' => false]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetOwnedUsersProjects(): void
     {
         $expectedArray = $this->getUsersProjectsData();
@@ -269,12 +237,8 @@ class UsersTest extends TestCase
             [50],
         ];
     }
-
-    /**
-     * @test
-     *
-     * @dataProvider possibleAccessLevels
-     */
+    #[Test]
+    #[DataProvider('possibleAccessLevels')]
     public function shouldGetProjectsWithMinimumAccessLevel($level): void
     {
         $expectedArray = $this->getUsersProjectsData();
@@ -283,10 +247,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->usersProjects(1, ['min_access_level' => $level]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldSearchUsersProjects(): void
     {
         $expectedArray = $this->getUsersProjectsData();
@@ -294,10 +255,7 @@ class UsersTest extends TestCase
         $api = $this->getUsersProjectsRequestMock('users/1/projects', $expectedArray, ['search' => 'a project']);
         $this->assertEquals($expectedArray, $api->usersProjects(1, ['search' => 'a project']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowUsersStarredProjects(): void
     {
         $expectedArray = $this->getUsersProjectsData();
@@ -306,10 +264,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->usersStarredProjects(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowUsersStarredProjectsWithLimit(): void
     {
         $expectedArray = [$this->getUsersProjectsData()[0]];
@@ -318,10 +273,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->usersStarredProjects(1, ['per_page' => 1]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllUsersStarredProjectsSortedByName(): void
     {
         $expectedArray = $this->getUsersProjectsData();
@@ -337,10 +289,7 @@ class UsersTest extends TestCase
             $api->usersStarredProjects(1, ['page' => 1, 'per_page' => 5, 'order_by' => 'name', 'sort' => 'asc'])
         );
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetNotArchivedUsersStarredProjects(): void
     {
         $expectedArray = $this->getUsersProjectsData();
@@ -349,10 +298,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->usersStarredProjects(1, ['archived' => false]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetOwnedUsersStarredProjects(): void
     {
         $expectedArray = $this->getUsersProjectsData();
@@ -361,12 +307,8 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->usersStarredProjects(1, ['owned' => true]));
     }
-
-    /**
-     * @test
-     *
-     * @dataProvider possibleAccessLevels
-     */
+    #[Test]
+    #[DataProvider('possibleAccessLevels')]
     public function shouldGetStarredProjectsWithMinimumAccessLevel($level): void
     {
         $expectedArray = $this->getUsersProjectsData();
@@ -375,10 +317,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->usersStarredProjects(1, ['min_access_level' => $level]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldSearchUsersStarredProjects(): void
     {
         $expectedArray = $this->getUsersProjectsData();
@@ -386,10 +325,7 @@ class UsersTest extends TestCase
         $api = $this->getUsersProjectsRequestMock('users/1/starred_projects', $expectedArray, ['search' => 'a project']);
         $this->assertEquals($expectedArray, $api->usersStarredProjects(1, ['search' => 'a project']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateUser(): void
     {
         $expectedArray = ['id' => 3, 'name' => 'Billy'];
@@ -403,10 +339,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create('billy@example.com', 'password'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateUserWithAdditionalInfo(): void
     {
         $expectedArray = ['id' => 3, 'name' => 'Billy'];
@@ -420,10 +353,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create('billy@example.com', 'password', ['name' => 'Billy', 'bio' => 'A person']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateUser(): void
     {
         $expectedArray = ['id' => 3, 'name' => 'Billy Bob'];
@@ -448,10 +378,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(4, [], ['avatar' => '/some/image.jpg']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemoveUser(): void
     {
         $expectedBool = true;
@@ -464,10 +391,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldBlockUser(): void
     {
         $expectedBool = true;
@@ -480,10 +404,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->block(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUnblockUser(): void
     {
         $expectedBool = true;
@@ -496,10 +417,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->unblock(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldActivateUser(): void
     {
         $expectedBool = true;
@@ -512,10 +430,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->activate(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldDeactivateUser(): void
     {
         $expectedBool = true;
@@ -528,10 +443,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->deactivate(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowCurrentUser(): void
     {
         $expectedArray = ['id' => 1, 'name' => 'Matt'];
@@ -545,10 +457,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->me());
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetCurrentUserKeys(): void
     {
         $expectedArray = [
@@ -565,10 +474,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->keys(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetCurrentUserKey(): void
     {
         $expectedArray = ['id' => 1, 'title' => 'A key'];
@@ -582,10 +488,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->key(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateKeyForCurrentUser(): void
     {
         $expectedArray = ['id' => 3, 'title' => 'A new key'];
@@ -599,10 +502,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createKey('A new key', '...'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldDeleteKeyForCurrentUser(): void
     {
         $expectedBool = true;
@@ -615,10 +515,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeKey(3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetUserKeys(): void
     {
         $expectedArray = [
@@ -635,10 +532,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->userKeys(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetUserKey(): void
     {
         $expectedArray = ['id' => 2, 'title' => 'Another key'];
@@ -652,10 +546,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->userKey(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateKeyForUser(): void
     {
         $expectedArray = ['id' => 3, 'title' => 'A new key'];
@@ -669,10 +560,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createKeyForUser(1, 'A new key', '...'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldDeleteKeyForUser(): void
     {
         $expectedBool = true;
@@ -685,10 +573,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeUserKey(1, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetUserEmails(): void
     {
         $expectedArray = [
@@ -704,10 +589,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->emails());
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetSpecificUserEmail(): void
     {
         $expectedArray = ['id' => 1, 'email' => 'foo@bar.baz'];
@@ -720,10 +602,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->email(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetEmailsForUser(): void
     {
         $expectedArray = [
@@ -740,10 +619,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->userEmails(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateEmailForUser(): void
     {
         $expectedArray = ['id' => 3, 'email' => 'foo@bar.example'];
@@ -757,10 +633,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createEmailForUser(1, 'foo@bar.example'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateConfirmedEmailForUser(): void
     {
         $expectedArray = ['id' => 4, 'email' => 'foo@baz.example'];
@@ -774,10 +647,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createEmailForUser(1, 'foo@baz.example', true));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldDeleteEmailForUser(): void
     {
         $expectedBool = true;
@@ -790,10 +660,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeUserEmail(1, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetCurrentUserImpersonationTokens(): void
     {
         $expectedArray = [
@@ -810,10 +677,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->userImpersonationTokens(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetUserImpersonationToken(): void
     {
         $expectedArray = ['id' => 2, 'name' => 'name'];
@@ -827,10 +691,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->userImpersonationToken(1, 1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateImpersonationTokenForUser(): void
     {
         $expectedArray = ['id' => 1, 'name' => 'name'];
@@ -844,10 +705,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createImpersonationToken(1, 'name', ['api']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldDeleteImpersonationTokenForUser(): void
     {
         $expectedBool = true;
@@ -860,10 +718,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeImpersonationToken(1, 1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetCurrentUserActiveImpersonationTokens(): void
     {
         $expectedArray = [
@@ -879,10 +734,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->userImpersonationTokens(1, ['state' => 'active']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetCurrentUserInactiveImpersonationTokens(): void
     {
         $expectedArray = [
@@ -903,10 +755,7 @@ class UsersTest extends TestCase
     {
         return Users::class;
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetEvents(): void
     {
         $expectedArray = [
@@ -922,10 +771,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->events(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetEventsWithDateTimeParams(): void
     {
         $expectedArray = [
@@ -949,10 +795,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->events(1, ['after' => $after, 'before' => $before]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetEventsWithPagination(): void
     {
         $expectedArray = [
@@ -971,10 +814,7 @@ class UsersTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->events(1, ['page' => 2, 'per_page' => 15]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function getRemoveUserIdentity(): void
     {
         $expectedArray = [

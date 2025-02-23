@@ -14,13 +14,14 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Tags;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class TagsTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllTags(): void
     {
         $expectedArray = [
@@ -35,10 +36,7 @@ class TagsTest extends TestCase
             ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->all(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowTag(): void
     {
         $expectedArray = [
@@ -52,10 +50,7 @@ class TagsTest extends TestCase
             ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->show(1, 'v1.0.0'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateTag(): void
     {
         $expectedArray = [
@@ -76,10 +71,7 @@ class TagsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create(1, $params));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemoveTag(): void
     {
         $expectedArray = [
@@ -93,12 +85,8 @@ class TagsTest extends TestCase
             ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->remove(1, 'v1.1.0'));
     }
-
-    /**
-     * @test
-     *
-     * @dataProvider releaseDataProvider
-     */
+    #[Test]
+    #[DataProvider('releaseDataProvider')]
     public function shouldCreateRelease(string $releaseName, string $description, array $expectedResult): void
     {
         $params = [
@@ -113,12 +101,8 @@ class TagsTest extends TestCase
 
         $this->assertEquals($expectedResult, $api->createRelease(1, $releaseName, $params));
     }
-
-    /**
-     * @test
-     *
-     * @dataProvider releaseDataProvider
-     */
+    #[Test]
+    #[DataProvider('releaseDataProvider')]
     public function shouldUpdateRelease(string $releaseName, string $description, array $expectedResult): void
     {
         $params = [

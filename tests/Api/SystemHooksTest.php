@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\SystemHooks;
 
 class SystemHooksTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllHooks(): void
     {
         $expectedArray = [
@@ -37,10 +36,7 @@ class SystemHooksTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateHook(): void
     {
         $expectedArray = ['id' => 3, 'url' => 'http://www.example.net'];
@@ -54,10 +50,7 @@ class SystemHooksTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create('http://www.example.net'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldTestHook(): void
     {
         $expectedBool = true;
@@ -70,10 +63,7 @@ class SystemHooksTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->test(3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemoveHook(): void
     {
         $expectedBool = true;

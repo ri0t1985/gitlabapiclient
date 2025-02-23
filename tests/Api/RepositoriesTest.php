@@ -14,13 +14,14 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Repositories;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class RepositoriesTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetBranches(): void
     {
         $expectedArray = [
@@ -37,10 +38,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->branches(1, ['search' => '^term']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetBranch(): void
     {
         $expectedArray = ['name' => 'master'];
@@ -54,10 +52,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->branch(1, 'master'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateBranch(): void
     {
         $expectedArray = ['name' => 'feature'];
@@ -71,10 +66,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createBranch(1, 'feature', 'master'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldDeleteBranch(): void
     {
         $expectedBool = true;
@@ -87,10 +79,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->deleteBranch(1, 'feature/TEST-15'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldProtectBranch(): void
     {
         $expectedArray = ['name' => 'master'];
@@ -104,10 +93,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->protectBranch(1, 'master'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldProtectBranchWithPermissions(): void
     {
         $expectedArray = ['name' => 'master'];
@@ -121,10 +107,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->protectBranch(1, 'master', true, true));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUnprotectBranch(): void
     {
         $expectedArray = ['name' => 'master'];
@@ -138,10 +121,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->unprotectBranch(1, 'master'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetTags(): void
     {
         $expectedArray = [
@@ -158,10 +138,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->tags(1, ['search' => '^term']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateTag(): void
     {
         $expectedArray = ['name' => '1.0'];
@@ -179,10 +156,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createTag(1, '1.0', 'abcd1234', '1.0 release'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateRelease(): void
     {
         $project_id = 1;
@@ -204,10 +178,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createRelease($project_id, $tagName, $description));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateRelease(): void
     {
         $project_id = 1;
@@ -229,10 +200,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateRelease($project_id, $tagName, $description));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetReleases(): void
     {
         $project_id = 1;
@@ -254,10 +222,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->releases($project_id));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetCommits(): void
     {
         $expectedArray = [
@@ -274,10 +239,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->commits(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetCommitsWithParams(): void
     {
         $expectedArray = [
@@ -294,10 +256,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->commits(1, ['page' => 2, 'per_page' => 25, 'ref_name' => 'master', 'all' => true, 'with_stats' => true, 'path' => 'file_path/file_name']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetCommitsWithTimeParams(): void
     {
         $expectedArray = [
@@ -322,10 +281,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->commits(1, ['since' => $since, 'until' => $until]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetCommit(): void
     {
         $expectedArray = ['id' => 'abcd1234', 'title' => 'A commit'];
@@ -339,10 +295,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->commit(1, 'abcd1234'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetCommitRefs(): void
     {
         $expectedArray = [
@@ -359,12 +312,8 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->commitRefs(1, 'abcd1234'));
     }
-
-    /**
-     * @test
-     *
-     * @dataProvider dataGetCommitRefsWithParams
-     */
+    #[Test]
+    #[DataProvider('dataGetCommitRefsWithParams')]
     public function shouldGetCommitRefsWithParams(string $type, array $expectedArray): void
     {
         $api = $this->getApiMock();
@@ -390,10 +339,7 @@ class RepositoriesTest extends TestCase
             ],
         ];
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateCommit(): void
     {
         $expectedArray = ['title' => 'Initial commit.', 'author_name' => 'John Doe', 'author_email' => 'john@example.com'];
@@ -424,10 +370,7 @@ class RepositoriesTest extends TestCase
             'author_email' => 'john@example.com',
         ]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRevertCommit(): void
     {
         $expectedArray = ['title' => 'Initial commit.', 'author_name' => 'John Doe', 'author_email' => 'john@example.com'];
@@ -441,10 +384,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->revertCommit(1, 'develop', 'abcd1234'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetCommitComments(): void
     {
         $expectedArray = [
@@ -461,10 +401,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->commitComments(1, 'abcd1234'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateCommitComment(): void
     {
         $expectedArray = ['id' => 2, 'title' => 'A new comment'];
@@ -478,10 +415,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createCommitComment(1, 'abcd1234', 'A new comment'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateCommitCommentWithParams(): void
     {
         $expectedArray = ['id' => 2, 'title' => 'A new comment'];
@@ -503,10 +437,7 @@ class RepositoriesTest extends TestCase
             'line_type' => 'old',
         ]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCompareStraight(): void
     {
         $expectedArray = ['commit' => 'object'];
@@ -520,10 +451,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->compare(1, 'master', 'feature', true));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldNotCompareStraight(): void
     {
         $expectedArray = ['commit' => 'object'];
@@ -537,10 +465,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->compare(1, 'master', 'feature'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCompareComplexBranchName(): void
     {
         $expectedArray = ['commit' => 'object'];
@@ -554,10 +479,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->compare(1, 'master', 'feature/760.fake-branch', true));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCompareWithFromProjectId(): void
     {
         $expectedArray = ['commit' => 'object'];
@@ -571,10 +493,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->compare(1, 'master', 'feature', true, '123'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetDiff(): void
     {
         $expectedArray = [
@@ -591,10 +510,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->diff(1, 'abcd1234'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetTree(): void
     {
         $expectedArray = [
@@ -611,10 +527,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->tree(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetTreeWithParams(): void
     {
         $expectedArray = [
@@ -631,10 +544,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->tree(1, ['path' => 'dir/', 'ref_name' => 'master']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetContributors(): void
     {
         $expectedArray = [
@@ -651,10 +561,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->contributors(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetMergeBase(): void
     {
         $expectedArray = [
@@ -683,10 +590,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->mergeBase(1, ['efgh5678efgh5678efgh5678efgh5678efgh5678', '1234567812345678123456781234567812345678']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCherryPick(): void
     {
         $expectedArray = [

@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\IssuesStatistics;
 
 class IssuesStatisticsTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAll(): void
     {
         $expectedArray = [];
@@ -65,10 +64,7 @@ class IssuesStatisticsTest extends TestCase
             'confidential' => false,
         ]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetProject(): void
     {
         $expectedArray = [];
@@ -81,10 +77,7 @@ class IssuesStatisticsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->project(1, []));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetGroup(): void
     {
         $expectedArray = [];

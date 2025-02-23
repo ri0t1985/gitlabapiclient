@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\GroupsBoards;
 
 class GroupBoardsTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllBoards(): void
     {
         $expectedArray = [
@@ -37,10 +36,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowIssueBoard(): void
     {
         $expectedArray = ['id' => 2, 'name' => 'Another issue board'];
@@ -54,10 +50,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateIssueBoard(): void
     {
         $expectedArray = ['id' => 3, 'name' => 'A new issue board'];
@@ -71,10 +64,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create(1, ['name' => 'A new issue board']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateIssueBoard(): void
     {
         $expectedArray = ['id' => 2, 'name' => 'A renamed issue board'];
@@ -88,10 +78,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(1, 2, ['name' => 'A renamed issue board', 'labels' => 'foo']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemoveIssueBoard(): void
     {
         $expectedBool = true;
@@ -104,10 +91,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllLists(): void
     {
         $expectedArray = [
@@ -139,10 +123,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->allLists(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetList(): void
     {
         $expectedArray = [
@@ -166,10 +147,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showList(1, 2, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateList(): void
     {
         $expectedArray = [
@@ -193,10 +171,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createList(1, 2, 4));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateList(): void
     {
         $expectedArray = [
@@ -220,10 +195,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateList(5, 2, 3, 1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldDeleteList(): void
     {
         $expectedBool = true;

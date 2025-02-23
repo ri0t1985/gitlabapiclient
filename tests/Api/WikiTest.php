@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Wiki;
 
 class WikiTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateWiki(): void
     {
         $expectedArray = [
@@ -49,10 +48,7 @@ class WikiTest extends TestCase
             ]
         ));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowWiki(): void
     {
         $expectedArray = [
@@ -69,10 +65,7 @@ class WikiTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 'Test-Wiki'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowAllWiki(): void
     {
         $expectedArray = [
@@ -92,10 +85,7 @@ class WikiTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showAll(1, $params));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateWiki(): void
     {
         $expectedArray = [
@@ -114,10 +104,7 @@ class WikiTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(1, 'Test-Wiki', ['content' => 'This is the test Wiki that has been updated']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemoveWiki(): void
     {
         $expectedBool = true;

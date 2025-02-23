@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Packages;
 
 final class PackagesTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllPackages(): void
     {
         $expectedArray = [
@@ -47,10 +46,7 @@ final class PackagesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowPackage(): void
     {
         $expectedArray = [
@@ -65,10 +61,7 @@ final class PackagesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllPackageFiles(): void
     {
         $expectedArray = [
@@ -85,10 +78,7 @@ final class PackagesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->allFiles(1, 1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemovePackage(): void
     {
         $expectedBool = true;
@@ -101,10 +91,7 @@ final class PackagesTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1, 1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemovePackageFile(): void
     {
         $expectedBool = true;

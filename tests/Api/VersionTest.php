@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Version;
 
 class VersionTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowVersion(): void
     {
         $expectedArray = [

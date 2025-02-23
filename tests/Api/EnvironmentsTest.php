@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Environments;
 
 class EnvironmentsTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllEnvironments(): void
     {
         $expectedArray = [
@@ -64,10 +63,7 @@ class EnvironmentsTest extends TestCase
             ->willReturn($expected);
         $this->assertEquals($expected, $api->all(1, ['name' => 'review/fix-bar']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetSingleEnvironment(): void
     {
         $expected = [
@@ -143,10 +139,7 @@ See merge request !1',
             ->willReturn($expected);
         $this->assertEquals($expected, $api->show(1, 1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateEnvironment(): void
     {
         $expectedArray = [
@@ -173,10 +166,7 @@ See merge request !1',
 
         $this->assertEquals($expectedArray, $api->create(1, $params));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemoveEnvironment(): void
     {
         $expectedBool = true;
@@ -188,10 +178,7 @@ See merge request !1',
             ->willReturn($expectedBool);
         $this->assertEquals($expectedBool, $api->remove(1, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldStopEnvironment(): void
     {
         $expectedBool = true;

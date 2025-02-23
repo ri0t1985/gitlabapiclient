@@ -14,14 +14,14 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Jobs;
+use PHPUnit\Framework\Attributes\Test;
 use GuzzleHttp\Psr7\Response;
 
 class JobsTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllJobs(): void
     {
         $expectedArray = [
@@ -40,10 +40,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1, ['scope' => Jobs::SCOPE_PENDING]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetPipelineJobs(): void
     {
         $expectedArray = [
@@ -62,10 +59,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->pipelineJobs(1, 2, ['scope' => [Jobs::SCOPE_PENDING, Jobs::SCOPE_RUNNING]]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetPipelineJobsIncludingRetried(): void
     {
         $expectedArray = [
@@ -86,10 +80,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->pipelineJobs(1, 2, ['scope' => [Jobs::SCOPE_PENDING, Jobs::SCOPE_RUNNING], 'include_retried' => true]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetPipelineBridges(): void
     {
         $expectedArray = [
@@ -108,10 +99,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->pipelineBridges(1, 2, ['scope' => [Jobs::SCOPE_PENDING, Jobs::SCOPE_RUNNING]]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetJob(): void
     {
         $expectedArray = ['id' => 3, 'name' => 'A job'];
@@ -125,10 +113,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetArtifacts(): void
     {
         $returnedStream = new Response(200, [], 'foobar');
@@ -141,10 +126,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals('foobar', $api->artifacts(1, 3)->getContents());
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetArtifactsByJobId(): void
     {
         $returnedStream = new Response(200, [], 'foobar');
@@ -157,10 +139,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals('foobar', $api->artifactByJobId(1, 3, 'artifact_path')->getContents());
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetArtifactsByRefName(): void
     {
         $returnedStream = new Response(200, [], 'foobar');
@@ -175,10 +154,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals('foobar', $api->artifactsByRefName(1, 'master', 'job name')->getContents());
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetArtifactByRefName(): void
     {
         $returnedStream = new Response(200, [], 'foobar');
@@ -192,10 +168,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals('foobar', $api->artifactByRefName(1, 'master', 'job name', 'artifact_path')->getContents());
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetTrace(): void
     {
         $expectedString = 'some trace';
@@ -208,10 +181,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals($expectedString, $api->trace(1, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCancel(): void
     {
         $expectedArray = ['id' => 3, 'name' => 'A job'];
@@ -225,10 +195,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->cancel(1, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRetry(): void
     {
         $expectedArray = ['id' => 3, 'name' => 'A job'];
@@ -242,10 +209,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->retry(1, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldErase(): void
     {
         $expectedArray = ['id' => 3, 'name' => 'A job'];
@@ -259,10 +223,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->erase(1, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldKeepArtifacts(): void
     {
         $expectedArray = ['id' => 3, 'name' => 'A job'];
@@ -276,10 +237,7 @@ class JobsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->keepArtifacts(1, 3));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldPlay(): void
     {
         $expectedArray = ['id' => 3, 'name' => 'A job'];

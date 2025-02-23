@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Deployments;
 
 class DeploymentsTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllDeployments(): void
     {
         $expectedArray = $this->getMultipleDeploymentsData();
@@ -29,10 +28,7 @@ class DeploymentsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowDeployment(): void
     {
         $expectedArray = [
@@ -254,10 +250,7 @@ See merge request !2',
 
         return $api;
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllDeploymentsSortedByCreatedAt(): void
     {
         $expectedArray = $this->getMultipleDeploymentsData();
@@ -278,10 +271,7 @@ See merge request !2',
     {
         return Deployments::class;
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldAllowDeploymentFilterByStatus(): void
     {
         $expectedArray = $this->getMultipleDeploymentsData();
@@ -297,10 +287,7 @@ See merge request !2',
             $api->all(1, ['status' => 'success'])
         );
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldAllowFilterByEnvironment(): void
     {
         $expectedArray = $this->getMultipleDeploymentsData();
@@ -316,10 +303,7 @@ See merge request !2',
             $api->all(1, ['environment' => 'production'])
         );
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldAllowEmptyArrayIfAllExcludedByFilter(): void
     {
         $expectedArray = $this->getMultipleDeploymentsData();

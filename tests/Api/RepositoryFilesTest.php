@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\RepositoryFiles;
 
 class RepositoryFilesTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetBlob(): void
     {
         $expectedString = 'something in a file';
@@ -33,10 +32,7 @@ class RepositoryFilesTest extends TestCase
 
         $this->assertEquals($expectedString, $api->getRawFile(1, 'dir/file1.txt', 'abcd1234'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetFile(): void
     {
         $expectedArray = ['file_name' => 'file1.txt', 'file_path' => 'dir/file1.txt'];
@@ -50,10 +46,7 @@ class RepositoryFilesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->getFile(1, 'dir/file1.txt', 'abcd1234'));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateFile(): void
     {
         $expectedArray = ['file_name' => 'file1.txt', 'file_path' => 'dir/file1.txt'];
@@ -77,10 +70,7 @@ class RepositoryFilesTest extends TestCase
             'commit_message' => 'Added new file',
         ]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateFileWithEncoding(): void
     {
         $expectedArray = ['file_name' => 'file1.txt', 'file_path' => 'dir/file1.txt'];
@@ -106,10 +96,7 @@ class RepositoryFilesTest extends TestCase
             'encoding' => 'text',
         ]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateFileWithAuthor(): void
     {
         $expectedArray = ['file_name' => 'file1.txt', 'file_path' => 'dir/file1.txt'];
@@ -137,10 +124,7 @@ class RepositoryFilesTest extends TestCase
             'author_name' => 'GitLab User',
         ]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateFile(): void
     {
         $expectedArray = ['file_name' => 'file1.txt', 'file_path' => 'dir/file1.txt'];
@@ -164,10 +148,7 @@ class RepositoryFilesTest extends TestCase
             'commit_message' => 'Updated new file',
         ]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateFileWithEncoding(): void
     {
         $expectedArray = ['file_name' => 'file1.txt', 'file_path' => 'dir/file1.txt'];
@@ -193,10 +174,7 @@ class RepositoryFilesTest extends TestCase
             'encoding' => 'base64',
         ]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateFileWithAuthor(): void
     {
         $expectedArray = ['file_name' => 'file1.txt', 'file_path' => 'dir/file1.txt'];
@@ -224,10 +202,7 @@ class RepositoryFilesTest extends TestCase
             'author_name' => 'GitLab User',
         ]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldDeleteFile(): void
     {
         $expectedArray = ['file_name' => 'app/project.rb', 'branch' => 'master'];
@@ -249,10 +224,7 @@ class RepositoryFilesTest extends TestCase
             'commit_message' => 'Deleted file',
         ]));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldDeleteFileWithAuthor(): void
     {
         $expectedArray = ['file_name' => 'app/project.rb', 'branch' => 'master'];

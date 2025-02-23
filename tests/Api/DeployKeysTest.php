@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\DeployKeys;
 
 class DeployKeysTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllDeployKeys(): void
     {
         $expectedArray = $this->getMultipleDeployKeysData();

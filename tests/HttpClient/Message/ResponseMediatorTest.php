@@ -14,10 +14,15 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\HttpClient\Message;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Exception\RuntimeException;
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\HttpClient\Message\ResponseMediator;
+use PHPUnit\Framework\Attributes\Test;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\Attributes\Test;
 use GuzzleHttp\Psr7\Utils;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 /**

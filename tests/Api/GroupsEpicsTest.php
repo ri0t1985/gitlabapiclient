@@ -14,13 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
+use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\GroupsEpics;
 
 class GroupsEpicsTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetAllEpics(): void
     {
         $expectedArray = [
@@ -37,10 +36,7 @@ class GroupsEpicsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldShowEpic(): void
     {
         $expectedArray = ['id' => 1, 'name' => 'A epic'];
@@ -54,10 +50,7 @@ class GroupsEpicsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldCreateEpic(): void
     {
         $expectedArray = ['id' => 3, 'title' => 'A new epic'];
@@ -71,10 +64,7 @@ class GroupsEpicsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create(1, ['description' => 'Some text', 'title' => 'A new epic']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldUpdateEpic(): void
     {
         $expectedArray = ['id' => 3, 'title' => 'Updated epic'];
@@ -88,10 +78,7 @@ class GroupsEpicsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(1, 3, ['title' => 'Updated epic', 'description' => 'Updated description', 'state_event' => 'close']));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldRemoveEpic(): void
     {
         $expectedBool = true;
@@ -104,10 +91,7 @@ class GroupsEpicsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }
-
-    /**
-     * @test
-     */
+    #[Test]
     public function shouldGetEpicsIssues(): void
     {
         $expectedArray = [
