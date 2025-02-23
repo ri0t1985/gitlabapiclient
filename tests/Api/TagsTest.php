@@ -138,7 +138,7 @@ class TagsTest extends TestCase
     {
         return [
             [
-                'tagName' => 'v1.1.0',
+                'releaseName' => 'v1.1.0',
                 'description' => 'Amazing release. Wow',
                 'expectedResult' => [
                     'tag_name' => '1.0.0',
@@ -146,7 +146,7 @@ class TagsTest extends TestCase
                 ],
             ],
             [
-                'tagName' => 'version/1.1.0',
+                'releaseName' => 'version/1.1.0',
                 'description' => 'Amazing release. Wow',
                 'expectedResult' => [
                     'tag_name' => 'version/1.1.0',
