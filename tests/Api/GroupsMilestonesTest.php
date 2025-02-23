@@ -14,10 +14,10 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\GroupsMilestones;
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\Test;
 
 class GroupsMilestonesTest extends TestCase
 {
@@ -38,6 +38,7 @@ class GroupsMilestonesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1));
     }
+
     #[Test]
     public function shouldGetAllMilestonesWithParameterOneIidsValue(): void
     {
@@ -49,6 +50,7 @@ class GroupsMilestonesTest extends TestCase
 
         $api->all(1, ['iids' => [456]]);
     }
+
     #[Test]
     public function shouldGetAllMilestonesWithParameterTwoIidsValues(): void
     {
@@ -68,6 +70,7 @@ class GroupsMilestonesTest extends TestCase
             GroupsMilestones::STATE_CLOSED => [GroupsMilestones::STATE_CLOSED],
         ];
     }
+
     #[Test]
     #[DataProvider('getAllMilestonesWithParameterStateDataProvider')]
     public function shouldGetAllMilestonesWithParameterState(string $state): void
@@ -80,6 +83,7 @@ class GroupsMilestonesTest extends TestCase
 
         $api->all(1, ['state' => $state]);
     }
+
     #[Test]
     public function shouldGetAllMilestonesWithParameterSearch(): void
     {
@@ -93,6 +97,7 @@ class GroupsMilestonesTest extends TestCase
 
         $api->all(1, ['search' => $searchValue]);
     }
+
     #[Test]
     public function shouldGetAllMilestonesWithParameterUpdatedBefore(): void
     {
@@ -106,6 +111,7 @@ class GroupsMilestonesTest extends TestCase
 
         $api->all(1, ['updated_before' => $updatedBefore]);
     }
+
     #[Test]
     public function shouldGetAllMilestonesWithParameterUpdatedAfter(): void
     {
@@ -119,6 +125,7 @@ class GroupsMilestonesTest extends TestCase
 
         $api->all(1, ['updated_after' => $updatedAfter]);
     }
+
     #[Test]
     public function shouldShowMilestone(): void
     {
@@ -133,6 +140,7 @@ class GroupsMilestonesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 2));
     }
+
     #[Test]
     public function shouldCreateMilestone(): void
     {
@@ -147,6 +155,7 @@ class GroupsMilestonesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create(1, ['description' => 'Some text', 'title' => 'A new milestone']));
     }
+
     #[Test]
     public function shouldUpdateMilestone(): void
     {
@@ -161,6 +170,7 @@ class GroupsMilestonesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(1, 3, ['title' => 'Updated milestone', 'due_date' => '2015-04-01', 'state_event' => 'close']));
     }
+
     #[Test]
     public function shouldRemoveMilestone(): void
     {
@@ -174,6 +184,7 @@ class GroupsMilestonesTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }
+
     #[Test]
     public function shouldGetMilestonesIssues(): void
     {
@@ -191,6 +202,7 @@ class GroupsMilestonesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->issues(1, 3));
     }
+
     #[Test]
     public function shouldGetMilestonesMergeRequests(): void
     {

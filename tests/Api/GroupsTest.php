@@ -14,10 +14,10 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use DateTime;
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Groups;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\Test;
 
 class GroupsTest extends TestCase
 {
@@ -38,6 +38,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['page' => 1, 'per_page' => 10]));
     }
+
     #[Test]
     public function shouldGetAllGroupsWithBooleanParam(): void
     {
@@ -55,6 +56,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['all_available' => false]));
     }
+
     #[Test]
     public function shouldGetAllTopLevelGroupsWithoutSubgroups(): void
     {
@@ -72,6 +74,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['top_level_only' => true]));
     }
+
     #[Test]
     public function shouldGetAllGroupProjectsWithBooleanParam(): void
     {
@@ -89,6 +92,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->projects(1, ['archived' => false]));
     }
+
     #[Test]
     public function shouldNotNeedPaginationWhenGettingGroups(): void
     {
@@ -106,6 +110,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
+
     #[Test]
     public function shouldShowGroup(): void
     {
@@ -120,6 +125,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1));
     }
+
     #[Test]
     public function shouldCreateGroup(): void
     {
@@ -134,6 +140,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create('A new group', 'a-new-group'));
     }
+
     #[Test]
     public function shouldCreateGroupWithDescriptionAndVisibility(): void
     {
@@ -148,6 +155,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create('A new group', 'a-new-group', 'Description', 'public'));
     }
+
     #[Test]
     public function shouldCreateGroupWithDescriptionVisibilityAndParentId(): void
     {
@@ -162,6 +170,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create('A new group', 'a-new-group', 'Description', 'public', null, null, 666));
     }
+
     #[Test]
     public function shouldUpdateGroup(): void
     {
@@ -176,6 +185,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(3, ['name' => 'Group name', 'path' => 'group-path']));
     }
+
     #[Test]
     public function shouldTransferProjectToGroup(): void
     {
@@ -189,6 +199,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->transfer(1, 2));
     }
+
     #[Test]
     public function shouldGetAllMembers(): void
     {
@@ -206,6 +217,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->allMembers(1));
     }
+
     #[Test]
     public function shouldGetAllMember(): void
     {
@@ -219,6 +231,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->allMember(1, 2));
     }
+
     #[Test]
     public function shouldGetMembers(): void
     {
@@ -236,6 +249,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->members(1));
     }
+
     #[Test]
     public function shouldAddMember(): void
     {
@@ -253,6 +267,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addMember(1, 2, 10, ['expires_at' => $tomorrow]));
     }
+
     #[Test]
     public function shouldSaveMember(): void
     {
@@ -267,6 +282,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->saveMember(1, 2, 4));
     }
+
     #[Test]
     public function shouldRemoveMember(): void
     {
@@ -280,6 +296,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeMember(1, 2));
     }
+
     #[Test]
     public function shouldRemoveGroup(): void
     {
@@ -293,6 +310,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1));
     }
+
     #[Test]
     public function shouldGetAllSubgroups(): void
     {
@@ -310,6 +328,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->subgroups(1, ['page' => 1, 'per_page' => 10]));
     }
+
     #[Test]
     public function shouldGetAllIssues(): void
     {
@@ -328,6 +347,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->issues(1, ['page' => 1, 'per_page' => 10]));
     }
+
     #[Test]
     public function shouldGetLabels(): void
     {
@@ -345,6 +365,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->labels(1));
     }
+
     #[Test]
     public function shouldAddLabel(): void
     {
@@ -359,6 +380,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addLabel(1, ['name' => 'wont-fix', 'color' => '#ffffff']));
     }
+
     #[Test]
     public function shouldUpdateLabel(): void
     {
@@ -373,6 +395,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateLabel(1, 123, ['new_name' => 'big-bug', 'color' => '#00ffff']));
     }
+
     #[Test]
     public function shouldRemoveLabel(): void
     {
@@ -403,6 +426,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->variables(1));
     }
+
     #[Test]
     public function shouldGetVariable(): void
     {
@@ -437,6 +461,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addVariable(1, $expectedKey, $expectedValue));
     }
+
     #[Test]
     public function shouldAddVariableWithProtected(): void
     {
@@ -455,6 +480,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addVariable(1, 'DEPLOY_SERVER', 'stage.example.com', true));
     }
+
     #[Test]
     public function shouldUpdateVariable(): void
     {
@@ -475,6 +501,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateVariable(1, $expectedKey, $expectedValue));
     }
+
     #[Test]
     public function shouldUpdateVariableWithProtected(): void
     {
@@ -493,6 +520,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateVariable(1, 'DEPLOY_SERVER', 'stage.example.com', true));
     }
+
     #[Test]
     public function shouldRemoveVariable(): void
     {
@@ -511,6 +539,7 @@ class GroupsTest extends TestCase
     {
         return Groups::class;
     }
+
     #[Test]
     public function shouldGetAllGroupProjectsWithIssuesEnabled(): void
     {
@@ -528,6 +557,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->projects(1, ['with_issues_enabled' => true]));
     }
+
     #[Test]
     public function shouldGetAllGroupProjectsWithMergeRequestsEnabled(): void
     {
@@ -545,6 +575,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->projects(1, ['with_merge_requests_enabled' => true]));
     }
+
     #[Test]
     public function shouldGetAllGroupProjectsSharedToGroup(): void
     {
@@ -562,6 +593,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->projects(1, ['with_shared' => true]));
     }
+
     #[Test]
     public function shouldGetAllGroupProjectsIncludingSubsgroups(): void
     {
@@ -579,6 +611,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->projects(1, ['include_subgroups' => true]));
     }
+
     #[Test]
     public function shouldGetAllGroupProjectsIncludingCustomAttributes(): void
     {
@@ -596,6 +629,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->projects(1, ['with_custom_attributes' => true]));
     }
+
     #[Test]
     public function shouldGetIterations(): void
     {
@@ -625,6 +659,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->iterations(1));
     }
+
     #[Test]
     public function shouldGetPackages(): void
     {
@@ -662,6 +697,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->packages(1));
     }
+
     #[Test]
     public function shouldGetGroupMergeRequests(): void
     {
@@ -679,6 +715,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->mergeRequests(1, []));
     }
+
     #[Test]
     public function shouldGetDeployTokens(): void
     {
@@ -705,6 +742,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->deployTokens(1));
     }
+
     #[Test]
     public function shouldGetActiveDeployTokens(): void
     {
@@ -731,6 +769,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals([], $api->deployTokens(1, true));
     }
+
     #[Test]
     public function shouldGetInactiveDeployTokens(): void
     {
@@ -757,6 +796,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals([], $api->deployTokens(1, false));
     }
+
     #[Test]
     public function shouldCreateDeployToken(): void
     {
@@ -799,6 +839,7 @@ class GroupsTest extends TestCase
             'expires_at' => new DateTime('2021-01-01'),
         ]));
     }
+
     #[Test]
     public function shouldDeleteDeployToken(): void
     {
@@ -812,6 +853,7 @@ class GroupsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->deleteDeployToken(1, 2));
     }
+
     #[Test]
     public function shouldSearchGroups(): void
     {

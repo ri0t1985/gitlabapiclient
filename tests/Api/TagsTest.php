@@ -14,10 +14,10 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Tags;
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\Test;
 
 class TagsTest extends TestCase
 {
@@ -36,6 +36,7 @@ class TagsTest extends TestCase
             ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->all(1));
     }
+
     #[Test]
     public function shouldShowTag(): void
     {
@@ -50,6 +51,7 @@ class TagsTest extends TestCase
             ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->show(1, 'v1.0.0'));
     }
+
     #[Test]
     public function shouldCreateTag(): void
     {
@@ -71,6 +73,7 @@ class TagsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create(1, $params));
     }
+
     #[Test]
     public function shouldRemoveTag(): void
     {
@@ -85,6 +88,7 @@ class TagsTest extends TestCase
             ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->remove(1, 'v1.1.0'));
     }
+
     #[Test]
     #[DataProvider('releaseDataProvider')]
     public function shouldCreateRelease(string $releaseName, string $description, array $expectedResult): void
@@ -101,6 +105,7 @@ class TagsTest extends TestCase
 
         $this->assertEquals($expectedResult, $api->createRelease(1, $releaseName, $params));
     }
+
     #[Test]
     #[DataProvider('releaseDataProvider')]
     public function shouldUpdateRelease(string $releaseName, string $description, array $expectedResult): void

@@ -14,10 +14,10 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Repositories;
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\Test;
 
 class RepositoriesTest extends TestCase
 {
@@ -38,6 +38,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->branches(1, ['search' => '^term']));
     }
+
     #[Test]
     public function shouldGetBranch(): void
     {
@@ -52,6 +53,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->branch(1, 'master'));
     }
+
     #[Test]
     public function shouldCreateBranch(): void
     {
@@ -66,6 +68,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createBranch(1, 'feature', 'master'));
     }
+
     #[Test]
     public function shouldDeleteBranch(): void
     {
@@ -79,6 +82,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->deleteBranch(1, 'feature/TEST-15'));
     }
+
     #[Test]
     public function shouldProtectBranch(): void
     {
@@ -93,6 +97,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->protectBranch(1, 'master'));
     }
+
     #[Test]
     public function shouldProtectBranchWithPermissions(): void
     {
@@ -107,6 +112,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->protectBranch(1, 'master', true, true));
     }
+
     #[Test]
     public function shouldUnprotectBranch(): void
     {
@@ -121,6 +127,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->unprotectBranch(1, 'master'));
     }
+
     #[Test]
     public function shouldGetTags(): void
     {
@@ -138,6 +145,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->tags(1, ['search' => '^term']));
     }
+
     #[Test]
     public function shouldCreateTag(): void
     {
@@ -156,6 +164,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createTag(1, '1.0', 'abcd1234', '1.0 release'));
     }
+
     #[Test]
     public function shouldCreateRelease(): void
     {
@@ -178,6 +187,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createRelease($project_id, $tagName, $description));
     }
+
     #[Test]
     public function shouldUpdateRelease(): void
     {
@@ -200,6 +210,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateRelease($project_id, $tagName, $description));
     }
+
     #[Test]
     public function shouldGetReleases(): void
     {
@@ -222,6 +233,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->releases($project_id));
     }
+
     #[Test]
     public function shouldGetCommits(): void
     {
@@ -239,6 +251,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->commits(1));
     }
+
     #[Test]
     public function shouldGetCommitsWithParams(): void
     {
@@ -256,6 +269,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->commits(1, ['page' => 2, 'per_page' => 25, 'ref_name' => 'master', 'all' => true, 'with_stats' => true, 'path' => 'file_path/file_name']));
     }
+
     #[Test]
     public function shouldGetCommitsWithTimeParams(): void
     {
@@ -281,6 +295,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->commits(1, ['since' => $since, 'until' => $until]));
     }
+
     #[Test]
     public function shouldGetCommit(): void
     {
@@ -295,6 +310,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->commit(1, 'abcd1234'));
     }
+
     #[Test]
     public function shouldGetCommitRefs(): void
     {
@@ -312,6 +328,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->commitRefs(1, 'abcd1234'));
     }
+
     #[Test]
     #[DataProvider('dataGetCommitRefsWithParams')]
     public function shouldGetCommitRefsWithParams(string $type, array $expectedArray): void
@@ -339,6 +356,7 @@ class RepositoriesTest extends TestCase
             ],
         ];
     }
+
     #[Test]
     public function shouldCreateCommit(): void
     {
@@ -370,6 +388,7 @@ class RepositoriesTest extends TestCase
             'author_email' => 'john@example.com',
         ]));
     }
+
     #[Test]
     public function shouldRevertCommit(): void
     {
@@ -384,6 +403,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->revertCommit(1, 'develop', 'abcd1234'));
     }
+
     #[Test]
     public function shouldGetCommitComments(): void
     {
@@ -401,6 +421,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->commitComments(1, 'abcd1234'));
     }
+
     #[Test]
     public function shouldCreateCommitComment(): void
     {
@@ -415,6 +436,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createCommitComment(1, 'abcd1234', 'A new comment'));
     }
+
     #[Test]
     public function shouldCreateCommitCommentWithParams(): void
     {
@@ -437,6 +459,7 @@ class RepositoriesTest extends TestCase
             'line_type' => 'old',
         ]));
     }
+
     #[Test]
     public function shouldCompareStraight(): void
     {
@@ -451,6 +474,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->compare(1, 'master', 'feature', true));
     }
+
     #[Test]
     public function shouldNotCompareStraight(): void
     {
@@ -465,6 +489,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->compare(1, 'master', 'feature'));
     }
+
     #[Test]
     public function shouldCompareComplexBranchName(): void
     {
@@ -479,6 +504,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->compare(1, 'master', 'feature/760.fake-branch', true));
     }
+
     #[Test]
     public function shouldCompareWithFromProjectId(): void
     {
@@ -493,6 +519,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->compare(1, 'master', 'feature', true, '123'));
     }
+
     #[Test]
     public function shouldGetDiff(): void
     {
@@ -510,6 +537,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->diff(1, 'abcd1234'));
     }
+
     #[Test]
     public function shouldGetTree(): void
     {
@@ -527,6 +555,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->tree(1));
     }
+
     #[Test]
     public function shouldGetTreeWithParams(): void
     {
@@ -544,6 +573,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->tree(1, ['path' => 'dir/', 'ref_name' => 'master']));
     }
+
     #[Test]
     public function shouldGetContributors(): void
     {
@@ -561,6 +591,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->contributors(1));
     }
+
     #[Test]
     public function shouldGetMergeBase(): void
     {
@@ -590,6 +621,7 @@ class RepositoriesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->mergeBase(1, ['efgh5678efgh5678efgh5678efgh5678efgh5678', '1234567812345678123456781234567812345678']));
     }
+
     #[Test]
     public function shouldCherryPick(): void
     {

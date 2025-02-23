@@ -14,11 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Client;
-use PHPUnit\Framework\Attributes\Test;
 use Http\Client\Common\HttpMethodsClient;
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class ClientTest extends TestCase

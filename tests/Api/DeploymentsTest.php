@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Deployments;
+use PHPUnit\Framework\Attributes\Test;
 
 class DeploymentsTest extends TestCase
 {
@@ -28,6 +28,7 @@ class DeploymentsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1));
     }
+
     #[Test]
     public function shouldShowDeployment(): void
     {
@@ -250,6 +251,7 @@ See merge request !2',
 
         return $api;
     }
+
     #[Test]
     public function shouldGetAllDeploymentsSortedByCreatedAt(): void
     {
@@ -271,6 +273,7 @@ See merge request !2',
     {
         return Deployments::class;
     }
+
     #[Test]
     public function shouldAllowDeploymentFilterByStatus(): void
     {
@@ -287,6 +290,7 @@ See merge request !2',
             $api->all(1, ['status' => 'success'])
         );
     }
+
     #[Test]
     public function shouldAllowFilterByEnvironment(): void
     {
@@ -303,6 +307,7 @@ See merge request !2',
             $api->all(1, ['environment' => 'production'])
         );
     }
+
     #[Test]
     public function shouldAllowEmptyArrayIfAllExcludedByFilter(): void
     {

@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\GroupsEpics;
+use PHPUnit\Framework\Attributes\Test;
 
 class GroupsEpicsTest extends TestCase
 {
@@ -36,6 +36,7 @@ class GroupsEpicsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1));
     }
+
     #[Test]
     public function shouldShowEpic(): void
     {
@@ -50,6 +51,7 @@ class GroupsEpicsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 2));
     }
+
     #[Test]
     public function shouldCreateEpic(): void
     {
@@ -64,6 +66,7 @@ class GroupsEpicsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create(1, ['description' => 'Some text', 'title' => 'A new epic']));
     }
+
     #[Test]
     public function shouldUpdateEpic(): void
     {
@@ -78,6 +81,7 @@ class GroupsEpicsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(1, 3, ['title' => 'Updated epic', 'description' => 'Updated description', 'state_event' => 'close']));
     }
+
     #[Test]
     public function shouldRemoveEpic(): void
     {
@@ -91,6 +95,7 @@ class GroupsEpicsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }
+
     #[Test]
     public function shouldGetEpicsIssues(): void
     {

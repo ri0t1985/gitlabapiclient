@@ -14,13 +14,9 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\HttpClient\Util;
 
-use PHPUnit\Framework\Attributes\Test;
 use Generator;
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\HttpClient\Util\QueryStringBuilder;
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class QueryStringBuilderTest extends TestCase

@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Events;
+use PHPUnit\Framework\Attributes\Test;
 
 class EventsTest extends TestCase
 {
@@ -22,6 +22,7 @@ class EventsTest extends TestCase
     {
         return Events::class;
     }
+
     #[Test]
     public function shouldGetAllEvents(): void
     {
@@ -39,6 +40,7 @@ class EventsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
+
     #[Test]
     public function shouldGetEventsAfter(): void
     {

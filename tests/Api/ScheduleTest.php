@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Schedules;
+use PHPUnit\Framework\Attributes\Test;
 
 class ScheduleTest extends TestCase
 {
@@ -65,6 +65,7 @@ class ScheduleTest extends TestCase
             ]
         ));
     }
+
     #[Test]
     public function shouldShowSchedule(): void
     {
@@ -79,6 +80,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 2));
     }
+
     #[Test]
     public function shouldShowAllSchedule(): void
     {
@@ -93,6 +95,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showAll(1));
     }
+
     #[Test]
     public function shouldUpdateSchedule(): void
     {
@@ -107,6 +110,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(1, 3, ['title' => 'Updated schedule', 'due_date' => '2015-04-01', 'state_event' => 'close']));
     }
+
     #[Test]
     public function shouldRemoveSchedule(): void
     {
@@ -120,6 +124,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }
+
     #[Test]
     public function shouldCreateScheduleVariable(): void
     {
@@ -141,6 +146,7 @@ class ScheduleTest extends TestCase
             $expectedArray
         ));
     }
+
     #[Test]
     public function shouldUpdateScheduleVariable(): void
     {
@@ -164,6 +170,7 @@ class ScheduleTest extends TestCase
             $expectedArray
         ));
     }
+
     #[Test]
     public function shouldRemoveScheduleVariable(): void
     {
@@ -177,6 +184,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeVariable(1, 2, 'FOO_BAR'));
     }
+
     #[Test]
     public function shouldTakeOwnership(): void
     {
@@ -190,6 +198,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->takeOwnership(1, 2));
     }
+
     #[Test]
     public function shouldPlay(): void
     {

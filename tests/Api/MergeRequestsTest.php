@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\MergeRequests;
+use PHPUnit\Framework\Attributes\Test;
 
 class MergeRequestsTest extends TestCase
 {
@@ -33,6 +33,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1));
     }
+
     #[Test]
     public function shouldGetAllWithNoProject(): void
     {
@@ -47,6 +48,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
+
     #[Test]
     public function shouldGetAllWithParams(): void
     {
@@ -91,6 +93,7 @@ class MergeRequestsTest extends TestCase
             'approved_by_ids' => [1],
         ]));
     }
+
     #[Test]
     public function shouldGetAllWithDateTimeParams(): void
     {
@@ -116,6 +119,7 @@ class MergeRequestsTest extends TestCase
             $api->all(1, ['created_after' => $createdAfter, 'created_before' => $createdBefore])
         );
     }
+
     #[Test]
     public function shouldShowMergeRequest(): void
     {
@@ -130,6 +134,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 2));
     }
+
     #[Test]
     public function shouldShowMergeRequestWithOptionalParameters(): void
     {
@@ -152,6 +157,7 @@ class MergeRequestsTest extends TestCase
             'include_rebase_in_progress' => true,
         ]));
     }
+
     #[Test]
     public function shouldCreateMergeRequestWithoutOptionalParams(): void
     {
@@ -170,6 +176,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create(1, 'develop', 'master', 'Merge Request'));
     }
+
     #[Test]
     public function shouldCreateMergeRequestWithOptionalParams(): void
     {
@@ -201,6 +208,7 @@ class MergeRequestsTest extends TestCase
             )
         );
     }
+
     #[Test]
     public function shouldUpdateMergeRequest(): void
     {
@@ -219,6 +227,7 @@ class MergeRequestsTest extends TestCase
             'state_event' => 'close',
         ]));
     }
+
     #[Test]
     public function shouldMergeMergeRequest(): void
     {
@@ -233,6 +242,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->merge(1, 2, ['merge_commit_message' => 'Accepted']));
     }
+
     #[Test]
     public function shouldGetNotes(): void
     {
@@ -250,6 +260,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showNotes(1, 2));
     }
+
     #[Test]
     public function shouldGetNote(): void
     {
@@ -264,6 +275,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showNote(1, 2, 3));
     }
+
     #[Test]
     public function shouldCreateNote(): void
     {
@@ -278,6 +290,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addNote(1, 2, 'A new note'));
     }
+
     #[Test]
     public function shouldUpdateNote(): void
     {
@@ -292,6 +305,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateNote(1, 2, 3, 'An edited comment'));
     }
+
     #[Test]
     public function shouldRemoveNote(): void
     {
@@ -305,6 +319,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeNote(1, 2, 3));
     }
+
     #[Test]
     public function shouldGetMergeRequestParticipants(): void
     {
@@ -336,6 +351,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showParticipants(1, 2));
     }
+
     #[Test]
     public function shouldGetMergeRequestChanges(): void
     {
@@ -350,6 +366,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->changes(1, 2));
     }
+
     #[Test]
     public function shouldGetMergeRequestDiscussions(): void
     {
@@ -367,6 +384,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showDiscussions(1, 2));
     }
+
     #[Test]
     public function shouldGetMergeRequestDiscussion(): void
     {
@@ -381,6 +399,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showDiscussion(1, 2, 'abc'));
     }
+
     #[Test]
     public function shouldCreateDiscussion(): void
     {
@@ -395,6 +414,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addDiscussion(1, 2, ['body' => 'A new discussion']));
     }
+
     #[Test]
     public function shouldResolveDiscussion(): void
     {
@@ -409,6 +429,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->resolveDiscussion(1, 2, 'abc', true));
     }
+
     #[Test]
     public function shouldUnresolveDiscussion(): void
     {
@@ -423,6 +444,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->resolveDiscussion(1, 2, 'abc', false));
     }
+
     #[Test]
     public function shouldCreateDiscussionNote(): void
     {
@@ -437,6 +459,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addDiscussionNote(1, 2, 'abc', 'A new discussion note'));
     }
+
     #[Test]
     public function shouldUpdateDiscussionNote(): void
     {
@@ -451,6 +474,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateDiscussionNote(1, 2, 'abc', 3, ['body' => 'An edited discussion note']));
     }
+
     #[Test]
     public function shouldRemoveDiscussionNote(): void
     {
@@ -464,6 +488,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeDiscussionNote(1, 2, 'abc', 3));
     }
+
     #[Test]
     public function shouldGetIssuesClosedByMergeRequest(): void
     {
@@ -478,6 +503,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->closesIssues(1, 2));
     }
+
     #[Test]
     public function shouldGetMergeRequestByIid(): void
     {
@@ -492,6 +518,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1, ['iids' => [2]]));
     }
+
     #[Test]
     public function shouldApproveMergeRequest(): void
     {
@@ -506,6 +533,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->approve(1, 2));
     }
+
     #[Test]
     public function shouldUnApproveMergeRequest(): void
     {
@@ -520,6 +548,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->unapprove(1, 2));
     }
+
     #[Test]
     public function shouldGetMergeRequestApprovals(): void
     {
@@ -534,6 +563,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1, ['iids' => [2]]));
     }
+
     #[Test]
     public function shouldIssueMergeRequestAwardEmoji(): void
     {
@@ -551,6 +581,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->awardEmoji(1, 2));
     }
+
     #[Test]
     public function shouldRevokeMergeRequestAwardEmoji(): void
     {
@@ -564,6 +595,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals(true, $api->removeAwardEmoji(1, 2, 3));
     }
+
     #[Test]
     public function shoudGetApprovalState(): void
     {
@@ -580,6 +612,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->approvalState(1, 2));
     }
+
     #[Test]
     public function shoudGetLevelRules(): void
     {
@@ -607,6 +640,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->levelRules(1, 2));
     }
+
     #[Test]
     public function shoudCreateLevelRuleWithoutOptionalParameters(): void
     {
@@ -638,6 +672,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createLevelRule(1, 2, 'Foo', 3));
     }
+
     #[Test]
     public function shoudCreateLevelRuleWithOptionalParameters(): void
     {
@@ -674,6 +709,7 @@ class MergeRequestsTest extends TestCase
             'group_ids' => [104121],
         ]));
     }
+
     #[Test]
     public function shoudUpdateLevelRuleWithoutOptionalParameters(): void
     {
@@ -705,6 +741,7 @@ class MergeRequestsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateLevelRule(1, 2, 20892835, 'Foo', 3));
     }
+
     #[Test]
     public function shoudUpdateLevelRuleWithOptionalParameters(): void
     {
@@ -741,6 +778,7 @@ class MergeRequestsTest extends TestCase
             'group_ids' => [104121],
         ]));
     }
+
     #[Test]
     public function shoudDeleteLevelRule(): void
     {
@@ -767,6 +805,7 @@ class MergeRequestsTest extends TestCase
     {
         return MergeRequests::class;
     }
+
     #[Test]
     public function shouldRebaseMergeRequest(): void
     {

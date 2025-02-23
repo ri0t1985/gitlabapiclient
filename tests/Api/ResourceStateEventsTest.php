@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\ResourceStateEvents;
+use PHPUnit\Framework\Attributes\Test;
 
 class ResourceStateEventsTest extends TestCase
 {
@@ -63,6 +63,7 @@ class ResourceStateEventsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1, 11));
     }
+
     #[Test]
     public function shouldShowEvent(): void
     {

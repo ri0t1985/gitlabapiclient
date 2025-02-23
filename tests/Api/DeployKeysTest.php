@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\DeployKeys;
+use PHPUnit\Framework\Attributes\Test;
 
 class DeployKeysTest extends TestCase
 {

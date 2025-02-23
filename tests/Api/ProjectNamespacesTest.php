@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\ProjectNamespaces;
+use PHPUnit\Framework\Attributes\Test;
 
 class ProjectNamespacesTest extends TestCase
 {
@@ -36,6 +36,7 @@ class ProjectNamespacesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
+
     #[Test]
     public function shouldShowNamespace(): void
     {

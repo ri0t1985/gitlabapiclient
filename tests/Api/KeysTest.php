@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Keys;
+use PHPUnit\Framework\Attributes\Test;
 
 class KeysTest extends TestCase
 {

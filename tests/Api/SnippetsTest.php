@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Snippets;
+use PHPUnit\Framework\Attributes\Test;
 
 class SnippetsTest extends TestCase
 {
@@ -36,6 +36,7 @@ class SnippetsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1));
     }
+
     #[Test]
     public function shouldShowSnippet(): void
     {
@@ -50,6 +51,7 @@ class SnippetsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 2));
     }
+
     #[Test]
     public function shouldCreateSnippet(): void
     {
@@ -64,6 +66,7 @@ class SnippetsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create(1, 'A new snippet', 'file.txt', 'A file', 'public'));
     }
+
     #[Test]
     public function shouldUpdateSnippet(): void
     {
@@ -78,6 +81,7 @@ class SnippetsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(1, 3, ['file_name' => 'new_file.txt', 'code' => 'New content', 'title' => 'Updated snippet']));
     }
+
     #[Test]
     public function shouldShowContent(): void
     {
@@ -91,6 +95,7 @@ class SnippetsTest extends TestCase
 
         $this->assertEquals($expectedString, $api->content(1, 3));
     }
+
     #[Test]
     public function shouldRemoveSnippet(): void
     {
@@ -104,6 +109,7 @@ class SnippetsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1, 3));
     }
+
     #[Test]
     public function shouldGetNotes(): void
     {
@@ -121,6 +127,7 @@ class SnippetsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showNotes(1, 2));
     }
+
     #[Test]
     public function shouldGetNote(): void
     {
@@ -135,6 +142,7 @@ class SnippetsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showNote(1, 2, 3));
     }
+
     #[Test]
     public function shouldCreateNote(): void
     {
@@ -149,6 +157,7 @@ class SnippetsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addNote(1, 2, 'A new note'));
     }
+
     #[Test]
     public function shouldUpdateNote(): void
     {
@@ -163,6 +172,7 @@ class SnippetsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateNote(1, 2, 3, 'An edited comment'));
     }
+
     #[Test]
     public function shouldRemoveNote(): void
     {
@@ -176,6 +186,7 @@ class SnippetsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeNote(1, 2, 3));
     }
+
     #[Test]
     public function shouldIssueSnippetAwardEmoji(): void
     {
@@ -193,6 +204,7 @@ class SnippetsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->awardEmoji(1, 2));
     }
+
     #[Test]
     public function shouldRevokeSnippetAwardEmoji(): void
     {

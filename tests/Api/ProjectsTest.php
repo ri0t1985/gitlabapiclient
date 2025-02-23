@@ -14,12 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use DateTime;
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Projects;
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\Test;
 
 class ProjectsTest extends TestCase
 {
@@ -32,6 +32,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
+
     #[Test]
     public function shouldGetAllProjectsSortedByName(): void
     {
@@ -48,6 +49,7 @@ class ProjectsTest extends TestCase
             $api->all(['page' => 1, 'per_page' => 5, 'order_by' => 'name', 'sort' => 'asc'])
         );
     }
+
     #[Test]
     public function shouldNotNeedPaginationWhenGettingProjects(): void
     {
@@ -61,6 +63,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
+
     #[Test]
     public function shouldGetAccessibleProjects(): void
     {
@@ -70,6 +73,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
+
     #[Test]
     public function shouldGetOwnedProjects(): void
     {
@@ -79,6 +83,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['owned' => true]));
     }
+
     #[Test]
     public function shouldGetNotArchivedProjects(): void
     {
@@ -88,6 +93,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['archived' => false]));
     }
+
     #[Test]
     #[DataProvider('possibleAccessLevels')]
     public function shouldGetProjectsWithMinimumAccessLevel($level): void
@@ -98,6 +104,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['min_access_level' => $level]));
     }
+
     #[Test]
     public function shouldSearchProjects(): void
     {
@@ -106,6 +113,7 @@ class ProjectsTest extends TestCase
         $api = $this->getMultipleProjectsRequestMock('projects', $expectedArray, ['search' => 'a project']);
         $this->assertEquals($expectedArray, $api->all(['search' => 'a project']));
     }
+
     #[Test]
     public function shouldSearchProjectsWithNamespace(): void
     {
@@ -114,6 +122,7 @@ class ProjectsTest extends TestCase
         $api = $this->getMultipleProjectsRequestMock('projects', $expectedArray, ['search' => 'a_project', 'search_namespaces' => 'true']);
         $this->assertEquals($expectedArray, $api->all(['search' => 'a_project', 'search_namespaces' => true]));
     }
+
     #[Test]
     public function shouldGetProjectsAfterId(): void
     {
@@ -123,6 +132,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['id_after' => 0]));
     }
+
     #[Test]
     public function shouldGetProjectsWithLastActivityAfter(): void
     {
@@ -134,6 +144,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['last_activity_after' => $unixEpochDateTime]));
     }
+
     #[Test]
     public function shouldGetProjectsWithLastActivityBefore(): void
     {
@@ -145,6 +156,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['last_activity_before' => $now]));
     }
+
     #[Test]
     public function shouldGetProjectsWithoutFailedRepositoryChecksum(): void
     {
@@ -154,6 +166,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['repository_checksum_failed' => false]));
     }
+
     #[Test]
     public function shouldGetProjectsWithDefaultRepositoryStorage(): void
     {
@@ -163,6 +176,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['repository_storage' => 'default']));
     }
+
     #[Test]
     public function shouldGetStarredProjects(): void
     {
@@ -172,6 +186,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['starred' => true]));
     }
+
     #[Test]
     public function shouldGetProjectsWithoutFailedWikiChecksum(): void
     {
@@ -181,6 +196,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['wiki_checksum_failed' => false]));
     }
+
     #[Test]
     public function shouldGetProjectsWithCustomAttributes(): void
     {
@@ -190,6 +206,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['with_custom_attributes' => true]));
     }
+
     #[Test]
     public function shouldGetProjectsWithPhpProgrammingLanguage(): void
     {
@@ -199,6 +216,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(['with_programming_language' => 'php']));
     }
+
     #[Test]
     public function shouldShowProject(): void
     {
@@ -212,6 +230,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1));
     }
+
     #[Test]
     public function shouldShowProjectWithStatistics(): void
     {
@@ -235,6 +254,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, ['statistics' => true]));
     }
+
     #[Test]
     public function shouldCreateProject(): void
     {
@@ -250,6 +270,7 @@ class ProjectsTest extends TestCase
             'issues_enabled' => true,
         ]));
     }
+
     #[Test]
     public function shouldUpdateProject(): void
     {
@@ -266,6 +287,7 @@ class ProjectsTest extends TestCase
             'issues_enabled' => true,
         ]));
     }
+
     #[Test]
     public function shouldArchiveProject(): void
     {
@@ -279,6 +301,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->archive(1));
     }
+
     #[Test]
     public function shouldUnarchiveProject(): void
     {
@@ -292,6 +315,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->unarchive(1));
     }
+
     #[Test]
     public function shouldCreateProjectForUser(): void
     {
@@ -307,6 +331,7 @@ class ProjectsTest extends TestCase
             'issues_enabled' => true,
         ]));
     }
+
     #[Test]
     public function shouldRemoveProject(): void
     {
@@ -320,6 +345,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1));
     }
+
     #[Test]
     public function shouldGetPipelines(): void
     {
@@ -337,6 +363,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->pipelines(1));
     }
+
     #[Test]
     public function shouldGetTriggers(): void
     {
@@ -353,6 +380,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->triggers(1));
     }
+
     #[Test]
     public function shouldGetTrigger(): void
     {
@@ -517,6 +545,7 @@ class ProjectsTest extends TestCase
             ],
         ];
     }
+
     #[Test]
     public function shouldGetBoards(): void
     {
@@ -587,6 +616,7 @@ class ProjectsTest extends TestCase
             ],
         ];
     }
+
     #[Test]
     public function shouldGetIterations(): void
     {
@@ -616,6 +646,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->iterations(1));
     }
+
     #[Test]
     public function shouldCreateTrigger(): void
     {
@@ -633,6 +664,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createTrigger(1, 'foobar'));
     }
+
     #[Test]
     public function shouldRemoveTrigger(): void
     {
@@ -646,6 +678,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeTrigger(1, 2));
     }
+
     #[Test]
     public function shouldTriggerPipeline(): void
     {
@@ -667,6 +700,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->triggerPipeline(1, 'master', 'some_token', ['VAR_1' => 'value 1']));
     }
+
     #[Test]
     public function shouldGetPipelinesWithBooleanParam(): void
     {
@@ -684,6 +718,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->pipelines(1, ['yaml_errors' => false]));
     }
+
     #[Test]
     public function shouldGetPipelineWithDateParam(): void
     {
@@ -712,6 +747,7 @@ class ProjectsTest extends TestCase
             'updated_before' => $updated_before,
         ]));
     }
+
     #[Test]
     public function shouldGetPipelinesWithSHA(): void
     {
@@ -729,6 +765,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->pipelines(1, ['sha' => '123']));
     }
+
     #[Test]
     public function shouldGetPipeline(): void
     {
@@ -746,6 +783,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->pipeline(1, 3));
     }
+
     #[Test]
     public function shouldGetPipelineJobs(): void
     {
@@ -763,6 +801,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->pipelineJobs(1, 3));
     }
+
     #[Test]
     public function shouldGetPipelineVariables(): void
     {
@@ -779,6 +818,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->pipelineVariables(1, 3));
     }
+
     #[Test]
     public function shouldGetPipelineTestReport(): void
     {
@@ -800,6 +840,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->pipelineTestReport(1, 3));
     }
+
     #[Test]
     public function shouldGetPipelineTestReportSummary(): void
     {
@@ -821,6 +862,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->pipelineTestReportSummary(1, 3));
     }
+
     #[Test]
     public function shouldCreatePipeline(): void
     {
@@ -836,6 +878,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createPipeline(1, 'test-pipeline'));
     }
+
     #[Test]
     public function shouldCreatePipelineWithVariables(): void
     {
@@ -862,6 +905,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createPipeline(1, 'test-pipeline', $variables));
     }
+
     #[Test]
     public function shouldRetryPipeline(): void
     {
@@ -877,6 +921,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->retryPipeline(1, 4));
     }
+
     #[Test]
     public function shouldCancelPipeline(): void
     {
@@ -892,6 +937,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->cancelPipeline(1, 6));
     }
+
     #[Test]
     public function shouldDeletePipeline(): void
     {
@@ -905,6 +951,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->deletePipeline(1, 3));
     }
+
     #[Test]
     public function shouldGetAllMembers(): void
     {
@@ -921,6 +968,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->allMembers(1));
     }
+
     #[Test]
     public function shouldGetAllMember(): void
     {
@@ -934,6 +982,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->allMember(1, 2));
     }
+
     #[Test]
     public function shouldGetMembers(): void
     {
@@ -950,6 +999,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->members(1));
     }
+
     #[Test]
     public function shouldGetMembersWithQuery(): void
     {
@@ -965,6 +1015,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->members(1, ['query' => 'at']));
     }
+
     #[Test]
     public function shouldGetMembersWithNullQuery(): void
     {
@@ -981,6 +1032,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->members(1));
     }
+
     #[Test]
     public function shouldGetMembersWithPagination(): void
     {
@@ -1000,6 +1052,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->members(1, ['page' => 2, 'per_page' => 15]));
     }
+
     #[Test]
     public function shouldGetMember(): void
     {
@@ -1013,6 +1066,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->member(1, 2));
     }
+
     #[Test]
     public function shouldAddMember(): void
     {
@@ -1026,6 +1080,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addMember(1, 2, 3));
     }
+
     #[Test]
     public function shouldAddMemberWithExpiration(): void
     {
@@ -1045,6 +1100,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addMember(1, 3, 3, $expiration));
     }
+
     #[Test]
     public function shouldSaveMember(): void
     {
@@ -1058,6 +1114,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->saveMember(1, 2, 4));
     }
+
     #[Test]
     public function shouldSaveMemberWithExpiration(): void
     {
@@ -1077,6 +1134,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->saveMember(1, 3, 4, $expiration));
     }
+
     #[Test]
     public function shouldRemoveMember(): void
     {
@@ -1090,6 +1148,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeMember(1, 2));
     }
+
     #[Test]
     public function shouldGetHooks(): void
     {
@@ -1106,6 +1165,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->hooks(1));
     }
+
     #[Test]
     public function shouldGetHook(): void
     {
@@ -1119,6 +1179,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->hook(1, 2));
     }
+
     #[Test]
     public function shouldAddHook(): void
     {
@@ -1141,6 +1202,7 @@ class ProjectsTest extends TestCase
             ['push_events' => true, 'issues_events' => true, 'merge_requests_events' => true]
         ));
     }
+
     #[Test]
     public function shouldAddHookWithOnlyUrl(): void
     {
@@ -1154,6 +1216,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addHook(1, 'http://www.example.com'));
     }
+
     #[Test]
     public function shouldAddHookWithoutPushEvents(): void
     {
@@ -1167,6 +1230,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addHook(1, 'http://www.example.com', ['push_events' => false]));
     }
+
     #[Test]
     public function shouldUpdateHook(): void
     {
@@ -1183,6 +1247,7 @@ class ProjectsTest extends TestCase
             $api->updateHook(1, 3, ['url' => 'http://www.example-test.com', 'push_events' => false])
         );
     }
+
     #[Test]
     public function shouldRemoveHook(): void
     {
@@ -1196,6 +1261,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeHook(1, 2));
     }
+
     #[Test]
     public function shouldTransfer(): void
     {
@@ -1213,6 +1279,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->transfer(1, 'a_namespace'));
     }
+
     #[Test]
     public function shouldGetDeployKeys(): void
     {
@@ -1229,6 +1296,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->deployKeys(1));
     }
+
     #[Test]
     public function shouldGetDeployKey(): void
     {
@@ -1242,6 +1310,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->deployKey(1, 2));
     }
+
     #[Test]
     public function shouldAddKey(): void
     {
@@ -1255,6 +1324,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addDeployKey(1, 'new-key', '...'));
     }
+
     #[Test]
     public function shouldAddKeyWithPushOption(): void
     {
@@ -1268,6 +1338,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addDeployKey(1, 'new-key', '...', true));
     }
+
     #[Test]
     public function shouldDeleteDeployKey(): void
     {
@@ -1281,6 +1352,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->deleteDeployKey(1, 3));
     }
+
     #[Test]
     public function shoudEnableDeployKey(): void
     {
@@ -1294,6 +1366,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->enableDeployKey(1, 3));
     }
+
     #[Test]
     public function shouldGetDeployTokens(): void
     {
@@ -1320,6 +1393,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->deployTokens(1));
     }
+
     #[Test]
     public function shouldGetActiveDeployTokens(): void
     {
@@ -1346,6 +1420,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals([], $api->deployTokens(1, true));
     }
+
     #[Test]
     public function shouldGetInactiveDeployTokens(): void
     {
@@ -1372,6 +1447,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals([], $api->deployTokens(1, false));
     }
+
     #[Test]
     public function shouldCreateDeployToken(): void
     {
@@ -1414,6 +1490,7 @@ class ProjectsTest extends TestCase
             'expires_at' => new DateTime('2021-01-01'),
         ]));
     }
+
     #[Test]
     public function shouldDeleteDeployToken(): void
     {
@@ -1427,6 +1504,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->deleteDeployToken(1, 2));
     }
+
     #[Test]
     public function shouldGetEvents(): void
     {
@@ -1443,6 +1521,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->events(1));
     }
+
     #[Test]
     public function shouldGetEventsWithDateTimeParams(): void
     {
@@ -1467,6 +1546,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->events(1, ['after' => $after, 'before' => $before]));
     }
+
     #[Test]
     public function shouldGetEventsWithPagination(): void
     {
@@ -1486,6 +1566,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->events(1, ['page' => 2, 'per_page' => 15]));
     }
+
     #[Test]
     public function shouldGetLabels(): void
     {
@@ -1502,6 +1583,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->labels(1));
     }
+
     #[Test]
     public function shouldAddLabel(): void
     {
@@ -1515,6 +1597,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addLabel(1, ['name' => 'wont-fix', 'color' => '#ffffff']));
     }
+
     #[Test]
     public function shouldUpdateLabel(): void
     {
@@ -1531,6 +1614,7 @@ class ProjectsTest extends TestCase
             $api->updateLabel(1, 123, ['new_name' => 'big-bug', 'color' => '#00ffff'])
         );
     }
+
     #[Test]
     public function shouldRemoveLabel(): void
     {
@@ -1544,6 +1628,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeLabel(1, 456));
     }
+
     #[Test]
     public function shouldGetLanguages(): void
     {
@@ -1555,6 +1640,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->languages(1));
     }
+
     #[Test]
     public function shouldForkWithNamespace(): void
     {
@@ -1572,6 +1658,7 @@ class ProjectsTest extends TestCase
             'namespace' => 'new_namespace',
         ]));
     }
+
     #[Test]
     public function shouldForkWithNamespaceAndPath(): void
     {
@@ -1591,6 +1678,7 @@ class ProjectsTest extends TestCase
             'path' => 'new_path',
         ]));
     }
+
     #[Test]
     public function shouldForkWithNamespaceAndPathAndName(): void
     {
@@ -1612,6 +1700,7 @@ class ProjectsTest extends TestCase
             'name' => 'new_name',
         ]));
     }
+
     #[Test]
     public function shouldCreateForkRelation(): void
     {
@@ -1625,6 +1714,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createForkRelation(1, 2));
     }
+
     #[Test]
     public function shouldRemoveForkRelation(): void
     {
@@ -1638,6 +1728,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeForkRelation(2));
     }
+
     #[Test]
     public function shouldGetForks(): void
     {
@@ -1663,6 +1754,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->forks(1));
     }
+
     #[Test]
     public function shouldGetForksUsingParameters(): void
     {
@@ -1725,6 +1817,7 @@ class ProjectsTest extends TestCase
             'with_custom_attributes' => true,
         ]));
     }
+
     #[Test]
     public function shouldSetService(): void
     {
@@ -1738,6 +1831,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->setService(1, 'hipchat', ['param' => 'value']));
     }
+
     #[Test]
     public function shouldRemoveService(): void
     {
@@ -1751,6 +1845,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeService(1, 'hipchat'));
     }
+
     #[Test]
     public function shouldGetVariables(): void
     {
@@ -1767,6 +1862,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->variables(1));
     }
+
     #[Test]
     public function shouldGetVariable(): void
     {
@@ -1780,6 +1876,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->variable(1, 'ftp_username'));
     }
+
     #[Test]
     public function shouldAddVariable(): void
     {
@@ -1799,6 +1896,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addVariable(1, $expectedKey, $expectedValue));
     }
+
     #[Test]
     public function shouldAddVariableWithProtected(): void
     {
@@ -1816,6 +1914,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->addVariable(1, 'DEPLOY_SERVER', 'stage.example.com', true));
     }
+
     #[Test]
     public function shouldAddVariableWithEnvironment(): void
     {
@@ -1836,6 +1935,7 @@ class ProjectsTest extends TestCase
             $api->addVariable(1, 'DEPLOY_SERVER', 'stage.example.com', null, 'staging')
         );
     }
+
     #[Test]
     public function shouldAddVariableWithProtectionAndEnvironment(): void
     {
@@ -1857,6 +1957,7 @@ class ProjectsTest extends TestCase
             $api->addVariable(1, 'DEPLOY_SERVER', 'stage.example.com', true, 'staging')
         );
     }
+
     #[Test]
     public function shouldAddVariableWithEnvironmentAndVariableType(): void
     {
@@ -1878,6 +1979,7 @@ class ProjectsTest extends TestCase
             $api->addVariable(1, 'DEPLOY_SERVER', 'stage.example.com', null, 'staging', ['variable_type' => 'file'])
         );
     }
+
     #[Test]
     public function shouldAddVariableWithEnvironmentFromParameterList(): void
     {
@@ -1898,6 +2000,7 @@ class ProjectsTest extends TestCase
             $api->addVariable(1, 'DEPLOY_SERVER', 'stage.example.com', null, 'staging', ['environment_scope' => 'production'])
         );
     }
+
     #[Test]
     public function shouldUpdateVariable(): void
     {
@@ -1917,6 +2020,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateVariable(1, $expectedKey, $expectedValue));
     }
+
     #[Test]
     public function shouldUpdateVariableWithProtected(): void
     {
@@ -1934,6 +2038,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateVariable(1, 'DEPLOY_SERVER', 'stage.example.com', true));
     }
+
     #[Test]
     public function shouldUpdateVariableWithEnvironment(): void
     {
@@ -1957,6 +2062,7 @@ class ProjectsTest extends TestCase
             $api->updateVariable(1, 'DEPLOY_SERVER', 'stage.example.com', null, 'staging')
         );
     }
+
     #[Test]
     public function shouldUpdateVariableWithProtectedAndEnvironment(): void
     {
@@ -1981,6 +2087,7 @@ class ProjectsTest extends TestCase
             $api->updateVariable(1, 'DEPLOY_SERVER', 'stage.example.com', true, 'staging')
         );
     }
+
     #[Test]
     public function shouldUpdateVariableWithEnvironmentAndVariableType(): void
     {
@@ -2005,6 +2112,7 @@ class ProjectsTest extends TestCase
             $api->updateVariable(1, 'DEPLOY_SERVER', 'stage.example.com', null, 'staging', ['variable_type' => 'file'])
         );
     }
+
     #[Test]
     public function shouldUpdateVariableWithEnvironmentFromParameterList(): void
     {
@@ -2028,6 +2136,7 @@ class ProjectsTest extends TestCase
             $api->updateVariable(1, 'DEPLOY_SERVER', 'stage.example.com', null, 'staging', ['environment_scope' => 'production'])
         );
     }
+
     #[Test]
     public function shouldRemoveVariable(): void
     {
@@ -2052,6 +2161,7 @@ class ProjectsTest extends TestCase
 
         return $api;
     }
+
     #[Test]
     public function shouldGetDeployments(): void
     {
@@ -2068,6 +2178,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->deployments(1));
     }
+
     #[Test]
     public function shouldGetDeploymentsWithPagination(): void
     {
@@ -2087,6 +2198,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->deployments(1, ['page' => 2, 'per_page' => 15]));
     }
+
     #[Test]
     public function shouldGetDeploymentsSorted(): void
     {
@@ -2118,6 +2230,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals(\array_reverse($expectedArray), $api->deployments(1, ['order_by' => 'id', 'sort' => 'desc']));
     }
+
     #[Test]
     public function shouldGetDeploymentsFiltered(): void
     {
@@ -2188,6 +2301,7 @@ class ProjectsTest extends TestCase
             ],
         ];
     }
+
     #[Test]
     public function shouldGetBadges(): void
     {
@@ -2201,6 +2315,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->badges(1));
     }
+
     #[Test]
     public function shouldGetBadge(): void
     {
@@ -2217,6 +2332,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->badge(1, 1));
     }
+
     #[Test]
     public function shouldAddBadge(): void
     {
@@ -2239,6 +2355,7 @@ class ProjectsTest extends TestCase
             $api->addBadge(1, ['link_url' => $link_url, 'image_url' => $image_url])
         );
     }
+
     #[Test]
     public function shouldUpdateBadge(): void
     {
@@ -2255,6 +2372,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateBadge(1, 2, ['image_url' => $image_url]));
     }
+
     #[Test]
     public function shouldRemoveBadge(): void
     {
@@ -2268,6 +2386,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->removeBadge(1, 1));
     }
+
     #[Test]
     public function shouldAddProtectedBranch(): void
     {
@@ -2292,6 +2411,7 @@ class ProjectsTest extends TestCase
             ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->addProtectedBranch(1, ['name' => 'master', 'push_access_level' => 0, 'merge_access_level' => 30]));
     }
+
     #[Test]
     public function shouldRemoveProtectedBranch(): void
     {
@@ -2306,6 +2426,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->deleteProtectedBranch(1, 'test-branch'));
     }
+
     #[Test]
     public function shoudGetApprovalsConfiguration(): void
     {
@@ -2328,6 +2449,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->approvalsConfiguration(1));
     }
+
     #[Test]
     public function shoudGetApprovalsRules(): void
     {
@@ -2353,6 +2475,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->approvalsRules(1));
     }
+
     #[Test]
     public function shoudCreateApprovalsRule(): void
     {
@@ -2375,6 +2498,7 @@ class ProjectsTest extends TestCase
             'rule_type' => 'any_approver',
         ]));
     }
+
     #[Test]
     public function shoudUpdateApprovalsRule(): void
     {
@@ -2394,6 +2518,7 @@ class ProjectsTest extends TestCase
             'name' => 'Updated Name',
         ]));
     }
+
     #[Test]
     public function shoudDeleteApprovalsRule(): void
     {
@@ -2407,6 +2532,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->deleteApprovalsRule(1, 1));
     }
+
     #[Test]
     public function shouldDeleteAllMergedBranches(): void
     {
@@ -2420,6 +2546,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->deleteAllMergedBranches(1));
     }
+
     #[Test]
     public function shouldGetProtectedBranches(): void
     {
@@ -2452,6 +2579,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->protectedBranches(1));
     }
+
     #[Test]
     public function shouldGetProjectAccessTokens(): void
     {
@@ -2478,6 +2606,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->projectAccessTokens(1));
     }
+
     #[Test]
     public function shouldGetProjectAccessToken(): void
     {
@@ -2502,6 +2631,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->projectAccessToken(1, 42));
     }
+
     #[Test]
     public function shouldCreateProjectAccessToken(): void
     {
@@ -2546,6 +2676,7 @@ class ProjectsTest extends TestCase
             'expires_at' => new DateTime('2021-01-31'),
         ]));
     }
+
     #[Test]
     public function shouldDeleteProjectAccessToken(): void
     {
@@ -2559,6 +2690,7 @@ class ProjectsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->deleteProjectAccessToken(1, 2));
     }
+
     #[Test]
     public function shouldUploadAvatar(): void
     {
@@ -2575,6 +2707,7 @@ class ProjectsTest extends TestCase
         $this->assertEquals($expectedArray, $api->uploadAvatar(1, $fileName));
         \unlink($fileName);
     }
+
     #[Test]
     public function shouldAddProtectedTag(): void
     {
@@ -2597,6 +2730,7 @@ class ProjectsTest extends TestCase
             ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->addProtectedTag(1, $params));
     }
+
     #[Test]
     public function shouldRemoveProtectedTag(): void
     {
@@ -2616,6 +2750,7 @@ class ProjectsTest extends TestCase
     {
         return Projects::class;
     }
+
     #[Test]
     public function shouldSearchGroups(): void
     {

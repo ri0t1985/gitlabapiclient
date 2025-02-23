@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\RepositoryFiles;
+use PHPUnit\Framework\Attributes\Test;
 
 class RepositoryFilesTest extends TestCase
 {
@@ -32,6 +32,7 @@ class RepositoryFilesTest extends TestCase
 
         $this->assertEquals($expectedString, $api->getRawFile(1, 'dir/file1.txt', 'abcd1234'));
     }
+
     #[Test]
     public function shouldGetFile(): void
     {
@@ -46,6 +47,7 @@ class RepositoryFilesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->getFile(1, 'dir/file1.txt', 'abcd1234'));
     }
+
     #[Test]
     public function shouldCreateFile(): void
     {
@@ -70,6 +72,7 @@ class RepositoryFilesTest extends TestCase
             'commit_message' => 'Added new file',
         ]));
     }
+
     #[Test]
     public function shouldCreateFileWithEncoding(): void
     {
@@ -96,6 +99,7 @@ class RepositoryFilesTest extends TestCase
             'encoding' => 'text',
         ]));
     }
+
     #[Test]
     public function shouldCreateFileWithAuthor(): void
     {
@@ -124,6 +128,7 @@ class RepositoryFilesTest extends TestCase
             'author_name' => 'GitLab User',
         ]));
     }
+
     #[Test]
     public function shouldUpdateFile(): void
     {
@@ -148,6 +153,7 @@ class RepositoryFilesTest extends TestCase
             'commit_message' => 'Updated new file',
         ]));
     }
+
     #[Test]
     public function shouldUpdateFileWithEncoding(): void
     {
@@ -174,6 +180,7 @@ class RepositoryFilesTest extends TestCase
             'encoding' => 'base64',
         ]));
     }
+
     #[Test]
     public function shouldUpdateFileWithAuthor(): void
     {
@@ -202,6 +209,7 @@ class RepositoryFilesTest extends TestCase
             'author_name' => 'GitLab User',
         ]));
     }
+
     #[Test]
     public function shouldDeleteFile(): void
     {
@@ -224,6 +232,7 @@ class RepositoryFilesTest extends TestCase
             'commit_message' => 'Deleted file',
         ]));
     }
+
     #[Test]
     public function shouldDeleteFileWithAuthor(): void
     {

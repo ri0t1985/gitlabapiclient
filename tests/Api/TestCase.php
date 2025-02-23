@@ -14,11 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Client;
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase as BaseTestCase;
-use PHPUnit\Framework\Attributes\Test;
 use Psr\Http\Client\ClientInterface;
 
 abstract class TestCase extends BaseTestCase

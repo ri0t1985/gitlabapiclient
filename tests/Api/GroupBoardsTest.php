@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\GroupsBoards;
+use PHPUnit\Framework\Attributes\Test;
 
 class GroupBoardsTest extends TestCase
 {
@@ -36,6 +36,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
+
     #[Test]
     public function shouldShowIssueBoard(): void
     {
@@ -50,6 +51,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 2));
     }
+
     #[Test]
     public function shouldCreateIssueBoard(): void
     {
@@ -64,6 +66,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create(1, ['name' => 'A new issue board']));
     }
+
     #[Test]
     public function shouldUpdateIssueBoard(): void
     {
@@ -78,6 +81,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(1, 2, ['name' => 'A renamed issue board', 'labels' => 'foo']));
     }
+
     #[Test]
     public function shouldRemoveIssueBoard(): void
     {
@@ -91,6 +95,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }
+
     #[Test]
     public function shouldGetAllLists(): void
     {
@@ -123,6 +128,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->allLists(1, 2));
     }
+
     #[Test]
     public function shouldGetList(): void
     {
@@ -147,6 +153,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->showList(1, 2, 3));
     }
+
     #[Test]
     public function shouldCreateList(): void
     {
@@ -171,6 +178,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->createList(1, 2, 4));
     }
+
     #[Test]
     public function shouldUpdateList(): void
     {
@@ -195,6 +203,7 @@ class GroupBoardsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->updateList(5, 2, 3, 1));
     }
+
     #[Test]
     public function shouldDeleteList(): void
     {

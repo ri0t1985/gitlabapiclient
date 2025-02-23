@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\IssueLinks;
+use PHPUnit\Framework\Attributes\Test;
 
 class IssueLinksTest extends TestCase
 {
@@ -26,6 +26,7 @@ class IssueLinksTest extends TestCase
     {
         return IssueLinks::class;
     }
+
     #[Test]
     public function shouldGetIssueLinks(): void
     {
@@ -43,6 +44,7 @@ class IssueLinksTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1, 10));
     }
+
     #[Test]
     public function shouldCreateIssueLink(): void
     {
@@ -60,6 +62,7 @@ class IssueLinksTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create(1, 10, 2, 20));
     }
+
     #[Test]
     public function shouldRemoveIssueLink(): void
     {

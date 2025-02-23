@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\Milestones;
+use PHPUnit\Framework\Attributes\Test;
 
 class MilestonesTest extends TestCase
 {
@@ -36,6 +36,7 @@ class MilestonesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1));
     }
+
     #[Test]
     public function shouldShowMilestone(): void
     {
@@ -50,6 +51,7 @@ class MilestonesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->show(1, 2));
     }
+
     #[Test]
     public function shouldCreateMilestone(): void
     {
@@ -64,6 +66,7 @@ class MilestonesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create(1, ['description' => 'Some text', 'title' => 'A new milestone']));
     }
+
     #[Test]
     public function shouldUpdateMilestone(): void
     {
@@ -78,6 +81,7 @@ class MilestonesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->update(1, 3, ['title' => 'Updated milestone', 'due_date' => '2015-04-01', 'state_event' => 'close']));
     }
+
     #[Test]
     public function shouldRemoveMilestone(): void
     {
@@ -91,6 +95,7 @@ class MilestonesTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }
+
     #[Test]
     public function shouldGetMilestonesIssues(): void
     {
@@ -108,6 +113,7 @@ class MilestonesTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->issues(1, 3));
     }
+
     #[Test]
     public function shouldGetMilestonesMergeRequests(): void
     {

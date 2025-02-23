@@ -14,19 +14,12 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\HttpClient;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\HttpClient\Builder;
-use PHPUnit\Framework\Attributes\Test;
 use Http\Client\Common\HttpMethodsClientInterface;
-use PHPUnit\Framework\Attributes\Test;
 use Http\Client\Common\Plugin;
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\Attributes\Test;
 use Psr\Http\Client\ClientInterface;
-use PHPUnit\Framework\Attributes\Test;
 use Psr\Http\Message\RequestFactoryInterface;
-use PHPUnit\Framework\Attributes\Test;
 use Psr\Http\Message\StreamFactoryInterface;
 
 /**

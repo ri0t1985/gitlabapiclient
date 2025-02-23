@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\ResourceWeightEvents;
+use PHPUnit\Framework\Attributes\Test;
 
 class ResourceWeightEventsTest extends TestCase
 {
@@ -61,6 +61,7 @@ class ResourceWeightEventsTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all(1, 253));
     }
+
     #[Test]
     public function shouldShowEvent(): void
     {

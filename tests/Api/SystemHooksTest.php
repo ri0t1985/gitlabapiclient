@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Gitlab\Tests\Api;
 
-use PHPUnit\Framework\Attributes\Test;
 use Gitlab\Api\SystemHooks;
+use PHPUnit\Framework\Attributes\Test;
 
 class SystemHooksTest extends TestCase
 {
@@ -36,6 +36,7 @@ class SystemHooksTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->all());
     }
+
     #[Test]
     public function shouldCreateHook(): void
     {
@@ -50,6 +51,7 @@ class SystemHooksTest extends TestCase
 
         $this->assertEquals($expectedArray, $api->create('http://www.example.net'));
     }
+
     #[Test]
     public function shouldTestHook(): void
     {
@@ -63,6 +65,7 @@ class SystemHooksTest extends TestCase
 
         $this->assertEquals($expectedBool, $api->test(3));
     }
+
     #[Test]
     public function shouldRemoveHook(): void
     {
