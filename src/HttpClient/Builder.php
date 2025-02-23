@@ -38,77 +38,34 @@ use Psr\Http\Message\UriFactoryInterface;
  */
 final class Builder
 {
-    /**
-     * The object that sends HTTP messages.
-     *
-     * @var ClientInterface
-     */
-    private $httpClient;
+    private readonly ClientInterface $httpClient;
+    private readonly RequestFactoryInterface $requestFactory;
+    private readonly StreamFactoryInterface $streamFactory;
+    private readonly UriFactoryInterface $uriFactory;
 
     /**
-     * The HTTP request factory.
-     *
-     * @var RequestFactoryInterface
-     */
-    private $requestFactory;
-
-    /**
-     * The HTTP stream factory.
-     *
-     * @var StreamFactoryInterface
-     */
-    private $streamFactory;
-
-    /**
-     * The URI factory.
-     *
-     * @var UriFactoryInterface
-     */
-    private $uriFactory;
-
-    /**
-     * The currently registered plugins.
-     *
      * @var Plugin[]
      */
-    private $plugins = [];
+    private array $plugins = [];
 
-    /**
-     * The cache plugin to use.
-     *
-     * This plugin is specially treated because it has to be the very last plugin.
-     *
-     * @var CachePlugin|null
-     */
-    private $cachePlugin;
+    private ?CachePlugin $cachePlugin;
 
-    /**
-     * A HTTP client with all our plugins.
-     *
-     * @var HttpMethodsClientInterface|null
-     */
-    private $pluginClient;
+    private ?HttpMethodsClientInterface $pluginClient;
 
-    /**
-     * Create a new http client builder instance.
-     *
-     * @param ClientInterface|null         $httpClient
-     * @param RequestFactoryInterface|null $requestFactory
-     * @param StreamFactoryInterface|null  $streamFactory
-     * @param UriFactoryInterface|null     $uriFactory
-     *
-     * @return void
-     */
     public function __construct(
-        ClientInterface $httpClient = null,
-        RequestFactoryInterface $requestFactory = null,
-        StreamFactoryInterface $streamFactory = null,
-        UriFactoryInterface $uriFactory = null
+        ?ClientInterface $httpClient = null,
+        ?RequestFactoryInterface $requestFactory = null,
+        ?StreamFactoryInterface $streamFactory = null,
+        ?UriFactoryInterface $uriFactory = null
     ) {
         $this->httpClient = $httpClient ?? Psr18ClientDiscovery::find();
         $this->requestFactory = $requestFactory ?? Psr17FactoryDiscovery::findRequestFactory();
         $this->streamFactory = $streamFactory ?? Psr17FactoryDiscovery::findStreamFactory();
         $this->uriFactory = $uriFactory ?? Psr17FactoryDiscovery::findUriFactory();
+
+        $this->plugins = [];
+        $this->cachePlugin = null;
+        $this->pluginClient = null;
     }
 
     /**

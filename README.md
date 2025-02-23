@@ -28,8 +28,7 @@ This version supports [PHP](https://php.net) 7.4-8.3. To get started, simply req
 ### Standard Installation
 
 ```bash
-$ composer require "m4tthumphrey/php-gitlab-api:^11.15" \
-  "guzzlehttp/guzzle:^7.8" "http-interop/http-factory-guzzle:^1.2"
+$ composer require "m4tthumphrey/php-gitlab-api:^12.0" "guzzlehttp/guzzle:^7.9.2"
 ```
 
 ### Framework Integration
@@ -37,13 +36,13 @@ $ composer require "m4tthumphrey/php-gitlab-api:^11.15" \
 #### Laravel:
 
 ```bash
-$ composer require "graham-campbell/gitlab:^7.6"
+$ composer require "graham-campbell/gitlab:^8.0"
 ```
 
 #### Symfony:
 
 ```bash
-$ composer require "zeichen32/gitlabapibundle:^6.1"
+$ composer require "zeichen32/gitlabapibundle:^7.0"
 ```
 
 We are decoupled from any HTTP messaging client by using [PSR-7](https://www.php-fig.org/psr/psr-7/), [PSR-17](https://www.php-fig.org/psr/psr-17/), [PSR-18](https://www.php-fig.org/psr/psr-18/), and [HTTPlug](https://httplug.io/). You can visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html) to get more information about installing HTTPlug related packages. The framework integration [graham-campbell/gitlab](https://github.com/GrahamCampbell/Laravel-GitLab) is by [Graham Campbell](https://github.com/GrahamCampbell) and [zeichen32/gitlabapibundle](https://github.com/Zeichen32/GitLabApiBundle) is by [Jens Averkamp](https://github.com/Zeichen32).
@@ -96,7 +95,7 @@ $builder->addPlugin($plugin);
 $client = new Gitlab\Client($builder);
 ```
 
-One can read more about HTTPlug plugins [here](https://docs.php-http.org/en/latest/plugins/introduction.html#how-it-works). Take a look around the [API methods](https://github.com/GitLabPHP/Client/tree/11.15/src/Api), and please feel free to report any bugs, noting our [code of conduct](.github/CODE_OF_CONDUCT.md).
+One can read more about HTTPlug plugins [here](https://docs.php-http.org/en/latest/plugins/introduction.html#how-it-works). Take a look around the [API methods](https://github.com/GitLabPHP/Client/tree/12.0/src/Api), and please feel free to report any bugs, noting our [code of conduct](.github/CODE_OF_CONDUCT.md).
 
 
 ## Contributing

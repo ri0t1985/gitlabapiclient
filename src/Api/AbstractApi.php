@@ -48,30 +48,14 @@ abstract class AbstractApi
      */
     protected const ACCESS_LEVELS = [0, 10, 20, 30, 40, 50];
 
-    /**
-     * The client instance.
-     *
-     * @var Client
-     */
-    private $client;
+    private readonly Client $client;
 
-    /**
-     * The per page parameter.
-     *
-     * @var int|null
-     */
-    private $perPage;
+    private ?int $perPage;
 
-    /**
-     * Create a new API instance.
-     *
-     * @param Client $client
-     *
-     * @return void
-     */
     public function __construct(Client $client)
     {
         $this->client = $client;
+        $this->perPage = null;
     }
 
     /**

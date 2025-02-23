@@ -100,30 +100,12 @@ class Client
      *
      * @var string
      */
-    private const USER_AGENT = 'gitlab-php-api-client/11.15';
+    private const USER_AGENT = 'gitlab-php-api-client/12.0';
 
-    /**
-     * The HTTP client builder.
-     *
-     * @var Builder
-     */
-    private $httpClientBuilder;
+    private readonly Builder $httpClientBuilder;
+    private readonly History $responseHistory;
 
-    /**
-     * The response history plugin.
-     *
-     * @var History
-     */
-    private $responseHistory;
-
-    /**
-     * Instantiate a new Gitlab client.
-     *
-     * @param Builder|null $httpClientBuilder
-     *
-     * @return void
-     */
-    public function __construct(Builder $httpClientBuilder = null)
+    public function __construct(?Builder $httpClientBuilder = null)
     {
         $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder();
         $this->responseHistory = new History();
@@ -425,7 +407,7 @@ class Client
      *
      * @return void
      */
-    public function authenticate(string $token, string $authMethod, string $sudo = null): void
+    public function authenticate(string $token, string $authMethod, ?string $sudo = null): void
     {
         $this->getHttpClientBuilder()->removePlugin(Authentication::class);
         $this->getHttpClientBuilder()->addPlugin(new Authentication($authMethod, $token, $sudo));
