@@ -19,7 +19,7 @@ class IssueLinks extends AbstractApi
     /**
      * @return mixed
      */
-    public function all(int|string $project_id, int $issue_iid)
+    public function all(int|string $project_id, int $issue_iid): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'issues/'.self::encodePath($issue_iid)).'/links');
     }
@@ -32,7 +32,7 @@ class IssueLinks extends AbstractApi
      *
      * @return mixed
      */
-    public function create(int|string $project_id, int $issue_iid, int|string $target_project_id, int $target_issue_iid, array $parameters = [])
+    public function create(int|string $project_id, int $issue_iid, int|string $target_project_id, int $target_issue_iid, array $parameters = []): mixed
     {
         $parameters['target_project_id'] = $target_project_id;
         $parameters['target_issue_iid'] = $target_issue_iid;
@@ -48,7 +48,7 @@ class IssueLinks extends AbstractApi
      *
      * @return mixed
      */
-    public function remove(int|string $project_id, int $issue_iid, int|string $issue_link_id, array $parameters = [])
+    public function remove(int|string $project_id, int $issue_iid, int|string $issue_link_id, array $parameters = []): mixed
     {
         return $this->delete($this->getProjectPath($project_id, 'issues/'.self::encodePath($issue_iid)).'/links/'.self::encodePath($issue_link_id), $parameters);
     }

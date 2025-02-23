@@ -80,7 +80,7 @@ abstract class AbstractApi
      *
      * @return mixed
      */
-    protected function get(string $uri, array $params = [], array $headers = [])
+    protected function get(string $uri, array $params = [], array $headers = []): mixed
     {
         $response = $this->getAsResponse($uri, $params, $headers);
 
@@ -95,7 +95,7 @@ abstract class AbstractApi
      *
      * @return mixed
      */
-    protected function post(string $uri, array $params = [], array $headers = [], array $files = [], array $uriParams = [])
+    protected function post(string $uri, array $params = [], array $headers = [], array $files = [], array $uriParams = []): mixed
     {
         if (0 < \count($files)) {
             $builder = $this->createMultipartStreamBuilder($params, $files);
@@ -121,7 +121,7 @@ abstract class AbstractApi
      *
      * @return mixed
      */
-    protected function put(string $uri, array $params = [], array $headers = [], array $files = [])
+    protected function put(string $uri, array $params = [], array $headers = [], array $files = []): mixed
     {
         if (0 < \count($files)) {
             $builder = $this->createMultipartStreamBuilder($params, $files);
@@ -147,7 +147,7 @@ abstract class AbstractApi
      *
      * @return mixed
      */
-    protected function patch(string $uri, array $params = [], array $headers = [], array $files = [])
+    protected function patch(string $uri, array $params = [], array $headers = [], array $files = []): mixed
     {
         if (0 < \count($files)) {
             $builder = $this->createMultipartStreamBuilder($params, $files);
@@ -172,7 +172,7 @@ abstract class AbstractApi
      *
      * @return mixed
      */
-    protected function putFile(string $uri, string $file, array $headers = [], array $uriParams = [])
+    protected function putFile(string $uri, string $file, array $headers = [], array $uriParams = []): mixed
     {
         $resource = self::tryFopen($file, 'r');
         $body = $this->client->getStreamFactory()->createStreamFromResource($resource);
@@ -192,7 +192,7 @@ abstract class AbstractApi
      *
      * @return mixed
      */
-    protected function delete(string $uri, array $params = [], array $headers = [])
+    protected function delete(string $uri, array $params = [], array $headers = []): mixed
     {
         $body = self::prepareJsonBody($params);
 

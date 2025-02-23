@@ -22,7 +22,7 @@ class SystemHooks extends AbstractApi
     /**
      * @return mixed
      */
-    public function all()
+    public function all(): mixed
     {
         return $this->get('hooks');
     }
@@ -40,7 +40,7 @@ class SystemHooks extends AbstractApi
      *
      * @return mixed
      */
-    public function create(string $url, array $parameters = [])
+    public function create(string $url, array $parameters = []): mixed
     {
         $parameters = $this->createOptionsResolver()->resolve($parameters);
 
@@ -52,7 +52,7 @@ class SystemHooks extends AbstractApi
     /**
      * @return mixed
      */
-    public function test(int $id)
+    public function test(int $id): mixed
     {
         return $this->get('hooks/'.self::encodePath($id));
     }
@@ -60,7 +60,7 @@ class SystemHooks extends AbstractApi
     /**
      * @return mixed
      */
-    public function remove(int $id)
+    public function remove(int $id): mixed
     {
         return $this->delete('hooks/'.self::encodePath($id));
     }

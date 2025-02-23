@@ -21,7 +21,7 @@ class Environments extends AbstractApi
     /**
      * @return mixed
      */
-    public function all(int|string $project_id, array $parameters = [])
+    public function all(int|string $project_id, array $parameters = []): mixed
     {
         $resolver = $this->createOptionsResolver();
         $resolver->setDefined('name')
@@ -45,7 +45,7 @@ class Environments extends AbstractApi
      *
      * @return mixed
      */
-    public function create(int|string $project_id, array $parameters = [])
+    public function create(int|string $project_id, array $parameters = []): mixed
     {
         $resolver = new OptionsResolver();
         $resolver->setDefined('name')
@@ -62,7 +62,7 @@ class Environments extends AbstractApi
     /**
      * @return mixed
      */
-    public function remove(int|string $project_id, int $environment_id)
+    public function remove(int|string $project_id, int $environment_id): mixed
     {
         return $this->delete($this->getProjectPath($project_id, 'environments/'.$environment_id));
     }
@@ -70,7 +70,7 @@ class Environments extends AbstractApi
     /**
      * @return mixed
      */
-    public function stop(int|string $project_id, int $environment_id)
+    public function stop(int|string $project_id, int $environment_id): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'environments/'.self::encodePath($environment_id).'/stop'));
     }
@@ -78,7 +78,7 @@ class Environments extends AbstractApi
     /**
      * @return mixed
      */
-    public function show(int|string $project_id, int $environment_id)
+    public function show(int|string $project_id, int $environment_id): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'environments/'.self::encodePath($environment_id)));
     }

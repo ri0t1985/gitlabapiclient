@@ -31,7 +31,7 @@ final class History implements Journal
     /**
      * @var ResponseInterface|null
      */
-    private $lastResponse;
+    private ?ResponseInterface $lastResponse;
 
     public function getLastResponse(): ?ResponseInterface
     {

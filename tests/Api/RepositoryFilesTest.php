@@ -263,7 +263,7 @@ class RepositoryFilesTest extends TestCase
     /**
      * @return string
      */
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return RepositoryFiles::class;
     }

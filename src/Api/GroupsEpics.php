@@ -41,7 +41,7 @@ class GroupsEpics extends AbstractApi
      *
      * @return mixed
      */
-    public function all(int|string $group_id, array $parameters = [])
+    public function all(int|string $group_id, array $parameters = []): mixed
     {
         $resolver = $this->createOptionsResolver();
         $resolver->setDefined('iids')
@@ -61,7 +61,7 @@ class GroupsEpics extends AbstractApi
     /**
      * @return mixed
      */
-    public function show(int|string $group_id, int $epic_id)
+    public function show(int|string $group_id, int $epic_id): mixed
     {
         return $this->get('groups/'.self::encodePath($group_id).'/epics/'.self::encodePath($epic_id));
     }
@@ -69,7 +69,7 @@ class GroupsEpics extends AbstractApi
     /**
      * @return mixed
      */
-    public function create(int|string $group_id, array $params)
+    public function create(int|string $group_id, array $params): mixed
     {
         return $this->post('groups/'.self::encodePath($group_id).'/epics', $params);
     }
@@ -77,7 +77,7 @@ class GroupsEpics extends AbstractApi
     /**
      * @return mixed
      */
-    public function update(int|string $group_id, int $epic_id, array $params)
+    public function update(int|string $group_id, int $epic_id, array $params): mixed
     {
         return $this->put('groups/'.self::encodePath($group_id).'/epics/'.self::encodePath($epic_id), $params);
     }
@@ -85,7 +85,7 @@ class GroupsEpics extends AbstractApi
     /**
      * @return mixed
      */
-    public function remove(int|string $group_id, int $epic_id)
+    public function remove(int|string $group_id, int $epic_id): mixed
     {
         return $this->delete('groups/'.self::encodePath($group_id).'/epics/'.self::encodePath($epic_id));
     }
@@ -93,7 +93,7 @@ class GroupsEpics extends AbstractApi
     /**
      * @return mixed
      */
-    public function issues(int|string $group_id, int $epic_iid)
+    public function issues(int|string $group_id, int $epic_iid): mixed
     {
         return $this->get('groups/'.self::encodePath($group_id).'/epics/'.self::encodePath($epic_iid).'/issues');
     }

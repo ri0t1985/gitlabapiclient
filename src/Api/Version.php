@@ -19,7 +19,7 @@ class Version extends AbstractApi
     /**
      * @return mixed
      */
-    public function show()
+    public function show(): mixed
     {
         return $this->get('version');
     }

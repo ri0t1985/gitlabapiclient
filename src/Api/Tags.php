@@ -27,7 +27,7 @@ class Tags extends AbstractApi
      *
      * @return mixed
      */
-    public function all(int|string $project_id, array $parameters = [])
+    public function all(int|string $project_id, array $parameters = []): mixed
     {
         $resolver = $this->createOptionsResolver();
         $resolver->setDefined('order_by')
@@ -42,7 +42,7 @@ class Tags extends AbstractApi
     /**
      * @return mixed
      */
-    public function show(int|string $project_id, string $tag_name)
+    public function show(int|string $project_id, string $tag_name): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/tags/'.self::encodePath($tag_name)));
     }
@@ -50,7 +50,7 @@ class Tags extends AbstractApi
     /**
      * @return mixed
      */
-    public function create(int|string $project_id, array $params = [])
+    public function create(int|string $project_id, array $params = []): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'repository/tags'), $params);
     }
@@ -58,7 +58,7 @@ class Tags extends AbstractApi
     /**
      * @return mixed
      */
-    public function remove(int|string $project_id, string $tag_name)
+    public function remove(int|string $project_id, string $tag_name): mixed
     {
         return $this->delete($this->getProjectPath($project_id, 'repository/tags/'.self::encodePath($tag_name)));
     }
@@ -66,7 +66,7 @@ class Tags extends AbstractApi
     /**
      * @return mixed
      */
-    public function createRelease(int|string $project_id, string $tag_name, array $params = [])
+    public function createRelease(int|string $project_id, string $tag_name, array $params = []): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'repository/tags/'.self::encodePath($tag_name).'/release'), $params);
     }
@@ -74,7 +74,7 @@ class Tags extends AbstractApi
     /**
      * @return mixed
      */
-    public function updateRelease(int|string $project_id, string $tag_name, array $params = [])
+    public function updateRelease(int|string $project_id, string $tag_name, array $params = []): mixed
     {
         return $this->put($this->getProjectPath($project_id, 'repository/tags/'.self::encodePath($tag_name).'/release'), $params);
     }

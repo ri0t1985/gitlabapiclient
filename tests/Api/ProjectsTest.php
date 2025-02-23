@@ -445,7 +445,7 @@ class ProjectsTest extends TestCase
      * @return array
      *               Project issues list
      */
-    public function getProjectIssuesExpectedArray()
+    public function getProjectIssuesExpectedArray(): array
     {
         return [
             [
@@ -518,7 +518,7 @@ class ProjectsTest extends TestCase
      *
      * @return array
      */
-    public function getProjectUsersExpectedArray()
+    public function getProjectUsersExpectedArray(): array
     {
         return [
             [
@@ -552,7 +552,7 @@ class ProjectsTest extends TestCase
      * @return array
      *               Project issues list
      */
-    public function getProjectBoardsExpectedArray()
+    public function getProjectBoardsExpectedArray(): array
     {
         return [
             [

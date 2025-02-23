@@ -36,7 +36,7 @@ class Milestones extends AbstractApi
      *
      * @return mixed
      */
-    public function all(int|string $project_id, array $parameters = [])
+    public function all(int|string $project_id, array $parameters = []): mixed
     {
         $resolver = $this->createOptionsResolver();
         $resolver->setDefined('iids')
@@ -56,7 +56,7 @@ class Milestones extends AbstractApi
     /**
      * @return mixed
      */
-    public function show(int|string $project_id, int $milestone_id)
+    public function show(int|string $project_id, int $milestone_id): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'milestones/'.self::encodePath($milestone_id)));
     }
@@ -64,7 +64,7 @@ class Milestones extends AbstractApi
     /**
      * @return mixed
      */
-    public function create(int|string $project_id, array $params)
+    public function create(int|string $project_id, array $params): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'milestones'), $params);
     }
@@ -72,7 +72,7 @@ class Milestones extends AbstractApi
     /**
      * @return mixed
      */
-    public function update(int|string $project_id, int $milestone_id, array $params)
+    public function update(int|string $project_id, int $milestone_id, array $params): mixed
     {
         return $this->put($this->getProjectPath($project_id, 'milestones/'.self::encodePath($milestone_id)), $params);
     }
@@ -80,7 +80,7 @@ class Milestones extends AbstractApi
     /**
      * @return mixed
      */
-    public function remove(int|string $project_id, int $milestone_id)
+    public function remove(int|string $project_id, int $milestone_id): mixed
     {
         return $this->delete($this->getProjectPath($project_id, 'milestones/'.self::encodePath($milestone_id)));
     }
@@ -88,7 +88,7 @@ class Milestones extends AbstractApi
     /**
      * @return mixed
      */
-    public function issues(int|string $project_id, int $milestone_id)
+    public function issues(int|string $project_id, int $milestone_id): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'milestones/'.self::encodePath($milestone_id).'/issues'));
     }
@@ -96,7 +96,7 @@ class Milestones extends AbstractApi
     /**
      * @return mixed
      */
-    public function mergeRequests(int|string $project_id, int $milestone_id)
+    public function mergeRequests(int|string $project_id, int $milestone_id): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'milestones/'.self::encodePath($milestone_id).'/merge_requests'));
     }

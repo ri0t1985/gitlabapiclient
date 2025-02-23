@@ -31,7 +31,7 @@ class BuilderTest extends TestCase
     /**
      * @var Builder
      */
-    private $subject;
+    private Builder $subject;
 
     #[Before]
     public function initBuilder(): void

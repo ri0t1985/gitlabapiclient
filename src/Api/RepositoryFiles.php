@@ -21,7 +21,7 @@ class RepositoryFiles extends AbstractApi
     /**
      * @return mixed
      */
-    public function getFile(int|string $project_id, string $file_path, string $ref)
+    public function getFile(int|string $project_id, string $file_path, string $ref): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/files/'.self::encodePath($file_path)), [
             'ref' => $ref,
@@ -31,7 +31,7 @@ class RepositoryFiles extends AbstractApi
     /**
      * @return mixed
      */
-    public function getRawFile(int|string $project_id, string $file_path, string $ref)
+    public function getRawFile(int|string $project_id, string $file_path, string $ref): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/files/'.self::encodePath($file_path).'/raw'), [
             'ref' => $ref,
@@ -53,7 +53,7 @@ class RepositoryFiles extends AbstractApi
      *
      * @return mixed
      */
-    public function createFile(int|string $project_id, array $parameters = [])
+    public function createFile(int|string $project_id, array $parameters = []): mixed
     {
         $resolver = new OptionsResolver();
         $resolver->setRequired('file_path');
@@ -88,7 +88,7 @@ class RepositoryFiles extends AbstractApi
      *
      * @return mixed
      */
-    public function updateFile(int|string $project_id, array $parameters = [])
+    public function updateFile(int|string $project_id, array $parameters = []): mixed
     {
         $resolver = new OptionsResolver();
         $resolver->setRequired('file_path');
@@ -121,7 +121,7 @@ class RepositoryFiles extends AbstractApi
      *
      * @return mixed
      */
-    public function deleteFile(int|string $project_id, array $parameters = [])
+    public function deleteFile(int|string $project_id, array $parameters = []): mixed
     {
         $resolver = new OptionsResolver();
         $resolver->setRequired('file_path');

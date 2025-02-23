@@ -35,7 +35,7 @@ class Packages extends AbstractApi
      *
      * @return mixed
      */
-    public function all(int|string $project_id, array $parameters = [])
+    public function all(int|string $project_id, array $parameters = []): mixed
     {
         $resolver = $this->createOptionsResolver();
 
@@ -65,7 +65,7 @@ class Packages extends AbstractApi
     /**
      * @return mixed
      */
-    public function show(int|string $project_id, int $package_id)
+    public function show(int|string $project_id, int $package_id): mixed
     {
         return $this->get($this->getPackagePath($project_id, $package_id));
     }
@@ -73,7 +73,7 @@ class Packages extends AbstractApi
     /**
      * @return mixed
      */
-    public function allFiles(int|string $project_id, int $package_id)
+    public function allFiles(int|string $project_id, int $package_id): mixed
     {
         return $this->get($this->getPackagePath($project_id, $package_id).'/package_files');
     }
@@ -81,7 +81,7 @@ class Packages extends AbstractApi
     /**
      * @return mixed
      */
-    public function remove(int|string $project_id, int $package_id)
+    public function remove(int|string $project_id, int $package_id): mixed
     {
         return $this->delete($this->getPackagePath($project_id, $package_id));
     }
@@ -89,7 +89,7 @@ class Packages extends AbstractApi
     /**
      * @return mixed
      */
-    public function removeFile(int|string $project_id, int $package_id, int $package_file_id)
+    public function removeFile(int|string $project_id, int $package_id, int $package_file_id): mixed
     {
         return $this->delete(
             $this->getPackagePath($project_id, $package_id).'/package_files/'.self::encodePath($package_file_id)
@@ -99,7 +99,7 @@ class Packages extends AbstractApi
     /**
      * @return mixed
      */
-    public function addGenericFile(int|string $project_id, string $package_name, string $package_version, string $file, string $status = 'default')
+    public function addGenericFile(int|string $project_id, string $package_name, string $package_version, string $file, string $status = 'default'): mixed
     {
         return $this->putFile(
             $this->getProjectPath(

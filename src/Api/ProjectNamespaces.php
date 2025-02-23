@@ -24,7 +24,7 @@ class ProjectNamespaces extends AbstractApi
      *
      * @return mixed
      */
-    public function all(array $parameters = [])
+    public function all(array $parameters = []): mixed
     {
         $resolver = $this->createOptionsResolver();
         $resolver->setDefined('search');
@@ -35,7 +35,7 @@ class ProjectNamespaces extends AbstractApi
     /**
      * @return mixed
      */
-    public function show(int|string $namespace_id)
+    public function show(int|string $namespace_id): mixed
     {
         return $this->get('namespaces/'.self::encodePath($namespace_id));
     }
