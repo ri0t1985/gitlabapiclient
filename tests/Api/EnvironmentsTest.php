@@ -45,7 +45,7 @@ class EnvironmentsTest extends TestCase
         $this->assertEquals($expectedArray, $api->all(1));
     }
 
-    /** @test */
+    #[Test]
     public function shouldFilterEnvironmentByName(): void
     {
         $expected = [

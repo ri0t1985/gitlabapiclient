@@ -18,8 +18,6 @@ use DateTime;
 use Gitlab\Api\Projects;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
-use PHPUnit\Framework\Attributes\Test;
-use PHPUnit\Framework\Attributes\Test;
 
 class ProjectsTest extends TestCase
 {
@@ -399,11 +397,7 @@ class ProjectsTest extends TestCase
         $this->assertEquals($expectedArray, $api->trigger(1, 3));
     }
 
-    /**
-     * Check we can request project issues.
-     *
-     * @test
-     */
+    #[Test]
     public function shouldGetProjectIssues(): void
     {
         $expectedArray = $this->getProjectIssuesExpectedArray();
@@ -417,11 +411,7 @@ class ProjectsTest extends TestCase
         $this->assertEquals($expectedArray, $api->issues(1));
     }
 
-    /**
-     * Check we can request project issues.
-     *
-     * @test
-     */
+    #[Test]
     public function shouldGetProjectUsers(): void
     {
         $expectedArray = $this->getProjectUsersExpectedArray();
@@ -435,11 +425,7 @@ class ProjectsTest extends TestCase
         $this->assertEquals($expectedArray, $api->users(1));
     }
 
-    /**
-     * Check we can request project issues with query parameters.
-     *
-     * @test
-     */
+    #[Test]
     public function shouldGetProjectIssuesParameters(): void
     {
         $expectedArray = $this->getProjectIssuesExpectedArray();

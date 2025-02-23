@@ -21,6 +21,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
+use PHPUnit\Framework\Attributes\Before;
 
 /**
  * @author Fabien Bourigault <bourigaultfabien@gmail.com>
@@ -32,9 +33,7 @@ class BuilderTest extends TestCase
      */
     private $subject;
 
-    /**
-     * @before
-     */
+    #[Before]
     public function initBuilder(): void
     {
         $this->subject = new Builder(

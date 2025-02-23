@@ -17,7 +17,6 @@ namespace Gitlab\Tests\Api;
 use Gitlab\Api\Jobs;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\Attributes\Test;
-use PHPUnit\Framework\Attributes\Test;
 
 class JobsTest extends TestCase
 {

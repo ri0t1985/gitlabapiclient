@@ -17,7 +17,6 @@ namespace Gitlab\Tests\Api;
 use Gitlab\Api\Tags;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
-use PHPUnit\Framework\Attributes\Test;
 
 class TagsTest extends TestCase
 {

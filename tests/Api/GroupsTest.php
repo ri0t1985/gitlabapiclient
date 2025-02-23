@@ -17,7 +17,6 @@ namespace Gitlab\Tests\Api;
 use DateTime;
 use Gitlab\Api\Groups;
 use PHPUnit\Framework\Attributes\Test;
-use PHPUnit\Framework\Attributes\Test;
 
 class GroupsTest extends TestCase
 {
