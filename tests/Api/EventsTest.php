@@ -36,7 +36,7 @@ class EventsTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('events', [])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->all());
@@ -56,7 +56,7 @@ class EventsTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('events', ['after' => '1970-01-01'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->all(['after' => new \DateTime('1970-01-01')]));

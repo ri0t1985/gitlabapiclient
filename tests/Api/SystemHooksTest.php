@@ -32,7 +32,7 @@ class SystemHooksTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('hooks')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->all());
@@ -49,7 +49,7 @@ class SystemHooksTest extends TestCase
         $api->expects($this->once())
             ->method('post')
             ->with('hooks', ['url' => 'http://www.example.net'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->create('http://www.example.net'));
@@ -66,7 +66,7 @@ class SystemHooksTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('hooks/3')
-            ->will($this->returnValue($expectedBool))
+            ->willReturn($expectedBool);
         ;
 
         $this->assertEquals($expectedBool, $api->test(3));
@@ -83,7 +83,7 @@ class SystemHooksTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('hooks/3')
-            ->will($this->returnValue($expectedBool))
+            ->willReturn($expectedBool);
         ;
 
         $this->assertEquals($expectedBool, $api->remove(3));

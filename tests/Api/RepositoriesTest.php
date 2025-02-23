@@ -32,7 +32,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/branches', ['search' => '^term'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->branches(1, ['search' => '^term']));
@@ -49,7 +49,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/branches/master')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->branch(1, 'master'));
@@ -66,7 +66,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('post')
             ->with('projects/1/repository/branches', ['branch' => 'feature', 'ref' => 'master'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->createBranch(1, 'feature', 'master'));
@@ -83,7 +83,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/repository/branches/feature%2FTEST-15')
-            ->will($this->returnValue($expectedBool))
+            ->willReturn($expectedBool);
         ;
 
         $this->assertEquals($expectedBool, $api->deleteBranch(1, 'feature/TEST-15'));
@@ -100,7 +100,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('put')
             ->with('projects/1/repository/branches/master/protect', ['developers_can_push' => false, 'developers_can_merge' => false])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->protectBranch(1, 'master'));
@@ -117,7 +117,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('put')
             ->with('projects/1/repository/branches/master/protect', ['developers_can_push' => true, 'developers_can_merge' => true])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->protectBranch(1, 'master', true, true));
@@ -134,7 +134,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('put')
             ->with('projects/1/repository/branches/master/unprotect')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->unprotectBranch(1, 'master'));
@@ -154,7 +154,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/tags')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->tags(1, ['search' => '^term']));
@@ -175,7 +175,7 @@ class RepositoriesTest extends TestCase
                 'ref' => 'abcd1234',
                 'message' => '1.0 release',
             ])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->createTag(1, '1.0', 'abcd1234', '1.0 release'));
@@ -200,7 +200,7 @@ class RepositoriesTest extends TestCase
                 'tag_name' => $tagName,
                 'description' => $description,
             ])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->createRelease($project_id, $tagName, $description));
@@ -225,7 +225,7 @@ class RepositoriesTest extends TestCase
                 'tag_name' => $tagName,
                 'description' => $description,
             ])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->updateRelease($project_id, $tagName, $description));
@@ -250,7 +250,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/releases')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->releases($project_id));
@@ -270,7 +270,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/commits', [])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->commits(1));
@@ -290,7 +290,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/commits', ['page' => 2, 'per_page' => 25, 'ref_name' => 'master', 'all' => 'true', 'with_stats' => 'true', 'path' => 'file_path/file_name'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->commits(1, ['page' => 2, 'per_page' => 25, 'ref_name' => 'master', 'all' => true, 'with_stats' => true, 'path' => 'file_path/file_name']));
@@ -318,7 +318,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/commits', $expectedWithArray)
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->commits(1, ['since' => $since, 'until' => $until]));
@@ -335,7 +335,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/commits/abcd1234')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->commit(1, 'abcd1234'));
@@ -355,7 +355,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/commits/abcd1234/refs')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->commitRefs(1, 'abcd1234'));
@@ -372,7 +372,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/commits/abcd1234/refs', ['type' => $type])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->commitRefs(1, 'abcd1234', ['type' => $type]));
@@ -403,7 +403,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('post')
             ->with('projects/1/repository/commits')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->createCommit(1, [
@@ -437,7 +437,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('post')
             ->with('projects/1/repository/commits/abcd1234/revert')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->revertCommit(1, 'develop', 'abcd1234'));
@@ -457,7 +457,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/commits/abcd1234/comments')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->commitComments(1, 'abcd1234'));
@@ -474,7 +474,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('post')
             ->with('projects/1/repository/commits/abcd1234/comments', ['note' => 'A new comment'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->createCommitComment(1, 'abcd1234', 'A new comment'));
@@ -495,7 +495,7 @@ class RepositoriesTest extends TestCase
                 'path' => '/some/file.txt',
                 'line' => 123, 'line_type' => 'old',
             ])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->createCommitComment(1, 'abcd1234', 'A new comment', [
@@ -516,7 +516,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/compare', ['from' => 'master', 'to' => 'feature', 'straight' => 'true'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->compare(1, 'master', 'feature', true));
@@ -533,7 +533,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/compare', ['from' => 'master', 'to' => 'feature', 'straight' => 'false'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->compare(1, 'master', 'feature'));
@@ -550,7 +550,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/compare', ['from' => 'master', 'to' => 'feature/760.fake-branch', 'straight' => 'true'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->compare(1, 'master', 'feature/760.fake-branch', true));
@@ -567,7 +567,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/compare', ['from' => 'master', 'to' => 'feature', 'straight' => 'true', 'from_project_id' => '123'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->compare(1, 'master', 'feature', true, '123'));
@@ -587,7 +587,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/commits/abcd1234/diff')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->diff(1, 'abcd1234'));
@@ -607,7 +607,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/tree')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->tree(1));
@@ -627,7 +627,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/tree', ['path' => 'dir/', 'ref_name' => 'master'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->tree(1, ['path' => 'dir/', 'ref_name' => 'master']));
@@ -647,7 +647,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/contributors')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->contributors(1));
@@ -679,7 +679,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/merge_base', ['refs' => ['efgh5678efgh5678efgh5678efgh5678efgh5678', '1234567812345678123456781234567812345678']])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->mergeBase(1, ['efgh5678efgh5678efgh5678efgh5678efgh5678', '1234567812345678123456781234567812345678']));
@@ -712,7 +712,7 @@ class RepositoriesTest extends TestCase
         $api->expects($this->once())
             ->method('post')
             ->with('projects/1/repository/commits/123456123456/cherry_pick', ['branch' => 'feature_branch'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->cherryPick(1, '123456123456', ['branch' => 'feature_branch']));

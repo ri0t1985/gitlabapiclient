@@ -38,7 +38,7 @@ class WikiTest extends TestCase
                 'title' => 'Test Wiki',
                 'content' => 'This is the test Wiki',
             ])
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->create(
             1,
@@ -65,7 +65,7 @@ class WikiTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/wikis/Test-Wiki')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->show(1, 'Test-Wiki'));
     }
@@ -87,7 +87,7 @@ class WikiTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/wikis', $params)
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->showAll(1, $params));
@@ -109,7 +109,7 @@ class WikiTest extends TestCase
         $api->expects($this->once())
             ->method('put')
             ->with('projects/1/wikis/Test-Wiki', ['content' => 'This is the test Wiki that has been updated'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->update(1, 'Test-Wiki', ['content' => 'This is the test Wiki that has been updated']));
@@ -126,7 +126,7 @@ class WikiTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/wikis/Test-Wiki')
-            ->will($this->returnValue($expectedBool))
+            ->willReturn($expectedBool);
         ;
 
         $this->assertEquals($expectedBool, $api->remove(1, 'Test-Wiki'));

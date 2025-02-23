@@ -32,7 +32,7 @@ class VersionTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('version')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->show());
     }
 

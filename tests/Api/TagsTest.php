@@ -32,7 +32,7 @@ class TagsTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/tags')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->all(1));
     }
 
@@ -49,7 +49,7 @@ class TagsTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/tags/v1.0.0')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->show(1, 'v1.0.0'));
     }
 
@@ -72,7 +72,7 @@ class TagsTest extends TestCase
         $api->expects($this->once())
             ->method('post')
             ->with('projects/1/repository/tags', $params)
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->create(1, $params));
     }
@@ -90,7 +90,7 @@ class TagsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/repository/tags/v1.1.0')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->remove(1, 'v1.1.0'));
     }
 
@@ -109,7 +109,7 @@ class TagsTest extends TestCase
         $api->expects($this->once())
             ->method('post')
             ->with('projects/1/repository/tags/'.\str_replace('/', '%2F', $releaseName).'/release', $params)
-            ->will($this->returnValue($expectedResult));
+            ->willReturn($expectedResult);
 
         $this->assertEquals($expectedResult, $api->createRelease(1, $releaseName, $params));
     }
@@ -129,7 +129,7 @@ class TagsTest extends TestCase
         $api->expects($this->once())
             ->method('put')
             ->with('projects/1/repository/tags/'.\str_replace('/', '%2F', $releaseName).'/release', $params)
-            ->will($this->returnValue($expectedResult));
+            ->willReturn($expectedResult);
 
         $this->assertEquals($expectedResult, $api->updateRelease(1, $releaseName, $params));
     }

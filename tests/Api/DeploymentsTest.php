@@ -106,7 +106,7 @@ See merge request !2',
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/deployments/42')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->show(1, 42));
     }
 
@@ -250,7 +250,7 @@ See merge request !2',
         $api->expects($this->once())
             ->method('get')
             ->with($path, $expectedParameters)
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         return $api;
     }

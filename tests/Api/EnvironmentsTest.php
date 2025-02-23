@@ -42,7 +42,7 @@ class EnvironmentsTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/environments')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
         $this->assertEquals($expectedArray, $api->all(1));
     }
 
@@ -61,7 +61,7 @@ class EnvironmentsTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/environments')
-            ->will($this->returnValue($expected));
+            ->willReturn($expected);
         $this->assertEquals($expected, $api->all(1, ['name' => 'review/fix-bar']));
     }
 
@@ -140,7 +140,7 @@ See merge request !1',
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/environments/1')
-            ->will($this->returnValue($expected));
+            ->willReturn($expected);
         $this->assertEquals($expected, $api->show(1, 1));
     }
 
@@ -169,7 +169,7 @@ See merge request !1',
         $api->expects($this->once())
             ->method('post')
             ->with('projects/1/environments', $params)
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->create(1, $params));
     }
@@ -185,7 +185,7 @@ See merge request !1',
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/environments/3')
-            ->will($this->returnValue($expectedBool));
+            ->willReturn($expectedBool);;
         $this->assertEquals($expectedBool, $api->remove(1, 3));
     }
 
@@ -200,7 +200,7 @@ See merge request !1',
         $api->expects($this->once())
             ->method('post')
             ->with('projects/1/environments/3/stop')
-            ->will($this->returnValue($expectedBool));
+            ->willReturn($expectedBool);;
         $this->assertEquals($expectedBool, $api->stop(1, 3));
     }
 

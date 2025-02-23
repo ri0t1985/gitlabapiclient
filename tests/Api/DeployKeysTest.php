@@ -29,7 +29,7 @@ class DeployKeysTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('deploy_keys', ['page' => 2, 'per_page' => 5])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->all(['page' => 2, 'per_page' => 5]));

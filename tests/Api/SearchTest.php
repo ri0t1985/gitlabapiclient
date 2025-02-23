@@ -39,7 +39,7 @@ class SearchTest extends TestCase
                 'order_by' => 'created_at',
                 'sort' => 'desc',
             ])
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->all([
             'scope' => 'projects',

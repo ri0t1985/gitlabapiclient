@@ -29,7 +29,7 @@ class RepositoryFilesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/files/dir%2Ffile1.txt/raw', ['ref' => 'abcd1234'])
-            ->will($this->returnValue($expectedString))
+            ->willReturn($expectedString);
         ;
 
         $this->assertEquals($expectedString, $api->getRawFile(1, 'dir/file1.txt', 'abcd1234'));
@@ -46,7 +46,7 @@ class RepositoryFilesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/repository/files/dir%2Ffile1.txt', ['ref' => 'abcd1234'])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->getFile(1, 'dir/file1.txt', 'abcd1234'));
@@ -68,7 +68,7 @@ class RepositoryFilesTest extends TestCase
                 'content' => 'some contents',
                 'commit_message' => 'Added new file',
             ])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->createFile(1, [
@@ -96,7 +96,7 @@ class RepositoryFilesTest extends TestCase
                 'content' => 'some contents',
                 'commit_message' => 'Added new file',
             ])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->createFile(1, [
@@ -126,7 +126,7 @@ class RepositoryFilesTest extends TestCase
                 'author_email' => 'gitlab@example.com',
                 'author_name' => 'GitLab User',
             ])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->createFile(1, [
@@ -155,7 +155,7 @@ class RepositoryFilesTest extends TestCase
                 'content' => 'some new contents',
                 'commit_message' => 'Updated new file',
             ])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->updateFile(1, [
@@ -183,7 +183,7 @@ class RepositoryFilesTest extends TestCase
                 'content' => 'c29tZSBuZXcgY29udGVudHM=',
                 'commit_message' => 'Updated file',
             ])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->updateFile(1, [
@@ -213,7 +213,7 @@ class RepositoryFilesTest extends TestCase
                 'author_email' => 'gitlab@example.com',
                 'author_name' => 'GitLab User',
             ])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->updateFile(1, [
@@ -241,7 +241,7 @@ class RepositoryFilesTest extends TestCase
                 'branch' => 'master',
                 'commit_message' => 'Deleted file',
             ])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->deleteFile(1, [
@@ -268,7 +268,7 @@ class RepositoryFilesTest extends TestCase
                 'author_email' => 'gitlab@example.com',
                 'author_name' => 'GitLab User',
             ])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->deleteFile(1, [

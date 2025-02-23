@@ -32,7 +32,7 @@ class ProjectNamespacesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('namespaces', [])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->all());
@@ -49,7 +49,7 @@ class ProjectNamespacesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('namespaces/1')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->show(1));

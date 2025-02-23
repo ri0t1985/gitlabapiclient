@@ -40,7 +40,7 @@ class IssueLinksTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/issues/10/links')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->all(1, 10));
@@ -60,7 +60,7 @@ class IssueLinksTest extends TestCase
         $api->expects($this->once())
             ->method('post')
             ->with('projects/1/issues/10/links', ['target_project_id' => 2, 'target_issue_iid' => 20])
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->create(1, 10, 2, 20));
@@ -80,7 +80,7 @@ class IssueLinksTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/issues/10/links/100')
-            ->will($this->returnValue($expectedArray))
+            ->willReturn($expectedArray)
         ;
 
         $this->assertEquals($expectedArray, $api->remove(1, 10, 100));

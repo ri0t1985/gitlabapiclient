@@ -28,7 +28,7 @@ class KeysTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('keys/1')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->show(1));
     }

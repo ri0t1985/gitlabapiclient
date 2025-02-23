@@ -46,7 +46,7 @@ class IssuesStatisticsTest extends TestCase
                 'updated_before' => $now->format('c'),
                 'confidential' => 'false',
             ])
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->all([
             'milestone' => '',
@@ -77,7 +77,7 @@ class IssuesStatisticsTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/issues_statistics', [])
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->project(1, []));
     }
@@ -93,7 +93,7 @@ class IssuesStatisticsTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('groups/1/issues_statistics', [])
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->group(1, []));
     }

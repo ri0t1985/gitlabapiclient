@@ -43,7 +43,7 @@ final class PackagesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/packages')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->all(1));
     }
@@ -61,7 +61,7 @@ final class PackagesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/packages/1')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->show(1, 1));
     }
@@ -81,7 +81,7 @@ final class PackagesTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/packages/1/package_files')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->allFiles(1, 1));
     }
@@ -97,7 +97,7 @@ final class PackagesTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/packages/1')
-            ->will($this->returnValue($expectedBool));
+            ->willReturn($expectedBool);;
 
         $this->assertEquals($expectedBool, $api->remove(1, 1));
     }
@@ -113,7 +113,7 @@ final class PackagesTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/packages/1/package_files/25')
-            ->will($this->returnValue($expectedBool));
+            ->willReturn($expectedBool);;
 
         $this->assertEquals($expectedBool, $api->removeFile(1, 1, 25));
     }
