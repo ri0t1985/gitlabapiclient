@@ -84,7 +84,6 @@ class RepositoriesTest extends TestCase
             ->method('delete')
             ->with('projects/1/repository/branches/feature%2FTEST-15')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->deleteBranch(1, 'feature/TEST-15'));
     }

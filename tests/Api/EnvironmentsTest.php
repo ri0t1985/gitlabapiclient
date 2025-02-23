@@ -185,7 +185,7 @@ See merge request !1',
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/environments/3')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
         $this->assertEquals($expectedBool, $api->remove(1, 3));
     }
 
@@ -200,7 +200,7 @@ See merge request !1',
         $api->expects($this->once())
             ->method('post')
             ->with('projects/1/environments/3/stop')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
         $this->assertEquals($expectedBool, $api->stop(1, 3));
     }
 

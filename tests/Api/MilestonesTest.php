@@ -101,7 +101,6 @@ class MilestonesTest extends TestCase
             ->method('delete')
             ->with('projects/1/milestones/2')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }

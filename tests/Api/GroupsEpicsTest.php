@@ -101,7 +101,6 @@ class GroupsEpicsTest extends TestCase
             ->method('delete')
             ->with('groups/1/epics/2')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }

@@ -345,7 +345,6 @@ class MergeRequestsTest extends TestCase
             ->method('delete')
             ->with('projects/1/merge_requests/2/notes/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeNote(1, 2, 3));
     }
@@ -535,7 +534,6 @@ class MergeRequestsTest extends TestCase
             ->method('delete')
             ->with('projects/1/merge_requests/2/discussions/abc/notes/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeDiscussionNote(1, 2, 'abc', 3));
     }
@@ -657,7 +655,6 @@ class MergeRequestsTest extends TestCase
             ->method('delete')
             ->with('projects/1/merge_requests/2/award_emoji/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals(true, $api->removeAwardEmoji(1, 2, 3));
     }
@@ -868,7 +865,7 @@ class MergeRequestsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/merge_requests/2/approval_rules/3')
-            ->willReturn($expectedValue);;
+            ->willReturn($expectedValue);
 
         $this->assertEquals($expectedValue, $api->deleteLevelRule(1, 2, 3));
     }

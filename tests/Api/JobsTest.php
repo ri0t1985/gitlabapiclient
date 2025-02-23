@@ -138,7 +138,6 @@ class JobsTest extends TestCase
             ->method('getAsResponse')
             ->with('projects/1/jobs/3/artifacts')
             ->willReturn($returnedStream);
-        ;
 
         $this->assertEquals('foobar', $api->artifacts(1, 3)->getContents());
     }
@@ -155,7 +154,6 @@ class JobsTest extends TestCase
             ->method('getAsResponse')
             ->with('projects/1/jobs/3/artifacts/artifact_path')
             ->willReturn($returnedStream);
-        ;
 
         $this->assertEquals('foobar', $api->artifactByJobId(1, 3, 'artifact_path')->getContents());
     }
@@ -174,7 +172,6 @@ class JobsTest extends TestCase
                 'job' => 'job name',
             ])
             ->willReturn($returnedStream);
-        ;
 
         $this->assertEquals('foobar', $api->artifactsByRefName(1, 'master', 'job name')->getContents());
     }
@@ -192,7 +189,7 @@ class JobsTest extends TestCase
                 'job' => 'job name',
             ])
             ->willReturn($returnedStream);
-        ;
+
         $this->assertEquals('foobar', $api->artifactByRefName(1, 'master', 'job name', 'artifact_path')->getContents());
     }
 
@@ -208,7 +205,6 @@ class JobsTest extends TestCase
             ->method('get')
             ->with('projects/1/jobs/3/trace')
             ->willReturn($expectedString);
-        ;
 
         $this->assertEquals($expectedString, $api->trace(1, 3));
     }

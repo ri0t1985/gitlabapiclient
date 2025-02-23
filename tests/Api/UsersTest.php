@@ -461,7 +461,6 @@ class UsersTest extends TestCase
             ->method('delete')
             ->with('users/1')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->remove(1));
     }
@@ -478,7 +477,6 @@ class UsersTest extends TestCase
             ->method('post')
             ->with('users/1/block')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->block(1));
     }
@@ -495,7 +493,6 @@ class UsersTest extends TestCase
             ->method('post')
             ->with('users/1/unblock')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->unblock(1));
     }
@@ -512,7 +509,6 @@ class UsersTest extends TestCase
             ->method('post')
             ->with('users/1/activate')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->activate(1));
     }
@@ -529,7 +525,6 @@ class UsersTest extends TestCase
             ->method('post')
             ->with('users/1/deactivate')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->deactivate(1));
     }
@@ -617,7 +612,6 @@ class UsersTest extends TestCase
             ->method('delete')
             ->with('user/keys/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeKey(3));
     }
@@ -688,7 +682,6 @@ class UsersTest extends TestCase
             ->method('delete')
             ->with('users/1/keys/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeUserKey(1, 3));
     }
@@ -794,7 +787,6 @@ class UsersTest extends TestCase
             ->method('delete')
             ->with('users/1/emails/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeUserEmail(1, 3));
     }
@@ -865,7 +857,6 @@ class UsersTest extends TestCase
             ->method('delete')
             ->with('users/1/impersonation_tokens/1')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeImpersonationToken(1, 1));
     }

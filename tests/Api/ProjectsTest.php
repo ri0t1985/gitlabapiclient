@@ -390,7 +390,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->remove(1));
     }
@@ -737,7 +737,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/triggers/2')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->removeTrigger(1, 2));
     }
@@ -1038,7 +1038,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/pipelines/3')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->deletePipeline(1, 3));
     }
@@ -1259,7 +1259,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/members/2')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->removeMember(1, 2));
     }
@@ -1386,7 +1386,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/hooks/2')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->removeHook(1, 2));
     }
@@ -1489,7 +1489,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/deploy_keys/3')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->deleteDeployKey(1, 3));
     }
@@ -1505,7 +1505,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('post')
             ->with('projects/1/deploy_keys/3/enable')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->enableDeployKey(1, 3));
     }
@@ -1563,7 +1563,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/deploy_tokens', ['active' => true])
-            ->willReturn([]);;
+            ->willReturn([]);
 
         $this->assertEquals([], $api->deployTokens(1, true));
     }
@@ -1592,7 +1592,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('projects/1/deploy_tokens', ['active' => false])
-            ->willReturn([]);;
+            ->willReturn([]);
 
         $this->assertEquals([], $api->deployTokens(1, false));
     }
@@ -1653,7 +1653,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/deploy_tokens/2')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->deleteDeployToken(1, 2));
     }
@@ -1791,7 +1791,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/labels/456', [])
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->removeLabel(1, 456));
     }
@@ -1903,7 +1903,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/2/fork')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->removeForkRelation(2));
     }
@@ -2012,7 +2012,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('put')
             ->with('projects/1/services/hipchat', ['param' => 'value'])
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->setService(1, 'hipchat', ['param' => 'value']));
     }
@@ -2028,7 +2028,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/services/hipchat')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->removeService(1, 'hipchat'));
     }
@@ -2363,7 +2363,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/variables/ftp_password')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->removeVariable(1, 'ftp_password'));
     }
@@ -2617,7 +2617,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/badges/1')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->removeBadge(1, 1));
     }
@@ -2661,7 +2661,7 @@ class ProjectsTest extends TestCase
             ->with(
                 'projects/1/protected_branches/test-branch'
             )
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->deleteProtectedBranch(1, 'test-branch'));
     }
@@ -2777,7 +2777,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/approval_rules/1')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->deleteApprovalsRule(1, 1));
     }
@@ -2793,7 +2793,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/repository/merged_branches')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->deleteAllMergedBranches(1));
     }
@@ -2947,7 +2947,7 @@ class ProjectsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/access_tokens/2')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->deleteProjectAccessToken(1, 2));
     }
@@ -3008,7 +3008,7 @@ class ProjectsTest extends TestCase
             ->with(
                 'projects/1/protected_tags/release-%2A'
             )
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->deleteProtectedTag(1, 'release-*'));
     }

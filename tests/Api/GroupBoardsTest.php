@@ -101,7 +101,6 @@ class GroupBoardsTest extends TestCase
             ->method('delete')
             ->with('groups/1/boards/2')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }
@@ -234,7 +233,6 @@ class GroupBoardsTest extends TestCase
             ->method('delete')
             ->with('groups/1/boards/2/lists/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->deleteList(1, 2, 3));
     }

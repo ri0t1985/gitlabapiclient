@@ -201,7 +201,6 @@ class GroupsMilestonesTest extends TestCase
             ->method('delete')
             ->with('groups/1/milestones/2')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }

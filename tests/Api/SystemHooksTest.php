@@ -67,7 +67,6 @@ class SystemHooksTest extends TestCase
             ->method('get')
             ->with('hooks/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->test(3));
     }
@@ -84,7 +83,6 @@ class SystemHooksTest extends TestCase
             ->method('delete')
             ->with('hooks/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->remove(3));
     }

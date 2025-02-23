@@ -97,7 +97,7 @@ final class PackagesTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/packages/1')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->remove(1, 1));
     }
@@ -113,7 +113,7 @@ final class PackagesTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('projects/1/packages/1/package_files/25')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->removeFile(1, 1, 25));
     }

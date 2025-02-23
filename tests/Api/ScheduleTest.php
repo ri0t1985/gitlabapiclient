@@ -130,7 +130,6 @@ class ScheduleTest extends TestCase
             ->method('delete')
             ->with('projects/1/pipeline_schedules/2')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->remove(1, 2));
     }
@@ -197,7 +196,6 @@ class ScheduleTest extends TestCase
             ->method('delete')
             ->with('projects/1/pipeline_schedules/2/variables/FOO_BAR')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeVariable(1, 2, 'FOO_BAR'));
     }
@@ -214,7 +212,6 @@ class ScheduleTest extends TestCase
             ->method('post')
             ->with('projects/1/pipeline_schedules/2/take_ownership')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->takeOwnership(1, 2));
     }
@@ -231,7 +228,6 @@ class ScheduleTest extends TestCase
             ->method('post')
             ->with('projects/1/pipeline_schedules/2/play')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->play(1, 2));
     }

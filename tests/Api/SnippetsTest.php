@@ -101,7 +101,6 @@ class SnippetsTest extends TestCase
             ->method('get')
             ->with('projects/1/snippets/3/raw')
             ->willReturn($expectedString);
-        ;
 
         $this->assertEquals($expectedString, $api->content(1, 3));
     }
@@ -118,7 +117,6 @@ class SnippetsTest extends TestCase
             ->method('delete')
             ->with('projects/1/snippets/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->remove(1, 3));
     }
@@ -206,7 +204,6 @@ class SnippetsTest extends TestCase
             ->method('delete')
             ->with('projects/1/snippets/2/notes/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeNote(1, 2, 3));
     }
@@ -243,7 +240,6 @@ class SnippetsTest extends TestCase
             ->method('delete')
             ->with('projects/1/snippets/2/award_emoji/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals(true, $api->removeAwardEmoji(1, 2, 3));
     }

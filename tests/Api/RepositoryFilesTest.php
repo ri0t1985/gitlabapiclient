@@ -30,7 +30,6 @@ class RepositoryFilesTest extends TestCase
             ->method('get')
             ->with('projects/1/repository/files/dir%2Ffile1.txt/raw', ['ref' => 'abcd1234'])
             ->willReturn($expectedString);
-        ;
 
         $this->assertEquals($expectedString, $api->getRawFile(1, 'dir/file1.txt', 'abcd1234'));
     }

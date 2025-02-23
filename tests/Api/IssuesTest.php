@@ -304,7 +304,6 @@ class IssuesTest extends TestCase
             ->method('delete')
             ->with('projects/1/issues/2/notes/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeNote(1, 2, 3));
     }
@@ -409,7 +408,6 @@ class IssuesTest extends TestCase
             ->method('delete')
             ->with('projects/1/issues/2/discussions/abc/notes/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeDiscussionNote(1, 2, 'abc', 3));
     }
@@ -531,7 +529,6 @@ class IssuesTest extends TestCase
             ->method('delete')
             ->with('projects/1/issues/2/award_emoji/3')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals(true, $api->removeAwardEmoji(1, 2, 3));
     }

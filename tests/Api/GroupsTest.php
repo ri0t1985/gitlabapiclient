@@ -216,7 +216,6 @@ class GroupsTest extends TestCase
             ->method('post')
             ->with('groups/1/projects/2')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->transfer(1, 2));
     }
@@ -326,7 +325,6 @@ class GroupsTest extends TestCase
             ->method('delete')
             ->with('groups/1/members/2')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeMember(1, 2));
     }
@@ -343,7 +341,6 @@ class GroupsTest extends TestCase
             ->method('delete')
             ->with('groups/1')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->remove(1));
     }
@@ -455,7 +452,6 @@ class GroupsTest extends TestCase
             ->method('delete')
             ->with('groups/1/labels/456', [])
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeLabel(1, 456));
     }
@@ -591,7 +587,6 @@ class GroupsTest extends TestCase
             ->method('delete')
             ->with('groups/1/variables/ftp_password')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->removeVariable(1, 'ftp_password'));
     }
@@ -846,7 +841,7 @@ class GroupsTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('groups/1/deploy_tokens', ['active' => true])
-            ->willReturn([]);;
+            ->willReturn([]);
 
         $this->assertEquals([], $api->deployTokens(1, true));
     }
@@ -875,7 +870,7 @@ class GroupsTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('groups/1/deploy_tokens', ['active' => false])
-            ->willReturn([]);;
+            ->willReturn([]);
 
         $this->assertEquals([], $api->deployTokens(1, false));
     }
@@ -936,7 +931,7 @@ class GroupsTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('groups/1/deploy_tokens/2')
-            ->willReturn($expectedBool);;
+            ->willReturn($expectedBool);
 
         $this->assertEquals($expectedBool, $api->deleteDeployToken(1, 2));
     }

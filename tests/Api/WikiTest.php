@@ -127,7 +127,6 @@ class WikiTest extends TestCase
             ->method('delete')
             ->with('projects/1/wikis/Test-Wiki')
             ->willReturn($expectedBool);
-        ;
 
         $this->assertEquals($expectedBool, $api->remove(1, 'Test-Wiki'));
     }
