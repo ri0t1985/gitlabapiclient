@@ -30,6 +30,14 @@ final class History implements Journal
 {
     private ?ResponseInterface $lastResponse;
 
+    public function __construct()
+    {
+        $this->lastResponse = null;
+    }
+
+    /**
+     * Get the last response.
+     */
     public function getLastResponse(): ?ResponseInterface
     {
         return $this->lastResponse;
