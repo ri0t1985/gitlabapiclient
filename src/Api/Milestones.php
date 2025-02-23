@@ -56,7 +56,6 @@ class Milestones extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $milestone_id
      *
      * @return mixed
      */
@@ -67,7 +66,6 @@ class Milestones extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -78,8 +76,6 @@ class Milestones extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $milestone_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -90,7 +86,6 @@ class Milestones extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $milestone_id
      *
      * @return mixed
      */
@@ -101,7 +96,6 @@ class Milestones extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $milestone_id
      *
      * @return mixed
      */
@@ -112,7 +106,6 @@ class Milestones extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $milestone_id
      *
      * @return mixed
      */

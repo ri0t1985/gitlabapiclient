@@ -78,7 +78,6 @@ class Jobs extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $pipeline_id
      * @param array      $parameters  {
      *
      *     @var string|string[] $scope The scope of jobs to show, one or array of: created, pending, running, failed,
@@ -99,7 +98,6 @@ class Jobs extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $pipeline_id
      * @param array      $parameters  {
      *
      *     @var string|string[] $scope            The scope of bridge jobs to show, one or array of: created, pending, running, failed,
@@ -121,7 +119,6 @@ class Jobs extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $job_id
      *
      * @return mixed
      */
@@ -132,7 +129,6 @@ class Jobs extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $job_id
      *
      * @return StreamInterface
      */
@@ -143,8 +139,6 @@ class Jobs extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $ref_name
-     * @param string     $job_name
      *
      * @return StreamInterface
      */
@@ -157,9 +151,6 @@ class Jobs extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $ref_name
-     * @param string     $job_name
-     * @param string     $artifact_path
      *
      * @return StreamInterface
      */
@@ -173,7 +164,6 @@ class Jobs extends AbstractApi
     /**
      * @param int|string $project_id
      * @param int        $job_id
-     * @param string     $artifact_path
      *
      * @return StreamInterface
      */
@@ -184,7 +174,6 @@ class Jobs extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $job_id
      *
      * @return mixed
      */
@@ -195,7 +184,6 @@ class Jobs extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $job_id
      *
      * @return mixed
      */
@@ -206,7 +194,6 @@ class Jobs extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $job_id
      *
      * @return mixed
      */
@@ -217,7 +204,6 @@ class Jobs extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $job_id
      *
      * @return mixed
      */
@@ -228,7 +214,6 @@ class Jobs extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $job_id
      *
      * @return mixed
      */
@@ -239,7 +224,6 @@ class Jobs extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $job_id
      *
      * @return mixed
      */
@@ -248,9 +232,6 @@ class Jobs extends AbstractApi
         return $this->post('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/play');
     }
 
-    /**
-     * @return OptionsResolver
-     */
     protected function createOptionsResolver(): OptionsResolver
     {
         $allowedScopeValues = [

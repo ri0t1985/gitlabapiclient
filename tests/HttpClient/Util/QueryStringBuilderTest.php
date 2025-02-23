@@ -22,9 +22,6 @@ class QueryStringBuilderTest extends TestCase
 {
     /**
      * @dataProvider queryStringProvider
-     *
-     * @param array  $query
-     * @param string $expected
      */
     public function testBuild(array $query, string $expected): void
     {

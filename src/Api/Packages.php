@@ -65,7 +65,6 @@ class Packages extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $package_id
      *
      * @return mixed
      */
@@ -76,7 +75,6 @@ class Packages extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $package_id
      *
      * @return mixed
      */
@@ -87,7 +85,6 @@ class Packages extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $package_id
      *
      * @return mixed
      */
@@ -98,8 +95,6 @@ class Packages extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $package_id
-     * @param int        $package_file_id
      *
      * @return mixed
      */
@@ -112,10 +107,6 @@ class Packages extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $package_name
-     * @param string     $package_version
-     * @param string     $file
-     * @param string     $status
      *
      * @return mixed
      */
@@ -134,9 +125,6 @@ class Packages extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $package_id
-     *
-     * @return string
      */
     private function getPackagePath($project_id, int $package_id): string
     {

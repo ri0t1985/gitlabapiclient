@@ -60,7 +60,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -74,7 +73,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -85,7 +83,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -96,8 +93,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param array      $params
      *
      * @return mixed
      */
@@ -108,8 +103,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param array      $params
      *
      * @return mixed
      */
@@ -120,7 +113,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      * @param int|string $to_project_id
      *
      * @return mixed
@@ -134,7 +126,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -145,7 +136,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -156,8 +146,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param int        $note_id
      *
      * @return mixed
      */
@@ -168,9 +156,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param string     $body
-     * @param array      $params
      *
      * @return mixed
      */
@@ -183,10 +168,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param int        $note_id
-     * @param string     $body
-     * @param array      $params
      *
      * @return mixed
      */
@@ -199,8 +180,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param int        $note_id
      *
      * @return mixed
      */
@@ -211,7 +190,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -222,8 +200,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param string     $discussion_id
      *
      * @return mixed
      */
@@ -234,8 +210,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param string     $body
      *
      * @return mixed
      */
@@ -246,9 +220,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param string     $discussion_id
-     * @param string     $body
      *
      * @return mixed
      */
@@ -259,10 +230,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param string     $discussion_id
-     * @param int        $note_id
-     * @param string     $body
      *
      * @return mixed
      */
@@ -275,9 +242,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param string     $discussion_id
-     * @param int        $note_id
      *
      * @return mixed
      */
@@ -288,8 +252,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param string     $duration
      *
      * @return mixed
      */
@@ -300,7 +262,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -311,8 +272,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param string     $duration
      *
      * @return mixed
      */
@@ -323,7 +282,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -334,7 +292,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -377,7 +334,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -388,8 +344,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param int        $award_id
      *
      * @return mixed
      */
@@ -400,7 +354,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -411,7 +364,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -422,7 +374,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -433,7 +384,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -444,8 +394,6 @@ class Issues extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param int        $resource_label_event_id
      *
      * @return mixed
      */
@@ -454,9 +402,6 @@ class Issues extends AbstractApi
         return $this->get($this->getProjectPath($project_id, 'issues/'.self::encodePath($issue_iid)).'/resource_label_events/'.self::encodePath($resource_label_event_id));
     }
 
-    /**
-     * @return OptionsResolver
-     */
     protected function createOptionsResolver(): OptionsResolver
     {
         $resolver = parent::createOptionsResolver();

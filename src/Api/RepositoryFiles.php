@@ -20,8 +20,6 @@ class RepositoryFiles extends AbstractApi
 {
     /**
      * @param int|string $project_id
-     * @param string     $file_path
-     * @param string     $ref
      *
      * @return mixed
      */
@@ -34,8 +32,6 @@ class RepositoryFiles extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $file_path
-     * @param string     $ref
      *
      * @return mixed
      */

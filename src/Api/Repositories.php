@@ -49,7 +49,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $branch
      *
      * @return mixed
      */
@@ -60,8 +59,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $branch
-     * @param string     $ref
      *
      * @return mixed
      */
@@ -75,7 +72,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $branch
      *
      * @return mixed
      */
@@ -86,9 +82,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $branch
-     * @param bool       $devPush
-     * @param bool       $devMerge
      *
      * @return mixed
      */
@@ -102,7 +95,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $branch
      *
      * @return mixed
      */
@@ -113,7 +105,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -128,9 +119,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string  $project_id
-     * @param string      $name
-     * @param string      $ref
-     * @param string|null $message
      *
      * @return mixed
      */
@@ -145,9 +133,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string  $project_id
-     * @param string      $tag_name
-     * @param string      $description
-     * @param string|null $name
      *
      * @return mixed
      */
@@ -163,9 +148,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string  $project_id
-     * @param string      $tag_name
-     * @param string      $description
-     * @param string|null $name
      *
      * @return mixed
      */
@@ -246,7 +228,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $sha
      *
      * @return mixed
      */
@@ -257,8 +238,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $sha
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -339,8 +318,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $branch
-     * @param string     $sha
      *
      * @return mixed
      */
@@ -353,8 +330,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $sha
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -370,9 +345,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $sha
-     * @param string     $note
-     * @param array      $params
      *
      * @return mixed
      */
@@ -385,8 +357,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $sha
-     * @param array      $params
      *
      * @return mixed
      */
@@ -397,9 +367,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $sha
-     * @param string     $state
-     * @param array      $params
      *
      * @return mixed
      */
@@ -412,10 +379,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string  $project_id
-     * @param string      $fromShaOrMaster
-     * @param string      $toShaOrMaster
-     * @param bool        $straight
-     * @param string|null $fromProjectId
      *
      * @return mixed
      */
@@ -436,7 +399,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $sha
      *
      * @return mixed
      */
@@ -447,7 +409,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -468,7 +429,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $params
      * @param string     $format     Options: "tar.gz", "zip", "tar.bz2" and "tar"
      *
      * @return mixed
@@ -480,7 +440,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $refs
      *
      * @return mixed
      */
@@ -491,8 +450,6 @@ class Repositories extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $sha
-     * @param array      $params
      *
      * @return mixed
      */
@@ -513,9 +470,6 @@ class Repositories extends AbstractApi
         return $this->post($this->getProjectPath($project_id, 'repository/commits/'.self::encodePath($sha).'/cherry_pick'), $params);
     }
 
-    /**
-     * @return OptionsResolver
-     */
     protected function createOptionsResolver(): OptionsResolver
     {
         $allowedTypeValues = [

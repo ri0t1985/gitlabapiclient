@@ -28,7 +28,6 @@ class SystemHooks extends AbstractApi
     }
 
     /**
-     * @param string                    $url
      * @param array<string,string|bool> $parameters {
      *
      *     @var string  $token                      secret token to validate received payloads
@@ -51,8 +50,6 @@ class SystemHooks extends AbstractApi
     }
 
     /**
-     * @param int $id
-     *
      * @return mixed
      */
     public function test(int $id)
@@ -61,8 +58,6 @@ class SystemHooks extends AbstractApi
     }
 
     /**
-     * @param int $id
-     *
      * @return mixed
      */
     public function remove(int $id)

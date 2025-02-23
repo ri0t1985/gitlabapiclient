@@ -42,7 +42,6 @@ class Tags extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $tag_name
      *
      * @return mixed
      */
@@ -53,7 +52,6 @@ class Tags extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -64,7 +62,6 @@ class Tags extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $tag_name
      *
      * @return mixed
      */
@@ -75,8 +72,6 @@ class Tags extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $tag_name
-     * @param array      $params
      *
      * @return mixed
      */
@@ -87,8 +82,6 @@ class Tags extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $tag_name
-     * @param array      $params
      *
      * @return mixed
      */

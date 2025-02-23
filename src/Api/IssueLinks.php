@@ -18,7 +18,6 @@ class IssueLinks extends AbstractApi
 {
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -29,9 +28,7 @@ class IssueLinks extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      * @param int|string $target_project_id
-     * @param int        $target_issue_iid
      * @param array      $parameters        {
      *
      *     @var string $link_type
@@ -49,7 +46,6 @@ class IssueLinks extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      * @param int|string $issue_link_id
      * @param array      $parameters    {
      *

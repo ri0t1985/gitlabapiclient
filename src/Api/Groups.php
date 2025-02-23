@@ -80,15 +80,6 @@ class Groups extends AbstractApi
     }
 
     /**
-     * @param string $name
-     * @param string $path
-     * @param string $description
-     * @param string $visibility
-     * @param bool   $lfs_enabled
-     * @param bool   $request_access_enabled
-     * @param int    $parent_id
-     * @param int    $shared_runners_minutes_limit
-     *
      * @return mixed
      */
     public function create(string $name, string $path, ?string $description = null, string $visibility = 'private', ?bool $lfs_enabled = null, ?bool $request_access_enabled = null, ?int $parent_id = null, ?int $shared_runners_minutes_limit = null)
@@ -111,7 +102,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -143,7 +133,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -186,7 +175,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $user_id
      *
      * @return mixed
      */
@@ -197,7 +185,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $user_id
      *
      * @return mixed
      */
@@ -208,9 +195,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $user_id
-     * @param int        $access_level
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -236,8 +220,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $user_id
-     * @param int        $access_level
      *
      * @return mixed
      */
@@ -283,7 +265,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $user_id
      *
      * @return mixed
      */
@@ -543,7 +524,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -554,8 +534,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $label_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -566,7 +544,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $label_id
      *
      * @return mixed
      */
@@ -577,7 +554,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -590,7 +566,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param string     $key
      *
      * @return mixed
      */
@@ -601,9 +576,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param string     $key
-     * @param string     $value
-     * @param bool|null  $protected
      * @param array      $parameters {
      *
      *      @var string $masked         true or false
@@ -636,9 +608,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param string     $key
-     * @param string     $value
-     * @param bool|null  $protected
      *
      * @return mixed
      */
@@ -657,7 +626,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param string     $key
      *
      * @return mixed
      */
@@ -913,7 +881,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param bool|null  $active
      *
      * @return mixed
      */
@@ -973,7 +940,6 @@ class Groups extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $token_id
      *
      * @return mixed
      */

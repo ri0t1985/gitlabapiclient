@@ -131,9 +131,6 @@ class ResourceIterationEventsTest extends TestCase
         $this->assertEquals($expectedArray, $api->show(1, 253, 142));
     }
 
-    /**
-     * @return string
-     */
     protected function getApiClass(): string
     {
         return ResourceIterationEvents::class;

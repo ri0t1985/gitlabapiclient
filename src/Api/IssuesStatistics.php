@@ -20,8 +20,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class IssuesStatistics extends AbstractApi
 {
     /**
-     * @param array $parameters
-     *
      * @return mixed
      */
     public function all(array $parameters)
@@ -31,7 +29,6 @@ class IssuesStatistics extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -42,7 +39,6 @@ class IssuesStatistics extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -51,9 +47,6 @@ class IssuesStatistics extends AbstractApi
         return $this->get('groups/'.self::encodePath($group_id).'/issues_statistics', $this->createOptionsResolver()->resolve($parameters));
     }
 
-    /**
-     * @return OptionsResolver
-     */
     protected function createOptionsResolver(): OptionsResolver
     {
         $resolver = new OptionsResolver();

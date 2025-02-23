@@ -155,7 +155,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      * @param array      $parameters {
      *
      *     @var bool               $include_diverged_commits_count      Return the commits behind the target branch
@@ -179,9 +178,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string          $project_id
-     * @param string              $source
-     * @param string              $target
-     * @param string              $title
      * @param array<string,mixed> $parameters {
      *
      *     @var int        $assignee_id       the assignee id
@@ -207,8 +203,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -219,8 +213,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -231,7 +223,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      *
      * @return mixed
      */
@@ -242,8 +233,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param int        $note_id
      *
      * @return mixed
      */
@@ -254,9 +243,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param string     $body
-     * @param array      $params
      *
      * @return mixed
      */
@@ -269,9 +255,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param int        $note_id
-     * @param string     $body
      *
      * @return mixed
      */
@@ -284,8 +267,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param int        $note_id
      *
      * @return mixed
      */
@@ -296,7 +277,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      *
      * @return mixed
      */
@@ -307,8 +287,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param string     $discussion_id
      *
      * @return mixed
      */
@@ -319,8 +297,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param array      $params
      *
      * @return mixed
      */
@@ -331,9 +307,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param string     $discussion_id
-     * @param bool       $resolved
      *
      * @return mixed
      */
@@ -346,9 +319,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param string     $discussion_id
-     * @param string     $body
      *
      * @return mixed
      */
@@ -359,10 +329,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param string     $discussion_id
-     * @param int        $note_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -373,9 +339,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param string     $discussion_id
-     * @param int        $note_id
      *
      * @return mixed
      */
@@ -386,7 +349,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      *
      * @return mixed
      */
@@ -397,7 +359,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      *
      * @return mixed
      */
@@ -408,7 +369,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      *
      * @return mixed
      */
@@ -419,7 +379,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      *
      * @return mixed
      */
@@ -430,7 +389,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      *
      * @return mixed
      */
@@ -441,7 +399,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      *
      * @return mixed
      */
@@ -452,7 +409,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      *
      * @return mixed
      */
@@ -463,7 +419,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      *
      * @return mixed
      */
@@ -474,8 +429,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param int        $award_id
      *
      * @return mixed
      */
@@ -486,8 +439,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param array      $params
      *
      * @return mixed
      */
@@ -502,7 +453,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      *
      * @return mixed
      */
@@ -513,7 +463,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
      *
      * @return mixed
      */
@@ -524,9 +473,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string          $project_id
-     * @param int                 $mr_iid
-     * @param string              $name
-     * @param int                 $approvals_required
      * @param array<string,mixed> $parameters
      *
      * @return mixed
@@ -546,10 +492,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string          $project_id
-     * @param int                 $mr_iid
-     * @param int                 $approval_rule_id
-     * @param string              $name
-     * @param int                 $approvals_required
      * @param array<string,mixed> $parameters
      *
      * @return mixed
@@ -569,8 +511,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $mr_iid
-     * @param int        $approval_rule_id
      *
      * @return mixed
      */

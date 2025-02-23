@@ -18,7 +18,6 @@ class IssueBoards extends AbstractApi
 {
     /**
      * @param int|string|null $project_id
-     * @param array           $parameters
      *
      * @return mixed
      */
@@ -33,7 +32,6 @@ class IssueBoards extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $board_id
      *
      * @return mixed
      */
@@ -44,7 +42,6 @@ class IssueBoards extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -55,8 +52,6 @@ class IssueBoards extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $board_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -67,7 +62,6 @@ class IssueBoards extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $board_id
      *
      * @return mixed
      */
@@ -78,7 +72,6 @@ class IssueBoards extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $board_id
      *
      * @return mixed
      */
@@ -89,8 +82,6 @@ class IssueBoards extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $board_id
-     * @param int        $list_id
      *
      * @return mixed
      */
@@ -101,8 +92,6 @@ class IssueBoards extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $board_id
-     * @param int        $label_id
      *
      * @return mixed
      */
@@ -117,9 +106,6 @@ class IssueBoards extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $board_id
-     * @param int        $list_id
-     * @param int        $position
      *
      * @return mixed
      */
@@ -134,8 +120,6 @@ class IssueBoards extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $board_id
-     * @param int        $list_id
      *
      * @return mixed
      */

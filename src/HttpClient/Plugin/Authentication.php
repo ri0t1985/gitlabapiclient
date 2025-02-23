@@ -44,10 +44,6 @@ final class Authentication implements Plugin
     /**
      * Handle the request and return the response coming from the next callable.
      *
-     * @param RequestInterface $request
-     * @param callable         $next
-     * @param callable         $first
-     *
      * @return Promise<ResponseInterface>
      */
     public function handleRequest(RequestInterface $request, callable $next, callable $first): Promise
@@ -61,10 +57,6 @@ final class Authentication implements Plugin
 
     /**
      * Build the headers to be attached to the request.
-     *
-     * @param string      $method
-     * @param string      $token
-     * @param string|null $sudo
      *
      * @throws RuntimeException
      *

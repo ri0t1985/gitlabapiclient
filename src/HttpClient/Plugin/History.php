@@ -33,9 +33,6 @@ final class History implements Journal
      */
     private $lastResponse;
 
-    /**
-     * @return ResponseInterface|null
-     */
     public function getLastResponse(): ?ResponseInterface
     {
         return $this->lastResponse;
@@ -43,11 +40,6 @@ final class History implements Journal
 
     /**
      * Record a successful call.
-     *
-     * @param RequestInterface  $request
-     * @param ResponseInterface $response
-     *
-     * @return void
      */
     public function addSuccess(RequestInterface $request, ResponseInterface $response): void
     {
@@ -56,11 +48,6 @@ final class History implements Journal
 
     /**
      * Record a failed call.
-     *
-     * @param RequestInterface         $request
-     * @param ClientExceptionInterface $exception
-     *
-     * @return void
      */
     public function addFailure(RequestInterface $request, ClientExceptionInterface $exception): void
     {

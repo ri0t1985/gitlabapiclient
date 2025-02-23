@@ -51,7 +51,6 @@ class Deployments extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $deployment_id
      *
      * @return mixed
      */

@@ -18,7 +18,6 @@ class Schedules extends AbstractApi
 {
     /**
      * @param int|string $project_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -29,7 +28,6 @@ class Schedules extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $schedule_id
      *
      * @return mixed
      */
@@ -50,8 +48,6 @@ class Schedules extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $schedule_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -62,7 +58,6 @@ class Schedules extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $schedule_id
      *
      * @return mixed
      */
@@ -73,8 +68,6 @@ class Schedules extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $schedule_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -87,9 +80,6 @@ class Schedules extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $schedule_id
-     * @param string     $variable_key
-     * @param array      $params
      *
      * @return mixed
      */
@@ -102,8 +92,6 @@ class Schedules extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $schedule_id
-     * @param string     $variable_key
      *
      * @return mixed
      */
@@ -116,7 +104,6 @@ class Schedules extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $schedule_id
      *
      * @return mixed
      */
@@ -127,7 +114,6 @@ class Schedules extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $schedule_id
      *
      * @return mixed
      */

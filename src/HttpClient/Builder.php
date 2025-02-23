@@ -68,9 +68,6 @@ final class Builder
         $this->pluginClient = null;
     }
 
-    /**
-     * @return HttpMethodsClientInterface
-     */
     public function getHttpClient(): HttpMethodsClientInterface
     {
         if (null === $this->pluginClient) {
@@ -91,8 +88,6 @@ final class Builder
 
     /**
      * Get the request factory.
-     *
-     * @return RequestFactoryInterface
      */
     public function getRequestFactory(): RequestFactoryInterface
     {
@@ -101,8 +96,6 @@ final class Builder
 
     /**
      * Get the stream factory.
-     *
-     * @return StreamFactoryInterface
      */
     public function getStreamFactory(): StreamFactoryInterface
     {
@@ -111,8 +104,6 @@ final class Builder
 
     /**
      * Get the URI factory.
-     *
-     * @return UriFactoryInterface
      */
     public function getUriFactory(): UriFactoryInterface
     {
@@ -121,10 +112,6 @@ final class Builder
 
     /**
      * Add a new plugin to the end of the plugin chain.
-     *
-     * @param Plugin $plugin
-     *
-     * @return void
      */
     public function addPlugin(Plugin $plugin): void
     {
@@ -134,10 +121,6 @@ final class Builder
 
     /**
      * Remove a plugin by its fully qualified class name (FQCN).
-     *
-     * @param string $fqcn
-     *
-     * @return void
      */
     public function removePlugin(string $fqcn): void
     {
@@ -151,11 +134,6 @@ final class Builder
 
     /**
      * Add a cache plugin to cache responses locally.
-     *
-     * @param CacheItemPoolInterface $cachePool
-     * @param array                  $config
-     *
-     * @return void
      */
     public function addCache(CacheItemPoolInterface $cachePool, array $config = []): void
     {
@@ -169,8 +147,6 @@ final class Builder
 
     /**
      * Remove the cache plugin.
-     *
-     * @return void
      */
     public function removeCache(): void
     {

@@ -72,7 +72,6 @@ class GroupsMilestones extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $milestone_id
      *
      * @return mixed
      */
@@ -83,7 +82,6 @@ class GroupsMilestones extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -94,8 +92,6 @@ class GroupsMilestones extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $milestone_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -106,7 +102,6 @@ class GroupsMilestones extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $milestone_id
      *
      * @return mixed
      */
@@ -117,7 +112,6 @@ class GroupsMilestones extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $milestone_id
      *
      * @return mixed
      */
@@ -128,7 +122,6 @@ class GroupsMilestones extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $milestone_id
      *
      * @return mixed
      */

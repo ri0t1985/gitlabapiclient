@@ -98,10 +98,6 @@ class TagsTest extends TestCase
      * @test
      *
      * @dataProvider releaseDataProvider
-     *
-     * @param string $releaseName
-     * @param string $description
-     * @param array  $expectedResult
      */
     public function shouldCreateRelease(string $releaseName, string $description, array $expectedResult): void
     {
@@ -122,10 +118,6 @@ class TagsTest extends TestCase
      * @test
      *
      * @dataProvider releaseDataProvider
-     *
-     * @param string $releaseName
-     * @param string $description
-     * @param array  $expectedResult
      */
     public function shouldUpdateRelease(string $releaseName, string $description, array $expectedResult): void
     {

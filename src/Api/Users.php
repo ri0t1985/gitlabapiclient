@@ -69,8 +69,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $id
-     *
      * @return mixed
      */
     public function show(int $id)
@@ -79,7 +77,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int   $id
      * @param array $parameters {
      *
      *     @var string $type Filter memberships by type. Can be either Project or Namespace
@@ -98,7 +95,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int   $id
      * @param array $parameters {
      *
      *     @var bool   $archived                    limit by archived status
@@ -175,7 +171,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int   $id
      * @param array $parameters {
      *
      *     @var bool   $archived                    limit by archived status
@@ -265,10 +260,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param string $email
-     * @param string $password
-     * @param array  $params
-     *
      * @return mixed
      */
     public function create(string $email, string $password, array $params = [])
@@ -280,10 +271,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int   $id
-     * @param array $params
-     * @param array $files
-     *
      * @return mixed
      */
     public function update(int $id, array $params, array $files = [])
@@ -292,7 +279,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int   $id
      * @param array $params {
      *
      *     @var bool   $hard_delete     If true, contributions that would usually be moved to the ghost user are
@@ -307,8 +293,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $id
-     *
      * @return mixed
      */
     public function block(int $id)
@@ -317,8 +301,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $id
-     *
      * @return mixed
      */
     public function unblock(int $id)
@@ -327,8 +309,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $id
-     *
      * @return mixed
      */
     public function activate(int $id)
@@ -337,8 +317,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $id
-     *
      * @return mixed
      */
     public function deactivate(int $id)
@@ -363,8 +341,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $id
-     *
      * @return mixed
      */
     public function key(int $id)
@@ -373,9 +349,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param string $title
-     * @param string $key
-     *
      * @return mixed
      */
     public function createKey(string $title, string $key)
@@ -387,8 +360,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $id
-     *
      * @return mixed
      */
     public function removeKey(int $id)
@@ -397,8 +368,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $user_id
-     *
      * @return mixed
      */
     public function userKeys(int $user_id)
@@ -407,9 +376,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $user_id
-     * @param int $key_id
-     *
      * @return mixed
      */
     public function userKey(int $user_id, int $key_id)
@@ -418,10 +384,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int    $user_id
-     * @param string $title
-     * @param string $key
-     *
      * @return mixed
      */
     public function createKeyForUser(int $user_id, string $title, string $key)
@@ -433,9 +395,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $user_id
-     * @param int $key_id
-     *
      * @return mixed
      */
     public function removeUserKey(int $user_id, int $key_id)
@@ -452,8 +411,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $id
-     *
      * @return mixed
      */
     public function email(int $id)
@@ -462,8 +419,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $user_id
-     *
      * @return mixed
      */
     public function userEmails(int $user_id)
@@ -472,10 +427,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int    $user_id
-     * @param string $email
-     * @param bool   $skip_confirmation
-     *
      * @return mixed
      */
     public function createEmailForUser(int $user_id, string $email, bool $skip_confirmation = false)
@@ -487,9 +438,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $user_id
-     * @param int $email_id
-     *
      * @return mixed
      */
     public function removeUserEmail(int $user_id, int $email_id)
@@ -498,9 +446,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int   $user_id
-     * @param array $params
-     *
      * @return mixed
      */
     public function userImpersonationTokens(int $user_id, array $params = [])
@@ -515,9 +460,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $user_id
-     * @param int $impersonation_token_id
-     *
      * @return mixed
      */
     public function userImpersonationToken(int $user_id, int $impersonation_token_id)
@@ -526,11 +468,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int         $user_id
-     * @param string      $name
-     * @param array       $scopes
-     * @param string|null $expires_at
-     *
      * @return mixed
      */
     public function createImpersonationToken(int $user_id, string $name, array $scopes, ?string $expires_at = null)
@@ -543,9 +480,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $user_id
-     * @param int $impersonation_token_id
-     *
      * @return mixed
      */
     public function removeImpersonationToken(int $user_id, int $impersonation_token_id)
@@ -554,7 +488,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int   $user_id
      * @param array $parameters {
      *
      *     @var string             $action      include only events of a particular action type
@@ -595,9 +528,6 @@ class Users extends AbstractApi
 
     /**
      * Deletes a user’s authentication identity using the provider name associated with that identity.
-     *
-     * @param int    $user_id
-     * @param string $provider
      *
      * @return mixed
      */

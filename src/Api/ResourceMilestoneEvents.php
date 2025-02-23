@@ -18,7 +18,6 @@ class ResourceMilestoneEvents extends AbstractApi
 {
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
      *
      * @return mixed
      */
@@ -31,8 +30,6 @@ class ResourceMilestoneEvents extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $issue_iid
-     * @param int        $resource_milestone_event_id
      *
      * @return mixed
      */

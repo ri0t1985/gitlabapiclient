@@ -61,13 +61,9 @@ abstract class AbstractApi
     /**
      * Send a GET request with query params and return the raw response.
      *
-     * @param string               $uri
-     * @param array                $params
      * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
-     *
-     * @return \Psr\Http\Message\ResponseInterface
      */
     protected function getAsResponse(string $uri, array $params = [], array $headers = []): ResponseInterface
     {
@@ -79,7 +75,6 @@ abstract class AbstractApi
     }
 
     /**
-     * @param string               $uri
      * @param array<string,mixed>  $params
      * @param array<string,string> $headers
      *
@@ -93,7 +88,6 @@ abstract class AbstractApi
     }
 
     /**
-     * @param string               $uri
      * @param array<string,mixed>  $params
      * @param array<string,string> $headers
      * @param array<string,string> $files
@@ -121,7 +115,6 @@ abstract class AbstractApi
     }
 
     /**
-     * @param string               $uri
      * @param array<string,mixed>  $params
      * @param array<string,string> $headers
      * @param array<string,string> $files
@@ -148,7 +141,6 @@ abstract class AbstractApi
     }
 
     /**
-     * @param string               $uri
      * @param array<string,mixed>  $params
      * @param array<string,string> $headers
      * @param array<string,string> $files
@@ -175,8 +167,6 @@ abstract class AbstractApi
     }
 
     /**
-     * @param string               $uri
-     * @param string               $file
      * @param array<string,string> $headers
      * @param array<string,mixed>  $uriParams
      *
@@ -197,7 +187,6 @@ abstract class AbstractApi
     }
 
     /**
-     * @param string               $uri
      * @param array<string,mixed>  $params
      * @param array<string,string> $headers
      *
@@ -218,8 +207,6 @@ abstract class AbstractApi
 
     /**
      * @param int|string $uri
-     *
-     * @return string
      */
     protected static function encodePath($uri): string
     {
@@ -228,9 +215,6 @@ abstract class AbstractApi
 
     /**
      * @param int|string $id
-     * @param string     $uri
-     *
-     * @return string
      */
     protected function getProjectPath($id, string $uri): string
     {
@@ -239,8 +223,6 @@ abstract class AbstractApi
 
     /**
      * Create a new OptionsResolver with page and per_page options.
-     *
-     * @return OptionsResolver
      */
     protected function createOptionsResolver(): OptionsResolver
     {
@@ -263,11 +245,6 @@ abstract class AbstractApi
 
     /**
      * Prepare the request URI.
-     *
-     * @param string $uri
-     * @param array  $query
-     *
-     * @return string
      */
     private static function prepareUri(string $uri, array $query = []): string
     {
@@ -283,8 +260,6 @@ abstract class AbstractApi
      *
      * @param array<string,mixed>  $params
      * @param array<string,string> $files
-     *
-     * @return MultipartStreamBuilder
      */
     private function createMultipartStreamBuilder(array $params = [], array $files = []): MultipartStreamBuilder
     {
@@ -308,10 +283,6 @@ abstract class AbstractApi
 
     /**
      * Prepare the request multipart body.
-     *
-     * @param MultipartStreamBuilder $builder
-     *
-     * @return StreamInterface
      */
     private static function prepareMultipartBody(MultipartStreamBuilder $builder): StreamInterface
     {
@@ -322,7 +293,6 @@ abstract class AbstractApi
      * Add the multipart content type to the headers if one is not already present.
      *
      * @param array<string,string>   $headers
-     * @param MultipartStreamBuilder $builder
      *
      * @return array<string,string>
      */
@@ -337,8 +307,6 @@ abstract class AbstractApi
      * Prepare the request JSON body.
      *
      * @param array<string,mixed> $params
-     *
-     * @return string|null
      */
     private static function prepareJsonBody(array $params): ?string
     {
@@ -405,10 +373,6 @@ abstract class AbstractApi
 
     /**
      * Guess the content type of the file if possible.
-     *
-     * @param string $file
-     *
-     * @return string
      */
     private static function guessFileContentType(string $file): string
     {

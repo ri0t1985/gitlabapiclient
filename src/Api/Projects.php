@@ -181,9 +181,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param string $name
-     * @param array  $parameters
-     *
      * @return mixed
      */
     public function create(string $name, array $parameters = [])
@@ -194,10 +191,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int    $user_id
-     * @param string $name
-     * @param array  $parameters
-     *
      * @return mixed
      */
     public function createForUser(int $user_id, string $name, array $parameters = [])
@@ -209,7 +202,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -260,7 +252,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $trigger_id
      *
      * @return mixed
      */
@@ -271,7 +262,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $description
      *
      * @return mixed
      */
@@ -284,7 +274,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $trigger_id
      *
      * @return mixed
      */
@@ -295,9 +284,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $ref
-     * @param string     $token
-     * @param array      $variables
      *
      * @return mixed
      */
@@ -311,9 +297,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int $project_id
-     * @param int $runner_id
-     *
      * @return mixed
      */
     public function disableRunner(int $project_id, int $runner_id)
@@ -322,9 +305,6 @@ class Projects extends AbstractApi
     }
 
     /**
-     * @param int $project_id
-     * @param int $runner_id
-     *
      * @return mixed
      */
     public function enableRunner(int $project_id, int $runner_id)
@@ -401,7 +381,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $pipeline_id
      *
      * @return mixed
      */
@@ -412,7 +391,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $pipeline_id
      *
      * @return mixed
      */
@@ -423,7 +401,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $pipeline_id
      *
      * @return mixed
      */
@@ -434,7 +411,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $pipeline_id
      *
      * @return mixed
      */
@@ -445,7 +421,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $pipeline_id
      *
      * @return mixed
      */
@@ -456,7 +431,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $commit_ref
      * @param array|null $variables  {
      *
      *     @var string $key            The name of the variable
@@ -481,7 +455,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $pipeline_id
      *
      * @return mixed
      */
@@ -492,7 +465,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $pipeline_id
      *
      * @return mixed
      */
@@ -503,7 +475,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $pipeline_id
      *
      * @return mixed
      */
@@ -514,7 +485,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -560,7 +530,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $user_id
      *
      * @return mixed
      */
@@ -571,7 +540,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $user_id
      *
      * @return mixed
      */
@@ -582,9 +550,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string  $project_id
-     * @param int         $user_id
-     * @param int         $access_level
-     * @param string|null $expires_at
      *
      * @return mixed
      */
@@ -603,9 +568,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string  $project_id
-     * @param int         $user_id
-     * @param int         $access_level
-     * @param string|null $expires_at
      *
      * @return mixed
      */
@@ -623,7 +585,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $user_id
      *
      * @return mixed
      */
@@ -634,7 +595,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -647,7 +607,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $hook_id
      *
      * @return mixed
      */
@@ -662,7 +621,6 @@ class Projects extends AbstractApi
      * See https://docs.gitlab.com/ee/api/projects.html#get-project-users for more info.
      *
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -677,7 +635,6 @@ class Projects extends AbstractApi
      * See https://docs.gitlab.com/ee/api/issues.html#list-project-issues for more info.
      *
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -741,7 +698,6 @@ class Projects extends AbstractApi
      * @see https://docs.gitlab.com/ee/api/discussions.html#list-project-commit-discussion-items
      *
      * @param int|string $project_id
-     * @param string     $commit_id
      *
      * @return mixed
      */
@@ -752,8 +708,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $url
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -770,8 +724,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $hook_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -782,7 +734,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $hook_id
      *
      * @return mixed
      */
@@ -814,7 +765,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $key_id
      *
      * @return mixed
      */
@@ -825,9 +775,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $title
-     * @param string     $key
-     * @param bool       $canPush
      *
      * @return mixed
      */
@@ -842,7 +789,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $key_id
      *
      * @return mixed
      */
@@ -853,7 +799,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $key_id
      *
      * @return mixed
      */
@@ -864,7 +809,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param bool|null  $active
      *
      * @return mixed
      */
@@ -924,7 +868,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $token_id
      *
      * @return mixed
      */
@@ -1002,7 +945,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1013,8 +955,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $label_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1025,7 +965,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $label_id
      *
      * @return mixed
      */
@@ -1190,8 +1129,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $service_name
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1202,7 +1139,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $service_name
      *
      * @return mixed
      */
@@ -1213,7 +1149,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1226,8 +1161,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $key
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1242,10 +1175,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string          $project_id
-     * @param string              $key
-     * @param string              $value
-     * @param bool|null           $protected
-     * @param string|null         $environment_scope
      * @param array<string,mixed> $parameters        {
      *
      *      @var string $variable_type  env_var (default) or file
@@ -1275,10 +1204,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string          $project_id
-     * @param string              $key
-     * @param string              $value
-     * @param bool|null           $protected
-     * @param string|null         $environment_scope
      * @param array<string,mixed> $parameters        {
      *
      *      @var string $variable_type  env_var (default) or file
@@ -1307,7 +1232,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string           $project_id
-     * @param string               $key
      * @param array<string, mixed> $parameters    {
      *
      *    @var array $filter    {
@@ -1328,7 +1252,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $file
      *
      * @return mixed
      */
@@ -1339,7 +1262,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $file
      *
      * @return mixed
      */
@@ -1350,7 +1272,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      *
@@ -1408,7 +1329,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $deployment_id
      *
      * @return mixed
      */
@@ -1419,7 +1339,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1469,7 +1388,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $badge_id
      *
      * @return mixed
      */
@@ -1480,7 +1398,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1491,7 +1408,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $badge_id
      *
      * @return mixed
      */
@@ -1502,8 +1418,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $badge_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1514,7 +1428,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1525,7 +1438,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1536,7 +1448,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $branch_name
      *
      * @return mixed
      */
@@ -1547,8 +1458,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $branch_name
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1569,7 +1478,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1590,7 +1498,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1601,8 +1508,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $approval_rule_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1613,7 +1518,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param int        $approval_rule_id
      *
      * @return mixed
      */
@@ -1727,7 +1631,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $tag_name
      *
      * @return mixed
      */
@@ -1738,7 +1641,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param array      $parameters
      *
      * @return mixed
      */
@@ -1772,7 +1674,6 @@ class Projects extends AbstractApi
 
     /**
      * @param int|string $project_id
-     * @param string     $tag_name
      *
      * @return mixed
      */

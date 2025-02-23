@@ -24,10 +24,6 @@ final class QueryStringBuilder
      *
      * Indexed arrays are encoded using empty squared brackets ([]) unlike
      * `http_build_query`.
-     *
-     * @param array $query
-     *
-     * @return string
      */
     public static function build(array $query): string
     {
@@ -41,8 +37,6 @@ final class QueryStringBuilder
      *
      * @param mixed  $query
      * @param scalar $prefix
-     *
-     * @return string
      */
     private static function encode($query, $prefix): string
     {
@@ -61,10 +55,6 @@ final class QueryStringBuilder
 
     /**
      * Tell if the given array is a list.
-     *
-     * @param array $query
-     *
-     * @return bool
      */
     private static function isList(array $query): bool
     {
@@ -79,8 +69,6 @@ final class QueryStringBuilder
      * Encode a value like rawurlencode, but return "0" when false is given.
      *
      * @param mixed $value
-     *
-     * @return string
      */
     private static function rawurlencode($value): string
     {

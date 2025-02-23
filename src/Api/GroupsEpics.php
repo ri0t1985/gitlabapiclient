@@ -61,7 +61,6 @@ class GroupsEpics extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $epic_id
      *
      * @return mixed
      */
@@ -72,7 +71,6 @@ class GroupsEpics extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -83,8 +81,6 @@ class GroupsEpics extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $epic_id
-     * @param array      $params
      *
      * @return mixed
      */
@@ -95,7 +91,6 @@ class GroupsEpics extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $epic_id
      *
      * @return mixed
      */
@@ -106,7 +101,6 @@ class GroupsEpics extends AbstractApi
 
     /**
      * @param int|string $group_id
-     * @param int        $epic_iid
      *
      * @return mixed
      */

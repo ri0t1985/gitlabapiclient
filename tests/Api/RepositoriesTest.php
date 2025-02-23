@@ -365,9 +365,6 @@ class RepositoriesTest extends TestCase
      * @test
      *
      * @dataProvider dataGetCommitRefsWithParams
-     *
-     * @param string $type
-     * @param array  $expectedArray
      */
     public function shouldGetCommitRefsWithParams(string $type, array $expectedArray): void
     {

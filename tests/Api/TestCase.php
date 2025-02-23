@@ -26,8 +26,6 @@ abstract class TestCase extends BaseTestCase
     abstract protected function getApiClass();
 
     /**
-     * @param array $methods
-     *
      * @return \PHPUnit\Framework\MockObject\MockObject
      */
     protected function getApiMock(array $methods = [])
