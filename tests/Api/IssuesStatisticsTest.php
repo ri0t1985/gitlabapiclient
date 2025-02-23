@@ -93,7 +93,7 @@ class IssuesStatisticsTest extends TestCase
         $this->assertEquals($expectedArray, $api->group(1, []));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return IssuesStatistics::class;
     }

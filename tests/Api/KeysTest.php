@@ -32,7 +32,7 @@ class KeysTest extends TestCase
         $this->assertEquals($expectedArray, $api->show(1));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Keys::class;
     }

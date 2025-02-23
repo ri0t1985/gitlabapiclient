@@ -213,7 +213,7 @@ class ScheduleTest extends TestCase
         $this->assertEquals($expectedBool, $api->play(1, 2));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Schedules::class;
     }

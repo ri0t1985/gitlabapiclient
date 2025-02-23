@@ -114,7 +114,7 @@ class GroupsEpicsTest extends TestCase
         $this->assertEquals($expectedArray, $api->issues(1, 2));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return GroupsEpics::class;
     }

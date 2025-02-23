@@ -793,7 +793,7 @@ class MergeRequestsTest extends TestCase
         $this->assertEquals($expectedValue, $api->deleteLevelRule(1, 2, 3));
     }
 
-    protected function getMultipleMergeRequestsData()
+    protected function getMultipleMergeRequestsData(): array
     {
         return [
             ['id' => 1, 'title' => 'A merge request'],
@@ -801,7 +801,7 @@ class MergeRequestsTest extends TestCase
         ];
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return MergeRequests::class;
     }

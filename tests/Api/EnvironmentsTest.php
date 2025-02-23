@@ -195,7 +195,7 @@ See merge request !1',
         $this->assertEquals($expectedBool, $api->stop(1, 3));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Environments::class;
     }

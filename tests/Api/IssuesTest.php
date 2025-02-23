@@ -595,7 +595,7 @@ class IssuesTest extends TestCase
         $this->assertEquals($expectedArray, $api->showResourceLabelEvent(1, 2, 3));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Issues::class;
     }

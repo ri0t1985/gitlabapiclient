@@ -652,7 +652,7 @@ class RepositoriesTest extends TestCase
         $this->assertEquals($expectedArray, $api->cherryPick(1, '123456123456', ['branch' => 'feature_branch']));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Repositories::class;
     }

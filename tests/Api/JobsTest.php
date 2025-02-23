@@ -265,7 +265,7 @@ class JobsTest extends TestCase
         $this->assertEquals($expectedArray, $api->play(1, 3));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Jobs::class;
     }

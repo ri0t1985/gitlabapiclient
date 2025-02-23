@@ -49,7 +49,7 @@ class SearchTest extends TestCase
         ]));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Search::class;
     }

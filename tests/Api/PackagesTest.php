@@ -109,7 +109,7 @@ final class PackagesTest extends TestCase
         $this->assertEquals($expectedBool, $api->removeFile(1, 1, 25));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Packages::class;
     }

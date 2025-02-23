@@ -17,6 +17,7 @@ namespace Gitlab\Tests\Api;
 use Gitlab\Api\Users;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class UsersTest extends TestCase
 {
@@ -100,7 +101,7 @@ class UsersTest extends TestCase
         $this->assertEquals($expectedArray, $api->show(1));
     }
 
-    protected function getUsersMembershipsData()
+    protected function getUsersMembershipsData(): array
     {
         return [
             [
@@ -118,7 +119,7 @@ class UsersTest extends TestCase
         ];
     }
 
-    protected function getUsersMembershipsRequestMock($path, $expectedArray = [], $expectedParameters = [])
+    protected function getUsersMembershipsRequestMock($path, $expectedArray = [], $expectedParameters = []): MockObject
     {
         $api = $this->getApiMock();
         $api->expects($this->once())
@@ -160,7 +161,7 @@ class UsersTest extends TestCase
         $this->assertEquals($expectedArray, $api->usersMemberships(1, ['type' => 'Namespace']));
     }
 
-    protected function getUsersProjectsData()
+    protected function getUsersProjectsData(): array
     {
         return [
             ['id' => 1, 'name' => 'matt-project-1'],
@@ -168,7 +169,7 @@ class UsersTest extends TestCase
         ];
     }
 
-    protected function getUsersProjectsRequestMock($path, $expectedArray = [], $expectedParameters = [])
+    protected function getUsersProjectsRequestMock($path, $expectedArray = [], $expectedParameters = []): MockObject
     {
         $api = $this->getApiMock();
         $api->expects($this->once())
@@ -799,7 +800,7 @@ class UsersTest extends TestCase
         $this->assertEquals($expectedArray, $api->userImpersonationTokens(1, ['state' => 'inactive']));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Users::class;
     }

@@ -18,6 +18,7 @@ use DateTime;
 use Gitlab\Api\Projects;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class ProjectsTest extends TestCase
 {
@@ -2135,7 +2136,7 @@ class ProjectsTest extends TestCase
         $this->assertEquals($expectedBool, $api->removeVariable(1, 'ftp_password'));
     }
 
-    protected function getMultipleProjectsRequestMock($path, $expectedArray = [], $expectedParameters = [])
+    protected function getMultipleProjectsRequestMock($path, $expectedArray = [], $expectedParameters = []): MockObject
     {
         $api = $this->getApiMock();
         $api->expects($this->once())
@@ -2237,7 +2238,7 @@ class ProjectsTest extends TestCase
         $this->assertEquals($expectedArray, $api->deployments(1, ['updated_after' => $time]));
     }
 
-    protected function getMultipleProjectsData()
+    protected function getMultipleProjectsData(): array
     {
         return [
             ['id' => 1, 'name' => 'A project'],
@@ -2245,7 +2246,7 @@ class ProjectsTest extends TestCase
         ];
     }
 
-    protected function getMultipleProjectsDataWithNamespace()
+    protected function getMultipleProjectsDataWithNamespace(): array
     {
         return [
             ['id' => 1, 'name' => 'A project', 'namespace' => ['id' => 4, 'name' => 'A namespace', 'path' => 'a_namespace']],
@@ -2264,7 +2265,7 @@ class ProjectsTest extends TestCase
         ];
     }
 
-    public function getBadgeExpectedArray()
+    public function getBadgeExpectedArray(): array
     {
         return [
             [
@@ -2730,7 +2731,7 @@ class ProjectsTest extends TestCase
         $this->assertEquals($expectedBool, $api->deleteProtectedTag(1, 'release-*'));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Projects::class;
     }

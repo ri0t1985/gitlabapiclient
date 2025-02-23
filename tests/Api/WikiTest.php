@@ -122,7 +122,7 @@ class WikiTest extends TestCase
         $this->assertEquals($expectedBool, $api->remove(1, 'Test-Wiki'));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Wiki::class;
     }

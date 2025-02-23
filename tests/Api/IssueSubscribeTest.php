@@ -45,7 +45,7 @@ class IssueSubscribeTest extends TestCase
         $this->assertEquals($expectedValue, $api->unsubscribe(1, 2));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Issues::class;
     }

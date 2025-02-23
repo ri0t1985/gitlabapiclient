@@ -132,7 +132,7 @@ class MilestonesTest extends TestCase
         $this->assertEquals($expectedArray, $api->mergeRequests(1, 3));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Milestones::class;
     }

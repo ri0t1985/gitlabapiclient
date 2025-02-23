@@ -144,7 +144,7 @@ class TagsTest extends TestCase
         ];
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Tags::class;
     }

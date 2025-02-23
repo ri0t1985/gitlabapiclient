@@ -62,7 +62,7 @@ class GroupsMilestonesTest extends TestCase
         $api->all(1, ['iids' => [456, 789]]);
     }
 
-    public static function getAllMilestonesWithParameterStateDataProvider()
+    public static function getAllMilestonesWithParameterStateDataProvider(): array
     {
         return [
             GroupsMilestones::STATE_ACTIVE => [GroupsMilestones::STATE_ACTIVE],
@@ -220,7 +220,7 @@ class GroupsMilestonesTest extends TestCase
         $this->assertEquals($expectedArray, $api->mergeRequests(1, 3));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return GroupsMilestones::class;
     }

@@ -34,7 +34,7 @@ class DeployKeysTest extends TestCase
         $this->assertEquals($expectedArray, $api->all(['page' => 2, 'per_page' => 5]));
     }
 
-    protected function getMultipleDeployKeysData()
+    protected function getMultipleDeployKeysData(): array
     {
         return [
             [
@@ -52,7 +52,7 @@ class DeployKeysTest extends TestCase
         ];
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return DeployKeys::class;
     }

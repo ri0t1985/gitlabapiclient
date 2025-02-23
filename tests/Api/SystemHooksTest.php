@@ -80,7 +80,7 @@ class SystemHooksTest extends TestCase
         $this->assertEquals($expectedBool, $api->remove(3));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return SystemHooks::class;
     }

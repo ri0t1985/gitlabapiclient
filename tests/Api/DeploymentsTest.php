@@ -16,6 +16,7 @@ namespace Gitlab\Tests\Api;
 
 use Gitlab\Api\Deployments;
 use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class DeploymentsTest extends TestCase
 {
@@ -107,7 +108,7 @@ See merge request !2',
         $this->assertEquals($expectedArray, $api->show(1, 42));
     }
 
-    private function getMultipleDeploymentsData()
+    private function getMultipleDeploymentsData(): array
     {
         return [
             [
@@ -241,7 +242,7 @@ See merge request !2',
         ];
     }
 
-    protected function getMultipleDeploymentsRequestMock(string $path, array $expectedArray, array $expectedParameters)
+    protected function getMultipleDeploymentsRequestMock(string $path, array $expectedArray, array $expectedParameters): MockObject
     {
         $api = $this->getApiMock();
         $api->expects($this->once())
@@ -269,7 +270,7 @@ See merge request !2',
         );
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Deployments::class;
     }

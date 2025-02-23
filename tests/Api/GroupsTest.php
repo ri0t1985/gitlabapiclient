@@ -534,7 +534,7 @@ class GroupsTest extends TestCase
         $this->assertEquals($expectedBool, $api->removeVariable(1, 'ftp_password'));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Groups::class;
     }

@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Test;
 
 class EventsTest extends TestCase
 {
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Events::class;
     }

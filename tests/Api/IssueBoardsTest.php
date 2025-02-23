@@ -218,7 +218,7 @@ class IssueBoardsTest extends TestCase
         $this->assertEquals($expectedBool, $api->deleteList(1, 2, 3));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return IssueBoards::class;
     }

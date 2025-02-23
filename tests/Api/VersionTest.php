@@ -35,7 +35,7 @@ class VersionTest extends TestCase
         $this->assertEquals($expectedArray, $api->show());
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Version::class;
     }

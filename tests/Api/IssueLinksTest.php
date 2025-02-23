@@ -22,7 +22,7 @@ class IssueLinksTest extends TestCase
     /**
      * {@inheritdoc}
      */
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return IssueLinks::class;
     }

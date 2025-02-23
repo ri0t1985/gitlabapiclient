@@ -219,7 +219,7 @@ class SnippetsTest extends TestCase
         $this->assertEquals(true, $api->removeAwardEmoji(1, 2, 3));
     }
 
-    protected function getApiClass()
+    protected function getApiClass(): string
     {
         return Snippets::class;
     }
