@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [12.0.0] - UPCOMING
 
+* Add PHP 8.4 support
 * Drop support for PHP earlier than 8.1
+* Moved various param types to native PHP types
 
 ## [11.14.0] - 2024-03-11
 
