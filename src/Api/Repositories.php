@@ -38,7 +38,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function branches($project_id, array $parameters = [])
+    public function branches(int|string $project_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $resolver->setDefined('search')
@@ -52,7 +52,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function branch($project_id, string $branch)
+    public function branch(int|string $project_id, string $branch)
     {
         return $this->get($this->getProjectPath($project_id, 'repository/branches/'.self::encodePath($branch)));
     }
@@ -62,7 +62,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function createBranch($project_id, string $branch, string $ref)
+    public function createBranch(int|string $project_id, string $branch, string $ref)
     {
         return $this->post($this->getProjectPath($project_id, 'repository/branches'), [
             'branch' => $branch,
@@ -75,7 +75,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function deleteBranch($project_id, string $branch)
+    public function deleteBranch(int|string $project_id, string $branch)
     {
         return $this->delete($this->getProjectPath($project_id, 'repository/branches/'.self::encodePath($branch)));
     }
@@ -85,7 +85,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function protectBranch($project_id, string $branch, bool $devPush = false, bool $devMerge = false)
+    public function protectBranch(int|string $project_id, string $branch, bool $devPush = false, bool $devMerge = false)
     {
         return $this->put($this->getProjectPath($project_id, 'repository/branches/'.self::encodePath($branch).'/protect'), [
             'developers_can_push' => $devPush,
@@ -98,7 +98,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function unprotectBranch($project_id, string $branch)
+    public function unprotectBranch(int|string $project_id, string $branch)
     {
         return $this->put($this->getProjectPath($project_id, 'repository/branches/'.self::encodePath($branch).'/unprotect'));
     }
@@ -108,7 +108,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function tags($project_id, array $parameters = [])
+    public function tags(int|string $project_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $resolver->setDefined('search')
@@ -122,7 +122,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function createTag($project_id, string $name, string $ref, ?string $message = null)
+    public function createTag(int|string $project_id, string $name, string $ref, ?string $message = null)
     {
         return $this->post($this->getProjectPath($project_id, 'repository/tags'), [
             'tag_name' => $name,
@@ -136,7 +136,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function createRelease($project_id, string $tag_name, string $description, ?string $name = null)
+    public function createRelease(int|string $project_id, string $tag_name, string $description, ?string $name = null)
     {
         return $this->post($this->getProjectPath($project_id, 'releases'), \array_filter([
             'id' => $project_id,
@@ -151,7 +151,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function updateRelease($project_id, string $tag_name, string $description, ?string $name = null)
+    public function updateRelease(int|string $project_id, string $tag_name, string $description, ?string $name = null)
     {
         return $this->put($this->getProjectPath($project_id, 'releases/'.self::encodePath($tag_name)), \array_filter([
             'id' => $project_id,
@@ -166,7 +166,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function releases($project_id)
+    public function releases(int|string $project_id)
     {
         $resolver = $this->createOptionsResolver();
 
@@ -186,7 +186,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function commits($project_id, array $parameters = [])
+    public function commits(int|string $project_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $datetimeNormalizer = function (Options $options, \DateTimeInterface $value): string {
@@ -231,7 +231,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function commit($project_id, string $sha)
+    public function commit(int|string $project_id, string $sha)
     {
         return $this->get($this->getProjectPath($project_id, 'repository/commits/'.self::encodePath($sha)));
     }
@@ -241,7 +241,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function commitRefs($project_id, string $sha, array $parameters = [])
+    public function commitRefs(int|string $project_id, string $sha, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
 
@@ -271,7 +271,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function createCommit($project_id, array $parameters = [])
+    public function createCommit(int|string $project_id, array $parameters = [])
     {
         $resolver = new OptionsResolver();
         $resolver->setDefined('branch')
@@ -321,7 +321,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function revertCommit($project_id, string $branch, string $sha)
+    public function revertCommit(int|string $project_id, string $branch, string $sha)
     {
         return $this->post($this->getProjectPath($project_id, 'repository/commits/'.self::encodePath($sha).'/revert'), [
             'branch' => $branch,
@@ -333,7 +333,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function commitComments($project_id, string $sha, array $parameters = [])
+    public function commitComments(int|string $project_id, string $sha, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
 
@@ -348,7 +348,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function createCommitComment($project_id, string $sha, string $note, array $params = [])
+    public function createCommitComment(int|string $project_id, string $sha, string $note, array $params = [])
     {
         $params['note'] = $note;
 
@@ -360,7 +360,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function getCommitBuildStatus($project_id, string $sha, array $params = [])
+    public function getCommitBuildStatus(int|string $project_id, string $sha, array $params = [])
     {
         return $this->get($this->getProjectPath($project_id, 'repository/commits/'.self::encodePath($sha).'/statuses'), $params);
     }
@@ -370,7 +370,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function postCommitBuildStatus($project_id, string $sha, string $state, array $params = [])
+    public function postCommitBuildStatus(int|string $project_id, string $sha, string $state, array $params = [])
     {
         $params['state'] = $state;
 
@@ -382,7 +382,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function compare($project_id, string $fromShaOrMaster, string $toShaOrMaster, bool $straight = false, ?string $fromProjectId = null)
+    public function compare(int|string $project_id, string $fromShaOrMaster, string $toShaOrMaster, bool $straight = false, ?string $fromProjectId = null)
     {
         $params = [
             'from' => $fromShaOrMaster,
@@ -402,7 +402,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function diff($project_id, string $sha)
+    public function diff(int|string $project_id, string $sha)
     {
         return $this->get($this->getProjectPath($project_id, 'repository/commits/'.self::encodePath($sha).'/diff'));
     }
@@ -412,7 +412,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function tree($project_id, array $params = [])
+    public function tree(int|string $project_id, array $params = [])
     {
         return $this->get($this->getProjectPath($project_id, 'repository/tree'), $params);
     }
@@ -422,7 +422,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function contributors($project_id)
+    public function contributors(int|string $project_id)
     {
         return $this->get($this->getProjectPath($project_id, 'repository/contributors'));
     }
@@ -433,7 +433,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function archive($project_id, array $params = [], string $format = 'tar.gz')
+    public function archive(int|string $project_id, array $params = [], string $format = 'tar.gz')
     {
         return $this->get($this->getProjectPath($project_id, 'repository/archive.'.$format), $params);
     }
@@ -443,7 +443,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function mergeBase($project_id, array $refs)
+    public function mergeBase(int|string $project_id, array $refs)
     {
         return $this->get($this->getProjectPath($project_id, 'repository/merge_base'), ['refs' => $refs]);
     }
@@ -453,7 +453,7 @@ class Repositories extends AbstractApi
      *
      * @return mixed
      */
-    public function cherryPick($project_id, string $sha, array $params = [])
+    public function cherryPick(int|string $project_id, string $sha, array $params = [])
     {
         $resolver = $this->createOptionsResolver();
         $booleanNormalizer = function (Options $resolver, $value): string {

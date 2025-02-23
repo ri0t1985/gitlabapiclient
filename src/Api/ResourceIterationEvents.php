@@ -21,7 +21,7 @@ class ResourceIterationEvents extends AbstractApi
      *
      * @return mixed
      */
-    public function all($project_id, int $issue_iid)
+    public function all(int|string $project_id, int $issue_iid)
     {
         $path = 'issues/'.self::encodePath($issue_iid).'/resource_iteration_events';
 
@@ -33,7 +33,7 @@ class ResourceIterationEvents extends AbstractApi
      *
      * @return mixed
      */
-    public function show($project_id, int $issue_iid, int $resource_iteration_event_id)
+    public function show(int|string $project_id, int $issue_iid, int $resource_iteration_event_id)
     {
         $path = 'issues/'.self::encodePath($issue_iid).'/resource_iteration_events/';
         $path .= self::encodePath($resource_iteration_event_id);

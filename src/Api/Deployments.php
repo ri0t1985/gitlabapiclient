@@ -31,7 +31,7 @@ class Deployments extends AbstractApi
      *
      * @return mixed
      */
-    public function all($project_id, array $parameters = [])
+    public function all(int|string $project_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $resolver->setDefined('order_by')
@@ -54,7 +54,7 @@ class Deployments extends AbstractApi
      *
      * @return mixed
      */
-    public function show($project_id, int $deployment_id)
+    public function show(int|string $project_id, int $deployment_id)
     {
         return $this->get($this->getProjectPath($project_id, 'deployments/'.$deployment_id));
     }

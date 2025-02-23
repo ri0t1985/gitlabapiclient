@@ -21,7 +21,7 @@ class IssueBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function all($project_id = null, array $parameters = [])
+    public function all(int|string|null $project_id = null, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
 
@@ -35,7 +35,7 @@ class IssueBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function show($project_id, int $board_id)
+    public function show(int|string $project_id, int $board_id)
     {
         return $this->get($this->getProjectPath($project_id, 'boards/'.self::encodePath($board_id)));
     }
@@ -45,7 +45,7 @@ class IssueBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function create($project_id, array $params)
+    public function create(int|string $project_id, array $params)
     {
         return $this->post($this->getProjectPath($project_id, 'boards'), $params);
     }
@@ -55,7 +55,7 @@ class IssueBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function update($project_id, int $board_id, array $params)
+    public function update(int|string $project_id, int $board_id, array $params)
     {
         return $this->put($this->getProjectPath($project_id, 'boards/'.self::encodePath($board_id)), $params);
     }
@@ -65,7 +65,7 @@ class IssueBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function remove($project_id, int $board_id)
+    public function remove(int|string $project_id, int $board_id)
     {
         return $this->delete($this->getProjectPath($project_id, 'boards/'.self::encodePath($board_id)));
     }
@@ -75,7 +75,7 @@ class IssueBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function allLists($project_id, int $board_id)
+    public function allLists(int|string $project_id, int $board_id)
     {
         return $this->get($this->getProjectPath($project_id, 'boards/'.self::encodePath($board_id).'/lists'));
     }
@@ -85,7 +85,7 @@ class IssueBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function showList($project_id, int $board_id, int $list_id)
+    public function showList(int|string $project_id, int $board_id, int $list_id)
     {
         return $this->get($this->getProjectPath($project_id, 'boards/'.self::encodePath($board_id).'/lists/'.self::encodePath($list_id)));
     }
@@ -95,7 +95,7 @@ class IssueBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function createList($project_id, int $board_id, int $label_id)
+    public function createList(int|string $project_id, int $board_id, int $label_id)
     {
         $params = [
             'label_id' => $label_id,
@@ -109,7 +109,7 @@ class IssueBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function updateList($project_id, int $board_id, int $list_id, int $position)
+    public function updateList(int|string $project_id, int $board_id, int $list_id, int $position)
     {
         $params = [
             'position' => $position,
@@ -123,7 +123,7 @@ class IssueBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function deleteList($project_id, int $board_id, int $list_id)
+    public function deleteList(int|string $project_id, int $board_id, int $list_id)
     {
         return $this->delete($this->getProjectPath($project_id, 'boards/'.self::encodePath($board_id).'/lists/'.self::encodePath($list_id)));
     }

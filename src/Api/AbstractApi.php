@@ -208,7 +208,7 @@ abstract class AbstractApi
     /**
      * @param int|string $uri
      */
-    protected static function encodePath($uri): string
+    protected static function encodePath(int|string $uri): string
     {
         return \rawurlencode((string) $uri);
     }
@@ -216,7 +216,7 @@ abstract class AbstractApi
     /**
      * @param int|string $id
      */
-    protected function getProjectPath($id, string $uri): string
+    protected function getProjectPath(int|string $id, string $uri): string
     {
         return 'projects/'.self::encodePath($id).'/'.$uri;
     }

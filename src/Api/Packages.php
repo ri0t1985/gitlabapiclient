@@ -36,7 +36,7 @@ class Packages extends AbstractApi
      *
      * @return mixed
      */
-    public function all($project_id, array $parameters = [])
+    public function all(int|string $project_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
 
@@ -68,7 +68,7 @@ class Packages extends AbstractApi
      *
      * @return mixed
      */
-    public function show($project_id, int $package_id)
+    public function show(int|string $project_id, int $package_id)
     {
         return $this->get($this->getPackagePath($project_id, $package_id));
     }
@@ -78,7 +78,7 @@ class Packages extends AbstractApi
      *
      * @return mixed
      */
-    public function allFiles($project_id, int $package_id)
+    public function allFiles(int|string $project_id, int $package_id)
     {
         return $this->get($this->getPackagePath($project_id, $package_id).'/package_files');
     }
@@ -88,7 +88,7 @@ class Packages extends AbstractApi
      *
      * @return mixed
      */
-    public function remove($project_id, int $package_id)
+    public function remove(int|string $project_id, int $package_id)
     {
         return $this->delete($this->getPackagePath($project_id, $package_id));
     }
@@ -98,7 +98,7 @@ class Packages extends AbstractApi
      *
      * @return mixed
      */
-    public function removeFile($project_id, int $package_id, int $package_file_id)
+    public function removeFile(int|string $project_id, int $package_id, int $package_file_id)
     {
         return $this->delete(
             $this->getPackagePath($project_id, $package_id).'/package_files/'.self::encodePath($package_file_id)
@@ -110,7 +110,7 @@ class Packages extends AbstractApi
      *
      * @return mixed
      */
-    public function addGenericFile($project_id, string $package_name, string $package_version, string $file, string $status = 'default')
+    public function addGenericFile(int|string $project_id, string $package_name, string $package_version, string $file, string $status = 'default')
     {
         return $this->putFile(
             $this->getProjectPath(
@@ -126,7 +126,7 @@ class Packages extends AbstractApi
     /**
      * @param int|string $project_id
      */
-    private function getPackagePath($project_id, int $package_id): string
+    private function getPackagePath(int|string $project_id, int $package_id): string
     {
         return $this->getProjectPath($project_id, 'packages/'.self::encodePath($package_id));
     }

@@ -22,7 +22,7 @@ class Wiki extends AbstractApi
      *
      * @return mixed
      */
-    public function create($project_id, array $params)
+    public function create(int|string $project_id, array $params)
     {
         return $this->post($this->getProjectPath($project_id, 'wikis'), $params);
     }
@@ -32,7 +32,7 @@ class Wiki extends AbstractApi
      *
      * @return mixed
      */
-    public function show($project_id, string $wiki_slug)
+    public function show(int|string $project_id, string $wiki_slug)
     {
         return $this->get($this->getProjectPath($project_id, 'wikis/'.self::encodePath($wiki_slug)));
     }
@@ -46,7 +46,7 @@ class Wiki extends AbstractApi
      *
      * @return mixed
      */
-    public function showAll($project_id, array $params)
+    public function showAll(int|string $project_id, array $params)
     {
         $resolver = $this->createOptionsResolver();
         $resolver->setDefined('with_content')
@@ -61,7 +61,7 @@ class Wiki extends AbstractApi
      *
      * @return mixed
      */
-    public function update($project_id, string $wiki_slug, array $params)
+    public function update(int|string $project_id, string $wiki_slug, array $params)
     {
         return $this->put($this->getProjectPath($project_id, 'wikis/'.self::encodePath($wiki_slug)), $params);
     }
@@ -71,7 +71,7 @@ class Wiki extends AbstractApi
      *
      * @return mixed
      */
-    public function remove($project_id, string $wiki_slug)
+    public function remove(int|string $project_id, string $wiki_slug)
     {
         return $this->delete($this->getProjectPath($project_id, 'wikis/'.self::encodePath($wiki_slug)));
     }

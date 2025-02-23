@@ -38,7 +38,7 @@ final class QueryStringBuilder
      * @param mixed  $query
      * @param scalar $prefix
      */
-    private static function encode($query, $prefix): string
+    private static function encode(mixed $query, scalar $prefix): string
     {
         if (!\is_array($query)) {
             return self::rawurlencode($prefix).'='.self::rawurlencode($query);
@@ -70,7 +70,7 @@ final class QueryStringBuilder
      *
      * @param mixed $value
      */
-    private static function rawurlencode($value): string
+    private static function rawurlencode(mixed $value): string
     {
         if (false === $value) {
             return '0';

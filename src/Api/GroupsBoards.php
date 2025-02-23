@@ -21,7 +21,7 @@ class GroupsBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function all($group_id = null, array $parameters = [])
+    public function all(int|string|null $group_id = null, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
 
@@ -35,7 +35,7 @@ class GroupsBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function show($group_id, int $board_id)
+    public function show(int|string $group_id, int $board_id)
     {
         return $this->get('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id));
     }
@@ -45,7 +45,7 @@ class GroupsBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function create($group_id, array $params)
+    public function create(int|string $group_id, array $params)
     {
         return $this->post('groups/'.self::encodePath($group_id).'/boards', $params);
     }
@@ -55,7 +55,7 @@ class GroupsBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function update($group_id, int $board_id, array $params)
+    public function update(int|string $group_id, int $board_id, array $params)
     {
         return $this->put('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id), $params);
     }
@@ -65,7 +65,7 @@ class GroupsBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function remove($group_id, int $board_id)
+    public function remove(int|string $group_id, int $board_id)
     {
         return $this->delete('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id));
     }
@@ -75,7 +75,7 @@ class GroupsBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function allLists($group_id, int $board_id)
+    public function allLists(int|string $group_id, int $board_id)
     {
         return $this->get('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id).'/lists');
     }
@@ -85,7 +85,7 @@ class GroupsBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function showList($group_id, int $board_id, int $list_id)
+    public function showList(int|string $group_id, int $board_id, int $list_id)
     {
         return $this->get('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id).'/lists/'.self::encodePath($list_id));
     }
@@ -95,7 +95,7 @@ class GroupsBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function createList($group_id, int $board_id, int $label_id)
+    public function createList(int|string $group_id, int $board_id, int $label_id)
     {
         $params = [
             'label_id' => $label_id,
@@ -109,7 +109,7 @@ class GroupsBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function updateList($group_id, int $board_id, int $list_id, int $position)
+    public function updateList(int|string $group_id, int $board_id, int $list_id, int $position)
     {
         $params = [
             'position' => $position,
@@ -123,7 +123,7 @@ class GroupsBoards extends AbstractApi
      *
      * @return mixed
      */
-    public function deleteList($group_id, int $board_id, int $list_id)
+    public function deleteList(int|string $group_id, int $board_id, int $list_id)
     {
         return $this->delete('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id).'/lists/'.self::encodePath($list_id));
     }

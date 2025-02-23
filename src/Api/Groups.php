@@ -74,7 +74,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function show($id)
+    public function show(int|string $id)
     {
         return $this->get('groups/'.self::encodePath($id));
     }
@@ -105,7 +105,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function update($id, array $params)
+    public function update(int|string $id, array $params)
     {
         return $this->put('groups/'.self::encodePath($id), $params);
     }
@@ -115,7 +115,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function remove($group_id)
+    public function remove(int|string $group_id)
     {
         return $this->delete('groups/'.self::encodePath($group_id));
     }
@@ -126,7 +126,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function transfer($group_id, $project_id)
+    public function transfer(int|string $group_id, int|string $project_id)
     {
         return $this->post('groups/'.self::encodePath($group_id).'/projects/'.self::encodePath($project_id));
     }
@@ -136,7 +136,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function allMembers($group_id, array $parameters = [])
+    public function allMembers(int|string $group_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $resolver->setDefined('query');
@@ -159,7 +159,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function members($group_id, array $parameters = [])
+    public function members(int|string $group_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $resolver->setDefined('query');
@@ -178,7 +178,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function member($group_id, int $user_id)
+    public function member(int|string $group_id, int $user_id)
     {
         return $this->get('groups/'.self::encodePath($group_id).'/members/'.self::encodePath($user_id));
     }
@@ -188,7 +188,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function allMember($group_id, int $user_id)
+    public function allMember(int|string $group_id, int $user_id)
     {
         return $this->get('groups/'.self::encodePath($group_id).'/members/all/'.self::encodePath($user_id));
     }
@@ -198,7 +198,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function addMember($group_id, int $user_id, int $access_level, array $parameters = [])
+    public function addMember(int|string $group_id, int $user_id, int $access_level, array $parameters = [])
     {
         $dateNormalizer = function (OptionsResolver $optionsResolver, \DateTimeInterface $date): string {
             return $date->format('Y-m-d');
@@ -223,7 +223,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function saveMember($group_id, int $user_id, int $access_level)
+    public function saveMember(int|string $group_id, int $user_id, int $access_level)
     {
         return $this->put('groups/'.self::encodePath($group_id).'/members/'.self::encodePath($user_id), [
             'access_level' => $access_level,
@@ -240,7 +240,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function addShare($group_id, array $parameters = [])
+    public function addShare(int|string $group_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
 
@@ -268,7 +268,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function removeMember($group_id, int $user_id)
+    public function removeMember(int|string $group_id, int $user_id)
     {
         return $this->delete('groups/'.self::encodePath($group_id).'/members/'.self::encodePath($user_id));
     }
@@ -295,7 +295,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function projects($id, array $parameters = [])
+    public function projects(int|string $id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $booleanNormalizer = function (Options $resolver, $value): string {
@@ -367,7 +367,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function subgroups($group_id, array $parameters = [])
+    public function subgroups(int|string $group_id, array $parameters = [])
     {
         $resolver = $this->getSubgroupSearchResolver();
 
@@ -408,7 +408,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function issues($group_id, array $parameters = [])
+    public function issues(int|string $group_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $booleanNormalizer = function (Options $resolver, $value): string {
@@ -500,7 +500,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function labels($group_id, array $parameters = [])
+    public function labels(int|string $group_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
 
@@ -527,7 +527,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function addLabel($group_id, array $params)
+    public function addLabel(int|string $group_id, array $params)
     {
         return $this->post('groups/'.self::encodePath($group_id).'/labels', $params);
     }
@@ -537,7 +537,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function updateLabel($group_id, int $label_id, array $params)
+    public function updateLabel(int|string $group_id, int $label_id, array $params)
     {
         return $this->put('groups/'.self::encodePath($group_id).'/labels/'.self::encodePath($label_id), $params);
     }
@@ -547,7 +547,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function removeLabel($group_id, int $label_id)
+    public function removeLabel(int|string $group_id, int $label_id)
     {
         return $this->delete('groups/'.self::encodePath($group_id).'/labels/'.self::encodePath($label_id));
     }
@@ -557,7 +557,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function variables($group_id, array $parameters = [])
+    public function variables(int|string $group_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
 
@@ -569,7 +569,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function variable($group_id, string $key)
+    public function variable(int|string $group_id, string $key)
     {
         return $this->get('groups/'.self::encodePath($group_id).'/variables/'.self::encodePath($key));
     }
@@ -584,7 +584,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function addVariable($group_id, string $key, string $value, ?bool $protected = null, array $parameters = [])
+    public function addVariable(int|string $group_id, string $key, string $value, ?bool $protected = null, array $parameters = [])
     {
         $payload = [
             'key' => $key,
@@ -611,7 +611,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function updateVariable($group_id, string $key, string $value, ?bool $protected = null)
+    public function updateVariable(int|string $group_id, string $key, string $value, ?bool $protected = null)
     {
         $payload = [
             'value' => $value,
@@ -629,7 +629,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function removeVariable($group_id, string $key)
+    public function removeVariable(int|string $group_id, string $key)
     {
         return $this->delete('groups/'.self::encodePath($group_id).'/variables/'.self::encodePath($key));
     }
@@ -654,7 +654,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function mergeRequests($group_id, array $parameters = [])
+    public function mergeRequests(int|string $group_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $datetimeNormalizer = function (Options $resolver, \DateTimeInterface $value): string {
@@ -748,7 +748,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function iterations($group_id, array $parameters = [])
+    public function iterations(int|string $group_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $booleanNormalizer = function (Options $resolver, $value): string {
@@ -787,7 +787,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function packages($group_id, array $parameters = [])
+    public function packages(int|string $group_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $booleanNormalizer = function (Options $resolver, $value): string {
@@ -884,7 +884,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function deployTokens($group_id, ?bool $active = null)
+    public function deployTokens(int|string $group_id, ?bool $active = null)
     {
         return $this->get('groups/'.self::encodePath($group_id).'/deploy_tokens', (null !== $active) ? ['active' => $active] : []);
     }
@@ -901,7 +901,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function createDeployToken($group_id, array $parameters = [])
+    public function createDeployToken(int|string $group_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $datetimeNormalizer = function (Options $resolver, \DateTimeInterface $value): string {
@@ -943,7 +943,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function deleteDeployToken($group_id, int $token_id)
+    public function deleteDeployToken(int|string $group_id, int $token_id)
     {
         return $this->delete('groups/'.self::encodePath($group_id).'/deploy_tokens/'.self::encodePath($token_id));
     }
@@ -965,7 +965,7 @@ class Groups extends AbstractApi
      *
      * @return mixed
      */
-    public function search($id, array $parameters = [])
+    public function search(int|string $id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
         $booleanNormalizer = function (Options $resolver, $value): string {

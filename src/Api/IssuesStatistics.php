@@ -32,7 +32,7 @@ class IssuesStatistics extends AbstractApi
      *
      * @return mixed
      */
-    public function project($project_id, array $parameters)
+    public function project(int|string $project_id, array $parameters)
     {
         return $this->get($this->getProjectPath($project_id, 'issues_statistics'), $this->createOptionsResolver()->resolve($parameters));
     }
@@ -42,7 +42,7 @@ class IssuesStatistics extends AbstractApi
      *
      * @return mixed
      */
-    public function group($group_id, array $parameters)
+    public function group(int|string $group_id, array $parameters)
     {
         return $this->get('groups/'.self::encodePath($group_id).'/issues_statistics', $this->createOptionsResolver()->resolve($parameters));
     }

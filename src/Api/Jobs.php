@@ -69,7 +69,7 @@ class Jobs extends AbstractApi
      *
      * @return mixed
      */
-    public function all($project_id, array $parameters = [])
+    public function all(int|string $project_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
 
@@ -86,7 +86,7 @@ class Jobs extends AbstractApi
      *
      * @return mixed
      */
-    public function pipelineJobs($project_id, int $pipeline_id, array $parameters = [])
+    public function pipelineJobs(int|string $project_id, int $pipeline_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
 
@@ -107,7 +107,7 @@ class Jobs extends AbstractApi
      *
      * @return mixed
      */
-    public function pipelineBridges($project_id, int $pipeline_id, array $parameters = [])
+    public function pipelineBridges(int|string $project_id, int $pipeline_id, array $parameters = [])
     {
         $resolver = $this->createOptionsResolver();
 
@@ -122,7 +122,7 @@ class Jobs extends AbstractApi
      *
      * @return mixed
      */
-    public function show($project_id, int $job_id)
+    public function show(int|string $project_id, int $job_id)
     {
         return $this->get('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id));
     }
@@ -132,7 +132,7 @@ class Jobs extends AbstractApi
      *
      * @return StreamInterface
      */
-    public function artifacts($project_id, int $job_id)
+    public function artifacts(int|string $project_id, int $job_id)
     {
         return $this->getAsResponse('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/artifacts')->getBody();
     }
@@ -142,7 +142,7 @@ class Jobs extends AbstractApi
      *
      * @return StreamInterface
      */
-    public function artifactsByRefName($project_id, string $ref_name, string $job_name)
+    public function artifactsByRefName(int|string $project_id, string $ref_name, string $job_name)
     {
         return $this->getAsResponse('projects/'.self::encodePath($project_id).'/jobs/artifacts/'.self::encodePath($ref_name).'/download', [
             'job' => $job_name,
@@ -154,7 +154,7 @@ class Jobs extends AbstractApi
      *
      * @return StreamInterface
      */
-    public function artifactByRefName($project_id, string $ref_name, string $job_name, string $artifact_path)
+    public function artifactByRefName(int|string $project_id, string $ref_name, string $job_name, string $artifact_path)
     {
         return $this->getAsResponse('projects/'.self::encodePath($project_id).'/jobs/artifacts/'.self::encodePath($ref_name).'/raw/'.self::encodePath($artifact_path), [
             'job' => $job_name,
@@ -167,7 +167,7 @@ class Jobs extends AbstractApi
      *
      * @return StreamInterface
      */
-    public function artifactByJobId($project_id, $job_id, string $artifact_path)
+    public function artifactByJobId(int|string $project_id, int $job_id, string $artifact_path)
     {
         return $this->getAsResponse('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/artifacts/'.self::encodePath($artifact_path))->getBody();
     }
@@ -177,7 +177,7 @@ class Jobs extends AbstractApi
      *
      * @return mixed
      */
-    public function trace($project_id, int $job_id)
+    public function trace(int|string $project_id, int $job_id)
     {
         return $this->get('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/trace');
     }
@@ -187,7 +187,7 @@ class Jobs extends AbstractApi
      *
      * @return mixed
      */
-    public function cancel($project_id, int $job_id)
+    public function cancel(int|string $project_id, int $job_id)
     {
         return $this->post('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/cancel');
     }
@@ -197,7 +197,7 @@ class Jobs extends AbstractApi
      *
      * @return mixed
      */
-    public function retry($project_id, int $job_id)
+    public function retry(int|string $project_id, int $job_id)
     {
         return $this->post('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/retry');
     }
@@ -207,7 +207,7 @@ class Jobs extends AbstractApi
      *
      * @return mixed
      */
-    public function erase($project_id, int $job_id)
+    public function erase(int|string $project_id, int $job_id)
     {
         return $this->post('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/erase');
     }
@@ -217,7 +217,7 @@ class Jobs extends AbstractApi
      *
      * @return mixed
      */
-    public function keepArtifacts($project_id, int $job_id)
+    public function keepArtifacts(int|string $project_id, int $job_id)
     {
         return $this->post('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/artifacts/keep');
     }
@@ -227,7 +227,7 @@ class Jobs extends AbstractApi
      *
      * @return mixed
      */
-    public function play($project_id, int $job_id)
+    public function play(int|string $project_id, int $job_id)
     {
         return $this->post('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/play');
     }
