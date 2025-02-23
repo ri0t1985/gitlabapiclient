@@ -15,9 +15,9 @@ declare(strict_types=1);
 namespace Gitlab\Tests\Api;
 
 use Gitlab\Client;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use Psr\Http\Client\ClientInterface;
-use PHPUnit\Framework\MockObject\MockObject;
 
 abstract class TestCase extends BaseTestCase
 {
