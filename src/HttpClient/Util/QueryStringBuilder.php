@@ -35,7 +35,7 @@ final class QueryStringBuilder
     /**
      * Encode a value.
      */
-    private static function encode(mixed $query, scalar $prefix): string
+    private static function encode(mixed $query, int|string $prefix): string
     {
         if (!\is_array($query)) {
             return self::rawurlencode($prefix).'='.self::rawurlencode($query);
