@@ -37,8 +37,6 @@ class GroupsMilestones extends AbstractApi
      *     @var \DateTimeInterface $updated_after Return only milestones updated on or after the given datetime. Expected in ISO 8601 format (2019-03-15T08:00:00Z)
      *     @var \DateTimeInterface $updated_before Return only milestones updated on or before the given datetime. Expected in ISO 8601 format (2019-03-15T08:00:00Z)
      * }
-     *
-     * @return mixed
      */
     public function all(int|string $group_id, array $parameters = []): mixed
     {
@@ -69,49 +67,31 @@ class GroupsMilestones extends AbstractApi
         return $this->get('groups/'.self::encodePath($group_id).'/milestones', $resolver->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function show(int|string $group_id, int $milestone_id): mixed
     {
         return $this->get('groups/'.self::encodePath($group_id).'/milestones/'.self::encodePath($milestone_id));
     }
 
-    /**
-     * @return mixed
-     */
     public function create(int|string $group_id, array $params): mixed
     {
         return $this->post('groups/'.self::encodePath($group_id).'/milestones', $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function update(int|string $group_id, int $milestone_id, array $params): mixed
     {
         return $this->put('groups/'.self::encodePath($group_id).'/milestones/'.self::encodePath($milestone_id), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function remove(int|string $group_id, int $milestone_id): mixed
     {
         return $this->delete('groups/'.self::encodePath($group_id).'/milestones/'.self::encodePath($milestone_id));
     }
 
-    /**
-     * @return mixed
-     */
     public function issues(int|string $group_id, int $milestone_id): mixed
     {
         return $this->get('groups/'.self::encodePath($group_id).'/milestones/'.self::encodePath($milestone_id).'/issues');
     }
 
-    /**
-     * @return mixed
-     */
     public function mergeRequests(int|string $group_id, int $milestone_id): mixed
     {
         return $this->get('groups/'.self::encodePath($group_id).'/milestones/'.self::encodePath($milestone_id).'/merge_requests');

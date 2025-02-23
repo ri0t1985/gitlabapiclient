@@ -65,8 +65,6 @@ class Jobs extends AbstractApi
      *     @var string|string[] $scope The scope of jobs to show, one or array of: created, pending, running, failed,
      *                                 success, canceled, skipped, manual; showing all jobs if none provided.
      * }
-     *
-     * @return mixed
      */
     public function all(int|string $project_id, array $parameters = []): mixed
     {
@@ -81,8 +79,6 @@ class Jobs extends AbstractApi
      *     @var string|string[] $scope The scope of jobs to show, one or array of: created, pending, running, failed,
      *                                 success, canceled, skipped, manual; showing all jobs if none provided.
      * }
-     *
-     * @return mixed
      */
     public function pipelineJobs(int|string $project_id, int $pipeline_id, array $parameters = []): mixed
     {
@@ -101,8 +97,6 @@ class Jobs extends AbstractApi
      *                                            success, canceled, skipped, manual; showing all jobs if none provided
      *     @var bool            $include_retried  Include retried jobs in the response. Defaults to false. Introduced in GitLab 13.9.
      * }
-     *
-     * @return mixed
      */
     public function pipelineBridges(int|string $project_id, int $pipeline_id, array $parameters = []): mixed
     {
@@ -114,25 +108,16 @@ class Jobs extends AbstractApi
         );
     }
 
-    /**
-     * @return mixed
-     */
     public function show(int|string $project_id, int $job_id): mixed
     {
         return $this->get('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id));
     }
 
-    /**
-     * @return StreamInterface
-     */
     public function artifacts(int|string $project_id, int $job_id): StreamInterface
     {
         return $this->getAsResponse('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/artifacts')->getBody();
     }
 
-    /**
-     * @return StreamInterface
-     */
     public function artifactsByRefName(int|string $project_id, string $ref_name, string $job_name): StreamInterface
     {
         return $this->getAsResponse('projects/'.self::encodePath($project_id).'/jobs/artifacts/'.self::encodePath($ref_name).'/download', [
@@ -140,9 +125,6 @@ class Jobs extends AbstractApi
         ])->getBody();
     }
 
-    /**
-     * @return StreamInterface
-     */
     public function artifactByRefName(int|string $project_id, string $ref_name, string $job_name, string $artifact_path): StreamInterface
     {
         return $this->getAsResponse('projects/'.self::encodePath($project_id).'/jobs/artifacts/'.self::encodePath($ref_name).'/raw/'.self::encodePath($artifact_path), [
@@ -150,57 +132,36 @@ class Jobs extends AbstractApi
         ])->getBody();
     }
 
-    /**
-     * @return StreamInterface
-     */
     public function artifactByJobId(int|string $project_id, int $job_id, string $artifact_path): StreamInterface
     {
         return $this->getAsResponse('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/artifacts/'.self::encodePath($artifact_path))->getBody();
     }
 
-    /**
-     * @return mixed
-     */
     public function trace(int|string $project_id, int $job_id): mixed
     {
         return $this->get('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/trace');
     }
 
-    /**
-     * @return mixed
-     */
     public function cancel(int|string $project_id, int $job_id): mixed
     {
         return $this->post('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/cancel');
     }
 
-    /**
-     * @return mixed
-     */
     public function retry(int|string $project_id, int $job_id): mixed
     {
         return $this->post('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/retry');
     }
 
-    /**
-     * @return mixed
-     */
     public function erase(int|string $project_id, int $job_id): mixed
     {
         return $this->post('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/erase');
     }
 
-    /**
-     * @return mixed
-     */
     public function keepArtifacts(int|string $project_id, int $job_id): mixed
     {
         return $this->post('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/artifacts/keep');
     }
 
-    /**
-     * @return mixed
-     */
     public function play(int|string $project_id, int $job_id): mixed
     {
         return $this->post('projects/'.self::encodePath($project_id).'/jobs/'.self::encodePath($job_id).'/play');

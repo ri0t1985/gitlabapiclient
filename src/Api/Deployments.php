@@ -27,8 +27,6 @@ class Deployments extends AbstractApi
      *                                              'canceled', 'blocked'
      *     @var string $environment                 Return deployments filtered to a particular environment
      * }
-     *
-     * @return mixed
      */
     public function all(int|string $project_id, array $parameters = []): mixed
     {
@@ -48,9 +46,6 @@ class Deployments extends AbstractApi
         return $this->get($this->getProjectPath($project_id, 'deployments'), $resolver->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function show(int|string $project_id, int $deployment_id): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'deployments/'.$deployment_id));

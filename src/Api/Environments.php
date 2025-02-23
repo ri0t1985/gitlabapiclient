@@ -18,9 +18,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class Environments extends AbstractApi
 {
-    /**
-     * @return mixed
-     */
     public function all(int|string $project_id, array $parameters = []): mixed
     {
         $resolver = $this->createOptionsResolver();
@@ -42,8 +39,6 @@ class Environments extends AbstractApi
      *     @var string $external_url Place to link to for this environment
      *     @var string $tier         The tier of the new environment. Allowed values are production, staging, testing, development, and other.
      * }
-     *
-     * @return mixed
      */
     public function create(int|string $project_id, array $parameters = []): mixed
     {
@@ -59,25 +54,16 @@ class Environments extends AbstractApi
         return $this->post($this->getProjectPath($project_id, 'environments'), $resolver->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function remove(int|string $project_id, int $environment_id): mixed
     {
         return $this->delete($this->getProjectPath($project_id, 'environments/'.$environment_id));
     }
 
-    /**
-     * @return mixed
-     */
     public function stop(int|string $project_id, int $environment_id): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'environments/'.self::encodePath($environment_id).'/stop'));
     }
 
-    /**
-     * @return mixed
-     */
     public function show(int|string $project_id, int $environment_id): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'environments/'.self::encodePath($environment_id)));

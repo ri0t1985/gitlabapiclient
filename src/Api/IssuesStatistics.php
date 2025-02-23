@@ -19,25 +19,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class IssuesStatistics extends AbstractApi
 {
-    /**
-     * @return mixed
-     */
     public function all(array $parameters): mixed
     {
         return $this->get('issues_statistics', $this->createOptionsResolver()->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function project(int|string $project_id, array $parameters): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'issues_statistics'), $this->createOptionsResolver()->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function group(int|string $group_id, array $parameters): mixed
     {
         return $this->get('groups/'.self::encodePath($group_id).'/issues_statistics', $this->createOptionsResolver()->resolve($parameters));

@@ -34,8 +34,6 @@ class Repositories extends AbstractApi
      *
      *     @var string $search
      * }
-     *
-     * @return mixed
      */
     public function branches(int|string $project_id, array $parameters = []): mixed
     {
@@ -46,17 +44,11 @@ class Repositories extends AbstractApi
         return $this->get($this->getProjectPath($project_id, 'repository/branches'), $resolver->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function branch(int|string $project_id, string $branch): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/branches/'.self::encodePath($branch)));
     }
 
-    /**
-     * @return mixed
-     */
     public function createBranch(int|string $project_id, string $branch, string $ref): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'repository/branches'), [
@@ -65,17 +57,11 @@ class Repositories extends AbstractApi
         ]);
     }
 
-    /**
-     * @return mixed
-     */
     public function deleteBranch(int|string $project_id, string $branch): mixed
     {
         return $this->delete($this->getProjectPath($project_id, 'repository/branches/'.self::encodePath($branch)));
     }
 
-    /**
-     * @return mixed
-     */
     public function protectBranch(int|string $project_id, string $branch, bool $devPush = false, bool $devMerge = false): mixed
     {
         return $this->put($this->getProjectPath($project_id, 'repository/branches/'.self::encodePath($branch).'/protect'), [
@@ -84,17 +70,11 @@ class Repositories extends AbstractApi
         ]);
     }
 
-    /**
-     * @return mixed
-     */
     public function unprotectBranch(int|string $project_id, string $branch): mixed
     {
         return $this->put($this->getProjectPath($project_id, 'repository/branches/'.self::encodePath($branch).'/unprotect'));
     }
 
-    /**
-     * @return mixed
-     */
     public function tags(int|string $project_id, array $parameters = []): mixed
     {
         $resolver = $this->createOptionsResolver();
@@ -104,9 +84,6 @@ class Repositories extends AbstractApi
         return $this->get($this->getProjectPath($project_id, 'repository/tags'), $resolver->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function createTag(int|string $project_id, string $name, string $ref, ?string $message = null): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'repository/tags'), [
@@ -116,9 +93,6 @@ class Repositories extends AbstractApi
         ]);
     }
 
-    /**
-     * @return mixed
-     */
     public function createRelease(int|string $project_id, string $tag_name, string $description, ?string $name = null): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'releases'), \array_filter([
@@ -129,9 +103,6 @@ class Repositories extends AbstractApi
         ], fn ($v) => null !== $v));
     }
 
-    /**
-     * @return mixed
-     */
     public function updateRelease(int|string $project_id, string $tag_name, string $description, ?string $name = null): mixed
     {
         return $this->put($this->getProjectPath($project_id, 'releases/'.self::encodePath($tag_name)), \array_filter([
@@ -142,9 +113,6 @@ class Repositories extends AbstractApi
         ], fn ($v) => null !== $v));
     }
 
-    /**
-     * @return mixed
-     */
     public function releases(int|string $project_id): mixed
     {
         $resolver = $this->createOptionsResolver();
@@ -161,8 +129,6 @@ class Repositories extends AbstractApi
      *     @var \DateTimeInterface $since    only commits after or on this date will be returned
      *     @var \DateTimeInterface $until    Only commits before or on this date will be returned.
      * }
-     *
-     * @return mixed
      */
     public function commits(int|string $project_id, array $parameters = []): mixed
     {
@@ -204,17 +170,11 @@ class Repositories extends AbstractApi
         return $this->get($this->getProjectPath($project_id, 'repository/commits'), $resolver->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function commit(int|string $project_id, string $sha): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/commits/'.self::encodePath($sha)));
     }
 
-    /**
-     * @return mixed
-     */
     public function commitRefs(int|string $project_id, string $sha, array $parameters = []): mixed
     {
         $resolver = $this->createOptionsResolver();
@@ -241,8 +201,6 @@ class Repositories extends AbstractApi
      *     @var string $author_email   specify the commit author's email address
      *     @var string $author_name    Specify the commit author's name.
      * }
-     *
-     * @return mixed
      */
     public function createCommit(int|string $project_id, array $parameters = []): mixed
     {
@@ -289,9 +247,6 @@ class Repositories extends AbstractApi
         return $this->post($this->getProjectPath($project_id, 'repository/commits'), $resolver->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function revertCommit(int|string $project_id, string $branch, string $sha): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'repository/commits/'.self::encodePath($sha).'/revert'), [
@@ -299,9 +254,6 @@ class Repositories extends AbstractApi
         ]);
     }
 
-    /**
-     * @return mixed
-     */
     public function commitComments(int|string $project_id, string $sha, array $parameters = []): mixed
     {
         $resolver = $this->createOptionsResolver();
@@ -312,9 +264,6 @@ class Repositories extends AbstractApi
         );
     }
 
-    /**
-     * @return mixed
-     */
     public function createCommitComment(int|string $project_id, string $sha, string $note, array $params = []): mixed
     {
         $params['note'] = $note;
@@ -322,17 +271,11 @@ class Repositories extends AbstractApi
         return $this->post($this->getProjectPath($project_id, 'repository/commits/'.self::encodePath($sha).'/comments'), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function getCommitBuildStatus(int|string $project_id, string $sha, array $params = []): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/commits/'.self::encodePath($sha).'/statuses'), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function postCommitBuildStatus(int|string $project_id, string $sha, string $state, array $params = []): mixed
     {
         $params['state'] = $state;
@@ -340,9 +283,6 @@ class Repositories extends AbstractApi
         return $this->post($this->getProjectPath($project_id, 'statuses/'.self::encodePath($sha)), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function compare(int|string $project_id, string $fromShaOrMaster, string $toShaOrMaster, bool $straight = false, ?string $fromProjectId = null): mixed
     {
         $params = [
@@ -358,25 +298,16 @@ class Repositories extends AbstractApi
         return $this->get($this->getProjectPath($project_id, 'repository/compare'), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function diff(int|string $project_id, string $sha): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/commits/'.self::encodePath($sha).'/diff'));
     }
 
-    /**
-     * @return mixed
-     */
     public function tree(int|string $project_id, array $params = []): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/tree'), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function contributors(int|string $project_id): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/contributors'));
@@ -384,25 +315,17 @@ class Repositories extends AbstractApi
 
     /**
      * @param string     $format     Options: "tar.gz", "zip", "tar.bz2" and "tar"
-     *
-     * @return mixed
      */
     public function archive(int|string $project_id, array $params = [], string $format = 'tar.gz'): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/archive.'.$format), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function mergeBase(int|string $project_id, array $refs): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/merge_base'), ['refs' => $refs]);
     }
 
-    /**
-     * @return mixed
-     */
     public function cherryPick(int|string $project_id, string $sha, array $params = []): mixed
     {
         $resolver = $this->createOptionsResolver();

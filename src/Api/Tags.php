@@ -24,8 +24,6 @@ class Tags extends AbstractApi
      *     @var string $search   Return list of tags matching the search criteria. You can use `^term` and `term$` to
      *                           find tags that begin and end with term respectively.
      * }
-     *
-     * @return mixed
      */
     public function all(int|string $project_id, array $parameters = []): mixed
     {
@@ -39,41 +37,26 @@ class Tags extends AbstractApi
         return $this->get($this->getProjectPath($project_id, 'repository/tags'), $resolver->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function show(int|string $project_id, string $tag_name): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/tags/'.self::encodePath($tag_name)));
     }
 
-    /**
-     * @return mixed
-     */
     public function create(int|string $project_id, array $params = []): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'repository/tags'), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function remove(int|string $project_id, string $tag_name): mixed
     {
         return $this->delete($this->getProjectPath($project_id, 'repository/tags/'.self::encodePath($tag_name)));
     }
 
-    /**
-     * @return mixed
-     */
     public function createRelease(int|string $project_id, string $tag_name, array $params = []): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'repository/tags/'.self::encodePath($tag_name).'/release'), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function updateRelease(int|string $project_id, string $tag_name, array $params = []): mixed
     {
         return $this->put($this->getProjectPath($project_id, 'repository/tags/'.self::encodePath($tag_name).'/release'), $params);

@@ -32,8 +32,6 @@ class Packages extends AbstractApi
      *     @var string $status              filter the returned packages by status. one of default (default),
      *                                      hidden, or processing.
      * }
-     *
-     * @return mixed
      */
     public function all(int|string $project_id, array $parameters = []): mixed
     {
@@ -62,33 +60,21 @@ class Packages extends AbstractApi
         return $this->get($this->getProjectPath($project_id, 'packages'), $resolver->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function show(int|string $project_id, int $package_id): mixed
     {
         return $this->get($this->getPackagePath($project_id, $package_id));
     }
 
-    /**
-     * @return mixed
-     */
     public function allFiles(int|string $project_id, int $package_id): mixed
     {
         return $this->get($this->getPackagePath($project_id, $package_id).'/package_files');
     }
 
-    /**
-     * @return mixed
-     */
     public function remove(int|string $project_id, int $package_id): mixed
     {
         return $this->delete($this->getPackagePath($project_id, $package_id));
     }
 
-    /**
-     * @return mixed
-     */
     public function removeFile(int|string $project_id, int $package_id, int $package_file_id): mixed
     {
         return $this->delete(
@@ -96,9 +82,6 @@ class Packages extends AbstractApi
         );
     }
 
-    /**
-     * @return mixed
-     */
     public function addGenericFile(int|string $project_id, string $package_name, string $package_version, string $file, string $status = 'default'): mixed
     {
         return $this->putFile(

@@ -77,8 +77,6 @@ abstract class AbstractApi
     /**
      * @param array<string,mixed>  $params
      * @param array<string,string> $headers
-     *
-     * @return mixed
      */
     protected function get(string $uri, array $params = [], array $headers = []): mixed
     {
@@ -92,8 +90,6 @@ abstract class AbstractApi
      * @param array<string,string> $headers
      * @param array<string,string> $files
      * @param array<string,mixed>  $uriParams
-     *
-     * @return mixed
      */
     protected function post(string $uri, array $params = [], array $headers = [], array $files = [], array $uriParams = []): mixed
     {
@@ -118,8 +114,6 @@ abstract class AbstractApi
      * @param array<string,mixed>  $params
      * @param array<string,string> $headers
      * @param array<string,string> $files
-     *
-     * @return mixed
      */
     protected function put(string $uri, array $params = [], array $headers = [], array $files = []): mixed
     {
@@ -144,8 +138,6 @@ abstract class AbstractApi
      * @param array<string,mixed>  $params
      * @param array<string,string> $headers
      * @param array<string,string> $files
-     *
-     * @return mixed
      */
     protected function patch(string $uri, array $params = [], array $headers = [], array $files = []): mixed
     {
@@ -169,8 +161,6 @@ abstract class AbstractApi
     /**
      * @param array<string,string> $headers
      * @param array<string,mixed>  $uriParams
-     *
-     * @return mixed
      */
     protected function putFile(string $uri, string $file, array $headers = [], array $uriParams = []): mixed
     {
@@ -189,8 +179,6 @@ abstract class AbstractApi
     /**
      * @param array<string,mixed>  $params
      * @param array<string,string> $headers
-     *
-     * @return mixed
      */
     protected function delete(string $uri, array $params = [], array $headers = []): mixed
     {

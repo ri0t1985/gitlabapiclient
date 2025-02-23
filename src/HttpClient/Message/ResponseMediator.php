@@ -53,8 +53,6 @@ final class ResponseMediator
 
     /**
      * Return the response body as a string or JSON array if content type is JSON.
-     *
-     * @return array|string
      */
     public static function getContent(ResponseInterface $response): array|string
     {

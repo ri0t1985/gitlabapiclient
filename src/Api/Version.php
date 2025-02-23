@@ -16,9 +16,6 @@ namespace Gitlab\Api;
 
 class Version extends AbstractApi
 {
-    /**
-     * @return mixed
-     */
     public function show(): mixed
     {
         return $this->get('version');

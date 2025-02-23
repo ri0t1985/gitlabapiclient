@@ -20,14 +20,8 @@ use Psr\Http\Client\ClientInterface;
 
 abstract class TestCase extends BaseTestCase
 {
-    /**
-     * @return string
-     */
     abstract protected function getApiClass(): string;
 
-    /**
-     * @return \PHPUnit\Framework\MockObject\MockObject
-     */
     protected function getApiMock(array $methods = []): \PHPUnit\Framework\MockObject\MockObject
     {
         $httpClient = $this->getMockBuilder(ClientInterface::class)

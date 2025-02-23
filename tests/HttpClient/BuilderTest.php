@@ -28,9 +28,6 @@ use Psr\Http\Message\StreamFactoryInterface;
  */
 class BuilderTest extends TestCase
 {
-    /**
-     * @var Builder
-     */
     private Builder $subject;
 
     #[Before]

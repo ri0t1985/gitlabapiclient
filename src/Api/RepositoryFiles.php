@@ -18,9 +18,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RepositoryFiles extends AbstractApi
 {
-    /**
-     * @return mixed
-     */
     public function getFile(int|string $project_id, string $file_path, string $ref): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/files/'.self::encodePath($file_path)), [
@@ -28,9 +25,6 @@ class RepositoryFiles extends AbstractApi
         ]);
     }
 
-    /**
-     * @return mixed
-     */
     public function getRawFile(int|string $project_id, string $file_path, string $ref): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'repository/files/'.self::encodePath($file_path).'/raw'), [
@@ -50,8 +44,6 @@ class RepositoryFiles extends AbstractApi
      *     @var string $content        file content
      *     @var string $commit_message Commit message.
      * }
-     *
-     * @return mixed
      */
     public function createFile(int|string $project_id, array $parameters = []): mixed
     {
@@ -85,8 +77,6 @@ class RepositoryFiles extends AbstractApi
      *     @var string $commit_message commit message
      *     @var string $last_commit_id last known file commit id
      * }
-     *
-     * @return mixed
      */
     public function updateFile(int|string $project_id, array $parameters = []): mixed
     {
@@ -118,8 +108,6 @@ class RepositoryFiles extends AbstractApi
      *     @var string $author_name    specify the commit author's name
      *     @var string $commit_message Commit message.
      * }
-     *
-     * @return mixed
      */
     public function deleteFile(int|string $project_id, array $parameters = []): mixed
     {

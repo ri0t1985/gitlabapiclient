@@ -16,9 +16,6 @@ namespace Gitlab\Api;
 
 class IssueLinks extends AbstractApi
 {
-    /**
-     * @return mixed
-     */
     public function all(int|string $project_id, int $issue_iid): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'issues/'.self::encodePath($issue_iid)).'/links');
@@ -29,8 +26,6 @@ class IssueLinks extends AbstractApi
      *
      *     @var string $link_type
      * }
-     *
-     * @return mixed
      */
     public function create(int|string $project_id, int $issue_iid, int|string $target_project_id, int $target_issue_iid, array $parameters = []): mixed
     {
@@ -45,8 +40,6 @@ class IssueLinks extends AbstractApi
      *
      *     @var string $link_type
      * }
-     *
-     * @return mixed
      */
     public function remove(int|string $project_id, int $issue_iid, int|string $issue_link_id, array $parameters = []): mixed
     {

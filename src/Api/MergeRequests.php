@@ -66,8 +66,6 @@ class MergeRequests extends AbstractApi
      *
      * @throws UndefinedOptionsException if an option name is undefined
      * @throws InvalidOptionsException   if an option doesn't fulfill the specified validation rules
-     *
-     * @return mixed
      */
     public function all(int|string|null $project_id = null, array $parameters = []): mixed
     {
@@ -158,8 +156,6 @@ class MergeRequests extends AbstractApi
      *     @var bool               $include_diverged_commits_count      Return the commits behind the target branch
      *     @var bool               $include_rebase_in_progress          Return whether a rebase operation is in progress
      * }
-     *
-     * @return mixed
      */
     public function show(int|string $project_id, int $mr_iid, array $parameters = []): mixed
     {
@@ -181,8 +177,6 @@ class MergeRequests extends AbstractApi
      *     @var int|string $target_project_id the target project id
      *     @var string     $description       the description
      * }
-     *
-     * @return mixed
      */
     public function create(int|string $project_id, string $source, string $target, string $title, array $parameters = []): mixed
     {
@@ -198,41 +192,26 @@ class MergeRequests extends AbstractApi
         );
     }
 
-    /**
-     * @return mixed
-     */
     public function update(int|string $project_id, int $mr_iid, array $parameters): mixed
     {
         return $this->put($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid)), $parameters);
     }
 
-    /**
-     * @return mixed
-     */
     public function merge(int|string $project_id, int $mr_iid, array $parameters = []): mixed
     {
         return $this->put($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/merge'), $parameters);
     }
 
-    /**
-     * @return mixed
-     */
     public function showNotes(int|string $project_id, int $mr_iid): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/notes'));
     }
 
-    /**
-     * @return mixed
-     */
     public function showNote(int|string $project_id, int $mr_iid, int $note_id): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/notes/'.self::encodePath($note_id)));
     }
 
-    /**
-     * @return mixed
-     */
     public function addNote(int|string $project_id, int $mr_iid, string $body, array $params = []): mixed
     {
         $params['body'] = $body;
@@ -240,9 +219,6 @@ class MergeRequests extends AbstractApi
         return $this->post($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/notes'), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function updateNote(int|string $project_id, int $mr_iid, int $note_id, string $body): mixed
     {
         return $this->put($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/notes/'.self::encodePath($note_id)), [
@@ -250,41 +226,26 @@ class MergeRequests extends AbstractApi
         ]);
     }
 
-    /**
-     * @return mixed
-     */
     public function removeNote(int|string $project_id, int $mr_iid, int $note_id): mixed
     {
         return $this->delete($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/notes/'.self::encodePath($note_id)));
     }
 
-    /**
-     * @return mixed
-     */
     public function showDiscussions(int|string $project_id, int $mr_iid): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid)).'/discussions');
     }
 
-    /**
-     * @return mixed
-     */
     public function showDiscussion(int|string $project_id, int $mr_iid, string $discussion_id): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid)).'/discussions/'.self::encodePath($discussion_id));
     }
 
-    /**
-     * @return mixed
-     */
     public function addDiscussion(int|string $project_id, int $mr_iid, array $params): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/discussions'), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function resolveDiscussion(int|string $project_id, int $mr_iid, string $discussion_id, bool $resolved = true): mixed
     {
         return $this->put($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/discussions/'.self::encodePath($discussion_id)), [
@@ -292,105 +253,66 @@ class MergeRequests extends AbstractApi
         ]);
     }
 
-    /**
-     * @return mixed
-     */
     public function addDiscussionNote(int|string $project_id, int $mr_iid, string $discussion_id, string $body): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/discussions/'.self::encodePath($discussion_id).'/notes'), ['body' => $body]);
     }
 
-    /**
-     * @return mixed
-     */
     public function updateDiscussionNote(int|string $project_id, int $mr_iid, string $discussion_id, int $note_id, array $params): mixed
     {
         return $this->put($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/discussions/'.self::encodePath($discussion_id).'/notes/'.self::encodePath($note_id)), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function removeDiscussionNote(int|string $project_id, int $mr_iid, string $discussion_id, int $note_id): mixed
     {
         return $this->delete($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/discussions/'.self::encodePath($discussion_id).'/notes/'.self::encodePath($note_id)));
     }
 
-    /**
-     * @return mixed
-     */
     public function showParticipants(int|string $project_id, int $mr_iid): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid)).'/participants');
     }
 
-    /**
-     * @return mixed
-     */
     public function changes(int|string $project_id, int $mr_iid): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/changes'));
     }
 
-    /**
-     * @return mixed
-     */
     public function commits(int|string $project_id, int $mr_iid): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/commits'));
     }
 
-    /**
-     * @return mixed
-     */
     public function closesIssues(int|string $project_id, int $mr_iid): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/closes_issues'));
     }
 
-    /**
-     * @return mixed
-     */
     public function approvals(int|string $project_id, int $mr_iid): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/approvals'));
     }
 
-    /**
-     * @return mixed
-     */
     public function approve(int|string $project_id, int $mr_iid): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/approve'));
     }
 
-    /**
-     * @return mixed
-     */
     public function unapprove(int|string $project_id, int $mr_iid): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/unapprove'));
     }
 
-    /**
-     * @return mixed
-     */
     public function awardEmoji(int|string $project_id, int $mr_iid): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/award_emoji'));
     }
 
-    /**
-     * @return mixed
-     */
     public function removeAwardEmoji(int|string $project_id, int $mr_iid, int $award_id): mixed
     {
         return $this->delete($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/award_emoji/'.self::encodePath($award_id)));
     }
 
-    /**
-     * @return mixed
-     */
     public function rebase(int|string $project_id, int $mr_iid, array $params = []): mixed
     {
         $resolver = $this->createOptionsResolver();
@@ -400,17 +322,11 @@ class MergeRequests extends AbstractApi
         return $this->put($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid)).'/rebase', $resolver->resolve($params));
     }
 
-    /**
-     * @return mixed
-     */
     public function approvalState(int|string $project_id, int $mr_iid): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/approval_state'));
     }
 
-    /**
-     * @return mixed
-     */
     public function levelRules(int|string $project_id, int $mr_iid): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/approval_rules'));
@@ -418,8 +334,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param array<string,mixed> $parameters
-     *
-     * @return mixed
      */
     public function createLevelRule(int|string $project_id, int $mr_iid, string $name, int $approvals_required, array $parameters = []): mixed
     {
@@ -436,8 +350,6 @@ class MergeRequests extends AbstractApi
 
     /**
      * @param array<string,mixed> $parameters
-     *
-     * @return mixed
      */
     public function updateLevelRule(int|string $project_id, int $mr_iid, int $approval_rule_id, string $name, int $approvals_required, array $parameters = []): mixed
     {
@@ -452,9 +364,6 @@ class MergeRequests extends AbstractApi
         );
     }
 
-    /**
-     * @return mixed
-     */
     public function deleteLevelRule(int|string $project_id, int $mr_iid, int $approval_rule_id): mixed
     {
         return $this->delete($this->getProjectPath($project_id, 'merge_requests/'.self::encodePath($mr_iid).'/approval_rules/'.self::encodePath($approval_rule_id)));

@@ -260,9 +260,6 @@ class RepositoryFilesTest extends TestCase
         ]));
     }
 
-    /**
-     * @return string
-     */
     protected function getApiClass(): string
     {
         return RepositoryFiles::class;

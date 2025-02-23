@@ -38,8 +38,6 @@ class GroupsEpics extends AbstractApi
      *     @var string $state  return only active or closed epics
      *     @var string $search Return only epics with a title or description matching the provided string.
      * }
-     *
-     * @return mixed
      */
     public function all(int|string $group_id, array $parameters = []): mixed
     {
@@ -58,41 +56,26 @@ class GroupsEpics extends AbstractApi
         return $this->get('groups/'.self::encodePath($group_id).'/epics', $resolver->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function show(int|string $group_id, int $epic_id): mixed
     {
         return $this->get('groups/'.self::encodePath($group_id).'/epics/'.self::encodePath($epic_id));
     }
 
-    /**
-     * @return mixed
-     */
     public function create(int|string $group_id, array $params): mixed
     {
         return $this->post('groups/'.self::encodePath($group_id).'/epics', $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function update(int|string $group_id, int $epic_id, array $params): mixed
     {
         return $this->put('groups/'.self::encodePath($group_id).'/epics/'.self::encodePath($epic_id), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function remove(int|string $group_id, int $epic_id): mixed
     {
         return $this->delete('groups/'.self::encodePath($group_id).'/epics/'.self::encodePath($epic_id));
     }
 
-    /**
-     * @return mixed
-     */
     public function issues(int|string $group_id, int $epic_iid): mixed
     {
         return $this->get('groups/'.self::encodePath($group_id).'/epics/'.self::encodePath($epic_iid).'/issues');

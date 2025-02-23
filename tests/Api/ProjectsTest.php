@@ -515,8 +515,6 @@ class ProjectsTest extends TestCase
 
     /**
      * Get expected array for tests which check project users method.
-     *
-     * @return array
      */
     public function getProjectUsersExpectedArray(): array
     {

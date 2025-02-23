@@ -16,9 +16,6 @@ namespace Gitlab\Api;
 
 class GroupsBoards extends AbstractApi
 {
-    /**
-     * @return mixed
-     */
     public function all(int|string|null $group_id = null, array $parameters = []): mixed
     {
         $resolver = $this->createOptionsResolver();
@@ -28,57 +25,36 @@ class GroupsBoards extends AbstractApi
         return $this->get($path, $resolver->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function show(int|string $group_id, int $board_id): mixed
     {
         return $this->get('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id));
     }
 
-    /**
-     * @return mixed
-     */
     public function create(int|string $group_id, array $params): mixed
     {
         return $this->post('groups/'.self::encodePath($group_id).'/boards', $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function update(int|string $group_id, int $board_id, array $params): mixed
     {
         return $this->put('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function remove(int|string $group_id, int $board_id): mixed
     {
         return $this->delete('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id));
     }
 
-    /**
-     * @return mixed
-     */
     public function allLists(int|string $group_id, int $board_id): mixed
     {
         return $this->get('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id).'/lists');
     }
 
-    /**
-     * @return mixed
-     */
     public function showList(int|string $group_id, int $board_id, int $list_id): mixed
     {
         return $this->get('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id).'/lists/'.self::encodePath($list_id));
     }
 
-    /**
-     * @return mixed
-     */
     public function createList(int|string $group_id, int $board_id, int $label_id): mixed
     {
         $params = [
@@ -88,9 +64,6 @@ class GroupsBoards extends AbstractApi
         return $this->post('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id).'/lists', $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function updateList(int|string $group_id, int $board_id, int $list_id, int $position): mixed
     {
         $params = [
@@ -100,9 +73,6 @@ class GroupsBoards extends AbstractApi
         return $this->put('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id).'/lists/'.self::encodePath($list_id), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function deleteList(int|string $group_id, int $board_id, int $list_id): mixed
     {
         return $this->delete('groups/'.self::encodePath($group_id).'/boards/'.self::encodePath($board_id).'/lists/'.self::encodePath($list_id));

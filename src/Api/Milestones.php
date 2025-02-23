@@ -33,8 +33,6 @@ class Milestones extends AbstractApi
      *     @var string $state  return only active or closed milestones
      *     @var string $search Return only milestones with a title or description matching the provided string.
      * }
-     *
-     * @return mixed
      */
     public function all(int|string $project_id, array $parameters = []): mixed
     {
@@ -53,49 +51,31 @@ class Milestones extends AbstractApi
         return $this->get($this->getProjectPath($project_id, 'milestones'), $resolver->resolve($parameters));
     }
 
-    /**
-     * @return mixed
-     */
     public function show(int|string $project_id, int $milestone_id): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'milestones/'.self::encodePath($milestone_id)));
     }
 
-    /**
-     * @return mixed
-     */
     public function create(int|string $project_id, array $params): mixed
     {
         return $this->post($this->getProjectPath($project_id, 'milestones'), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function update(int|string $project_id, int $milestone_id, array $params): mixed
     {
         return $this->put($this->getProjectPath($project_id, 'milestones/'.self::encodePath($milestone_id)), $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function remove(int|string $project_id, int $milestone_id): mixed
     {
         return $this->delete($this->getProjectPath($project_id, 'milestones/'.self::encodePath($milestone_id)));
     }
 
-    /**
-     * @return mixed
-     */
     public function issues(int|string $project_id, int $milestone_id): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'milestones/'.self::encodePath($milestone_id).'/issues'));
     }
 
-    /**
-     * @return mixed
-     */
     public function mergeRequests(int|string $project_id, int $milestone_id): mixed
     {
         return $this->get($this->getProjectPath($project_id, 'milestones/'.self::encodePath($milestone_id).'/merge_requests'));
