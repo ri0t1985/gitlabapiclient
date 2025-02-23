@@ -17,12 +17,13 @@ namespace Gitlab\Tests\Api;
 use Gitlab\Client;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use Psr\Http\Client\ClientInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 
 abstract class TestCase extends BaseTestCase
 {
     abstract protected function getApiClass(): string;
 
-    protected function getApiMock(array $methods = []): \PHPUnit\Framework\MockObject\MockObject
+    protected function getApiMock(array $methods = []): MockObject
     {
         $httpClient = $this->getMockBuilder(ClientInterface::class)
             ->onlyMethods(['sendRequest'])
